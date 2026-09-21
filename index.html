@@ -1,0 +1,4106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>NaijaPro — Verified Artisans. Trusted Projects. Peace of Mind.</title>
+    <meta name="description"
+        content="Hire vetted, escrow-protected artisans across Lagos and Abuja. Electricians, plumbers, AC technicians and more — pay only when the work is done.">
+    <meta name="theme-color" content="#03301F">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="NaijaPro — Fix it right. Pay when it’s done.">
+    <meta property="og:description"
+        content="Vetted artisans across Lagos and Abuja. Your money waits in escrow until you approve the work.">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%2303301F'/%3E%3Ctext x='20' y='28' text-anchor='middle' font-size='22' font-weight='800' fill='%23FBBF24'%3EN%3C/text%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Figtree:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script
+        type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"NaijaPro","description":"Escrow-protected marketplace for vetted artisans in Lagos and Abuja.","areaServed":["Lagos","Abuja"]}</script>
+
+    <style>
+        :root {
+            --ink: #03150E;
+            --deep: #03301F;
+            --forest: #064E3B;
+            --green: #16A34A;
+            --gold: #FBBF24;
+            --gold-d: #B7791F;
+            --mist: #EAF7EE;
+            --paper: #F7F6EF;
+            --gray: #586359;
+            --line: #DBE2D7;
+            --err: #B42318;
+            --ease: cubic-bezier(.22, .75, .28, 1);
+            --disp: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif;
+            --body: 'Figtree', 'Segoe UI', system-ui, sans-serif;
+            --hdr: 72px;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%
+        }
+
+        html.lenis,
+        html.lenis body {
+            height: auto
+        }
+
+        .lenis.lenis-smooth {
+            scroll-behavior: auto !important
+        }
+
+        .lenis.lenis-stopped {
+            overflow: hidden
+        }
+
+        body {
+            margin: 0;
+            background: var(--paper);
+            color: var(--ink);
+            font-family: var(--body);
+            font-size: 16px;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-family: var(--disp);
+            margin: 0;
+            color: var(--deep);
+            line-height: 1.05;
+            letter-spacing: -.025em
+        }
+
+        p {
+            margin: 0
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none
+        }
+
+        ul,
+        ol {
+            margin: 0;
+            padding: 0;
+            list-style: none
+        }
+
+        button {
+            font: inherit;
+            color: inherit;
+            background: none;
+            border: 0;
+            cursor: pointer;
+            padding: 0
+        }
+
+        svg {
+            display: block
+        }
+
+        :focus-visible {
+            outline: 2.5px solid var(--gold);
+            outline-offset: 3px;
+            border-radius: 4px
+        }
+
+        ::selection {
+            background: var(--gold);
+            color: var(--ink)
+        }
+
+        section[id] {
+            scroll-margin-top: calc(var(--hdr) - 8px)
+        }
+
+        .wrap {
+            max-width: 1200px;
+            margin-inline: auto;
+            padding-inline: 24px
+        }
+
+        .wrap-wide {
+            max-width: 1480px;
+            margin-inline: auto;
+            padding-inline: 24px
+        }
+
+        @media(min-width:768px) {
+
+            .wrap,
+            .wrap-wide {
+                padding-inline: 44px
+            }
+        }
+
+        .sr {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+            clip: rect(0 0 0 0);
+            white-space: nowrap
+        }
+
+        .skip {
+            position: absolute;
+            left: 16px;
+            top: -64px;
+            z-index: 300;
+            background: var(--gold);
+            color: var(--ink);
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: top .2s
+        }
+
+        .skip:focus {
+            top: 16px
+        }
+
+        /* split text */
+        .w {
+            display: inline-block;
+            overflow: hidden;
+            vertical-align: top;
+            padding-bottom: .12em;
+            margin-bottom: -.12em
+        }
+
+        .wi {
+            display: inline-block;
+            will-change: transform
+        }
+
+        /* buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            font-weight: 600;
+            font-size: .95rem;
+            padding: 14px 26px;
+            border-radius: 999px;
+            white-space: nowrap;
+            transition: transform .35s var(--ease), background-color .25s, color .25s, box-shadow .3s, border-color .25s
+        }
+
+        .btn svg {
+            width: 16px;
+            height: 16px;
+            transition: transform .3s var(--ease)
+        }
+
+        .btn:hover svg {
+            transform: translateX(3px)
+        }
+
+        .btn-gold {
+            background: var(--gold);
+            color: var(--ink)
+        }
+
+        .btn-gold:hover {
+            background: #ffd25a;
+            box-shadow: 0 12px 34px -8px rgba(251, 191, 36, .6)
+        }
+
+        .btn-glass {
+            color: #fff;
+            border: 1.5px solid rgba(255, 255, 255, .4);
+            backdrop-filter: blur(8px);
+            background: rgba(255, 255, 255, .06)
+        }
+
+        .btn-glass:hover {
+            background: rgba(255, 255, 255, .16);
+            border-color: #fff
+        }
+
+        .btn-green {
+            background: var(--green);
+            color: #fff
+        }
+
+        .btn-green:hover {
+            background: var(--forest);
+            box-shadow: 0 12px 30px -10px rgba(22, 163, 74, .6)
+        }
+
+        .btn-line {
+            border: 1.5px solid rgba(255, 255, 255, .35);
+            color: #fff
+        }
+
+        .btn-line:hover {
+            background: rgba(255, 255, 255, .12);
+            border-color: #fff
+        }
+
+        .btn[disabled] {
+            opacity: .7;
+            cursor: progress
+        }
+
+        .btn.is-loading {
+            pointer-events: none
+        }
+
+        .btn.is-loading::after {
+            content: "";
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            border: 2.5px solid currentColor;
+            border-right-color: transparent;
+            animation: spin .7s linear infinite
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg)
+            }
+        }
+
+        /* ============ HEADER ============ */
+        .hdr {
+            position: fixed;
+            top: 14px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 200;
+            width: min(60vw, 900px);
+            transition: transform .5s var(--ease), opacity .4s;
+            color: #fff
+        }
+
+        .hdr.is-hidden {
+            transform: translateX(-50%) translateY(-120%);
+            opacity: 0
+        }
+
+        .pill-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 60px;
+            padding: 0 8px 0 24px;
+            border-radius: 1rem;
+            background: rgba(255, 255, 255, .07);
+            backdrop-filter: blur(20px) saturate(1.4);
+            -webkit-backdrop-filter: blur(20px) saturate(1.4);
+            border: 3px dashed rgba(255, 255, 255, .14);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, .12);
+            transition: background .4s, border-color .4s, box-shadow .4s
+        }
+
+        .hdr.is-solid .pill-nav {
+            background: rgba(247, 246, 239, .88);
+            border-color: var(--line);
+            box-shadow: 0 4px 30px rgba(3, 21, 14, .08);
+            color: var(--deep);
+            border:3px dashed rgba(13, 121, 80, 0.694);
+        }
+
+        .menu-open .hdr {
+            transform: translateX(-50%);
+            opacity: 1
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            font-family: var(--disp);
+            font-weight: 800;
+            font-size: 1.25rem;
+            letter-spacing: -.02em;
+            white-space: nowrap
+        }
+
+        .brand svg {
+            width: 34px;
+            height: 34px
+        }
+
+        .nav {
+            display: none;
+            align-items: center;
+            gap: 0
+        }
+
+        .nav a {
+            padding: 8px 16px;
+            border-radius: 1rem;
+            font-size: .92rem;
+            font-weight: 500;
+            position: relative;
+            transition: background-color .25s, color .25s;
+            white-space: nowrap
+        }
+
+        .nav a:hover {
+            background: rgba(255, 255, 255, .12)
+        }
+
+        .hdr.is-solid .nav a:hover {
+            background: var(--mist)
+        }
+
+        .nav-sep {
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+            background: currentColor;
+            opacity: .25;
+            flex-shrink: 0
+        }
+
+        .pill-act {
+            display: flex;
+            align-items: center;
+            gap: 8px
+        }
+
+        .btn-pill {
+            display: none;
+            align-items: center;
+            padding: 10px 22px;
+            border-radius: 999px;
+            font-size: .9rem;
+            font-weight: 600;
+            background: var(--gold);
+            color: var(--ink);
+            transition: background .25s, transform .3s var(--ease);
+            white-space: nowrap
+        }
+
+        .btn-pill:hover {
+            background: #f5b400;
+            transform: scale(1.03)
+        }
+
+        .burger {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            position: relative;
+            flex-shrink: 0
+        }
+
+        .burger span {
+            position: absolute;
+            width: 18px;
+            height: 2px;
+            background: currentColor;
+            border-radius: 2px;
+            transition: transform .45s var(--ease)
+        }
+
+        .burger span:nth-child(1) {
+            transform: translateY(-4px)
+        }
+
+        .burger span:nth-child(2) {
+            transform: translateY(4px)
+        }
+
+        .menu-open .burger span:nth-child(1) {
+            transform: rotate(45deg)
+        }
+
+        .menu-open .burger span:nth-child(2) {
+            transform: rotate(-45deg)
+        }
+
+        @media(min-width:960px) {
+            .nav {
+                display: flex
+            }
+
+            .burger {
+                display: none
+            }
+
+            .btn-pill {
+                display: inline-flex
+            }
+        }
+
+        .menu {
+            position: fixed;
+            inset: 0;
+            z-index: 99;
+            background: var(--ink);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 96px 28px 40px;
+            clip-path: circle(0 at calc(100% - 44px) 40px);
+            visibility: hidden;
+            transition: clip-path .8s var(--ease), visibility 0s .8s
+        }
+
+        .menu-open .menu {
+            clip-path: circle(150% at calc(100% - 44px) 40px);
+            visibility: visible;
+            transition: clip-path .8s var(--ease), visibility 0s 0s
+        }
+
+        .menu a.m {
+            display: block;
+            font-family: var(--disp);
+            font-weight: 700;
+            font-size: clamp(2.2rem, 10vw, 3.4rem);
+            letter-spacing: -.03em;
+            padding: 6px 0;
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity .5s, transform .7s var(--ease), color .2s
+        }
+
+        .menu a.m:hover {
+            color: var(--gold)
+        }
+
+        .menu-open .menu a.m {
+            opacity: 1;
+            transform: none
+        }
+
+        .menu-open .menu a.m:nth-child(1) {
+            transition-delay: .25s
+        }
+
+        .menu-open .menu a.m:nth-child(2) {
+            transition-delay: .32s
+        }
+
+        .menu-open .menu a.m:nth-child(3) {
+            transition-delay: .39s
+        }
+
+        .menu-open .menu a.m:nth-child(4) {
+            transition-delay: .46s
+        }
+
+        .menu small {
+            margin-top: 36px;
+            color: rgba(255, 255, 255, .55);
+            font-size: .9rem
+        }
+
+        @media(min-width:960px) {
+            .menu {
+                display: none
+            }
+        }
+
+        .progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            z-index: 110;
+            background: linear-gradient(90deg, var(--green), var(--gold));
+            transform: scaleX(0);
+            transform-origin: 0 50%;
+            pointer-events: none
+        }
+
+        /* ============ HERO ============ */
+        .hero {
+            position: relative;
+            height: 100vh;
+            height: 100svh;
+            min-height: 600px;
+            background: var(--ink);
+            color: #fff
+        }
+
+        .hero-stage {
+            position: absolute;
+            inset: 0;
+            overflow: hidden
+        }
+
+        #scene {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%
+        }
+
+        .hero-shade {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background: linear-gradient(to bottom, rgba(2, 11, 7, .6), rgba(2, 11, 7, 0) 34%), linear-gradient(to top, rgba(2, 11, 7, .88), rgba(2, 11, 7, 0) 40%)
+        }
+
+        .hero-copy {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: clamp(92px, 16vh, 170px);
+            z-index: 3
+        }
+
+        .hero-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            font-size: .84rem;
+            font-weight: 500;
+            padding: 8px 16px 8px 12px;
+            border-radius: 1rem;
+            border: 2px dashed rgba(255, 255, 255, .22);
+            margin-bottom: 22px
+        }
+
+        .hero-chip svg {
+            width: 16px;
+            height: 16px;
+            color: var(--gold)
+        }
+
+        .hero h1 {
+            color: #fff;
+            font-weight: 800;
+            font-size: clamp(3.2rem, 6.4vw, 6.4rem);
+            line-height: .94;
+            letter-spacing: -.045em;
+            text-shadow: 0 2px 40px rgba(2, 11, 7, .5)
+        }
+
+        .hero h1 .line {
+            display: block
+        }
+
+        .hero-foot {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: calc(30px + env(safe-area-inset-bottom, 0px));
+            z-index: 3;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 24px
+        }
+
+        .hero-sub {
+            max-width: 31em;
+            font-size: clamp(1rem, 1.3vw, 1.18rem);
+            color: rgba(255, 255, 255, .86);
+            text-shadow: 0 1px 18px rgba(2, 11, 7, .7)
+        }
+
+        .hero-cta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 22px
+        }
+
+        .hero-live {
+            display: none;
+            align-items: center;
+            gap: 10px;
+            font-size: .88rem;
+            font-weight: 500;
+            padding: 10px 18px;
+            border-radius: 999px;
+            background: rgba(3, 21, 14, .55);
+            border: 1px solid rgba(255, 255, 255, .16);
+            backdrop-filter: blur(10px)
+        }
+
+        .hero-live i {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--green);
+            animation: ping 2.2s infinite
+        }
+
+        @media(min-width:900px) {
+            .hero-live {
+                display: inline-flex
+            }
+        }
+
+        .hero-tag {
+            position: absolute;
+            z-index: 3;
+            display: none;
+            align-items: center;
+            gap: 12px;
+            pointer-events: none;
+            opacity: 0;
+            color: #fff;
+            font-size: .86rem;
+            line-height: 1.3
+        }
+
+        .hero-tag .ht-line {
+            width: 64px;
+            height: 1px;
+            background: linear-gradient(90deg, var(--gold), rgba(251, 191, 36, 0));
+            transform-origin: 0 50%
+        }
+
+        .hero-tag small {
+            color: var(--gold);
+            font-weight: 600
+        }
+
+        @media(min-width:900px) {
+            .hero-tag {
+                display: flex
+            }
+        }
+
+        .scroll-cue {
+            position: absolute;
+            left: 50%;
+            bottom: 26px;
+            z-index: 3;
+            width: 22px;
+            height: 38px;
+            border: 1.5px solid rgba(255, 255, 255, .5);
+            border-radius: 14px;
+            transform: translateX(-50%);
+            display: none
+        }
+
+        .scroll-cue span {
+            position: absolute;
+            left: 50%;
+            top: 7px;
+            width: 3px;
+            height: 8px;
+            margin-left: -1.5px;
+            border-radius: 2px;
+            background: #fff;
+            animation: cue 1.8s var(--ease) infinite
+        }
+
+        @keyframes cue {
+            0% {
+                opacity: 0;
+                transform: translateY(0)
+            }
+
+            30% {
+                opacity: 1
+            }
+
+            100% {
+                opacity: 0;
+                transform: translateY(14px)
+            }
+        }
+
+        @media(min-width:1100px) {
+            .scroll-cue {
+                display: block
+            }
+        }
+
+        /* scene ambient */
+        .cloud {
+            animation: drift 70s ease-in-out infinite alternate
+        }
+
+        @keyframes drift {
+            to {
+                transform: translateX(110px)
+            }
+        }
+
+        .tw {
+            animation: tw 3.5s ease-in-out infinite alternate
+        }
+
+        @keyframes tw {
+            from {
+                opacity: .25
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        .rays {
+            transform-origin: 1100px 672px;
+            animation: spinr 160s linear infinite
+        }
+
+        @keyframes spinr {
+            to {
+                transform: rotate(360deg)
+            }
+        }
+
+        .shim {
+            transform-box: fill-box;
+            transform-origin: center;
+            animation: shim 3.4s ease-in-out infinite
+        }
+
+        @keyframes shim {
+            50% {
+                opacity: .2;
+                transform: scaleX(.72)
+            }
+        }
+
+        .rip {
+            fill: none;
+            animation: rip 9s ease-in-out infinite alternate
+        }
+
+        @keyframes rip {
+            to {
+                transform: translateX(38px)
+            }
+        }
+
+        .boat {
+            animation: boat 70s linear infinite alternate
+        }
+
+        @keyframes boat {
+            to {
+                transform: translateX(520px)
+            }
+        }
+
+        .bird {
+            animation: bird 40s linear infinite
+        }
+
+        @keyframes bird {
+            from {
+                transform: translate(-200px, 0)
+            }
+
+            to {
+                transform: translate(1500px, -70px)
+            }
+        }
+
+        .wing {
+            transform-box: fill-box;
+            transform-origin: center;
+            animation: flap .6s ease-in-out infinite alternate
+        }
+
+        @keyframes flap {
+            to {
+                transform: scaleY(.4)
+            }
+        }
+
+        .sway {
+            animation: sway 8s ease-in-out infinite alternate
+        }
+
+        @keyframes sway {
+            from {
+                transform: rotate(-1.6deg)
+            }
+
+            to {
+                transform: rotate(1.8deg)
+            }
+        }
+
+        .beacon {
+            animation: blink 1.6s steps(1) infinite
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: .15
+            }
+        }
+
+        /* ============ FIND ============ */
+        .find {
+            position: relative;
+            z-index: 5;
+            background: var(--paper);
+            border-radius: 44px 44px 0 0;
+            margin-top: -44px;
+            padding: clamp(56px, 8vw, 96px) 0 clamp(48px, 6vw, 80px)
+        }
+
+        .dock {
+            background: #fff;
+            border-radius: 28px;
+            padding: 12px;
+            box-shadow: 0 40px 90px -30px rgba(3, 48, 31, .35), 0 0 0 1px var(--line)
+        }
+
+        .dock-form {
+            display: grid;
+            gap: 8px
+        }
+
+        @media(min-width:860px) {
+            .dock-form {
+                grid-template-columns: 1.2fr 1.4fr .8fr auto
+            }
+        }
+
+        .dock-f {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 18px;
+            border-radius: 18px;
+            background: var(--mist);
+            transition: box-shadow .25s, background .25s
+        }
+
+        .dock-f:focus-within {
+            background: #fff;
+            box-shadow: inset 0 0 0 2px var(--green)
+        }
+
+        .dock-f svg {
+            width: 22px;
+            height: 22px;
+            color: var(--green);
+            flex: none
+        }
+
+        .dock-f label {
+            display: block;
+            font-size: .76rem;
+            font-weight: 600;
+            color: var(--gray)
+        }
+
+        .dock-f select {
+            width: 100%;
+            border: 0;
+            background: none;
+            font: 600 .98rem var(--body);
+            color: var(--deep);
+            padding: 2px 18px 2px 0;
+            appearance: none;
+            cursor: pointer;
+            text-overflow: ellipsis;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 8l5 5 5-5' fill='none' stroke='%23586359' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right center;
+            background-size: 14px
+        }
+
+        .dock-f select:focus {
+            outline: none
+        }
+
+        .dock-go {
+            min-height: 60px;
+            padding-inline: 32px;
+            font-size: 1rem
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            align-items: center;
+            padding: 14px 10px 6px;
+            font-size: .88rem;
+            color: var(--gray)
+        }
+
+        .tags button {
+            padding: 6px 14px;
+            border-radius: 999px;
+            background: var(--mist);
+            color: var(--deep);
+            font-weight: 500;
+            font-size: .85rem;
+            transition: background .2s, transform .3s var(--ease)
+        }
+
+        .tags button:hover {
+            background: #d9f0e0;
+            transform: translateY(-2px)
+        }
+
+        .stats {
+            display: grid;
+            gap: 28px;
+            margin-top: clamp(44px, 6vw, 72px)
+        }
+
+        @media(min-width:760px) {
+            .stats {
+                grid-template-columns: repeat(3, 1fr)
+            }
+        }
+
+        .stat {
+            display: flex;
+            align-items: center;
+            gap: 20px
+        }
+
+        @media(min-width:760px) {
+            .stat+.stat {
+                border-left: 1px solid var(--line);
+                padding-left: 32px
+            }
+        }
+
+        .stat-ic {
+            width: 58px;
+            height: 58px;
+            flex: none;
+            color: var(--green)
+        }
+
+        .stat-n {
+            font-family: var(--disp);
+            font-weight: 800;
+            font-size: clamp(2.2rem, 4vw, 3.3rem);
+            letter-spacing: -.04em;
+            color: var(--deep);
+            line-height: 1
+        }
+
+        .stat-l {
+            font-size: .92rem;
+            color: var(--gray);
+            margin-top: 4px
+        }
+
+        /* ============ MARQUEE ============ */
+        .marquee {
+            background: var(--paper);
+            padding: clamp(16px, 3vw, 40px) 0 clamp(56px, 8vw, 110px);
+            overflow: hidden
+        }
+
+        .mq-row {
+            overflow: hidden;
+            white-space: nowrap
+        }
+
+        .mq-track {
+            display: inline-flex;
+            align-items: center;
+            gap: clamp(20px, 3vw, 44px);
+            font-family: var(--disp);
+            font-weight: 800;
+            font-size: clamp(3.4rem, 9.5vw, 9rem);
+            letter-spacing: -.04em;
+            line-height: 1.08;
+            will-change: transform
+        }
+
+        .mq-r1 span {
+            color: transparent;
+            -webkit-text-stroke: 1.6px var(--forest)
+        }
+
+        .mq-r2 span {
+            color: var(--forest)
+        }
+
+        .mq-st {
+            width: .34em;
+            height: .34em;
+            color: var(--gold);
+            flex: none
+        }
+
+        .mq-r2 .mq-st {
+            color: var(--green)
+        }
+
+        /* ============ ESCROW ============ */
+        .escrow {
+            position: relative;
+            background: var(--deep);
+            color: #fff;
+            overflow: hidden
+        }
+
+        .escrow::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(60% 50% at 78% 45%, rgba(22, 163, 74, .28), transparent 70%), radial-gradient(40% 40% at 10% 100%, rgba(251, 191, 36, .12), transparent 70%);
+            pointer-events: none
+        }
+
+        .esc-inner {
+            position: relative;
+            padding-block: clamp(72px, 10vw, 130px);
+            display: grid;
+            gap: 36px;
+            align-items: center
+        }
+
+        .escrow.is-pinned .esc-inner {
+            min-height: 100vh;
+            min-height: 100svh;
+            padding-block: calc(var(--hdr) + 12px) 24px
+        }
+
+        @media(min-width:960px) {
+            .esc-inner {
+                grid-template-columns: .95fr 1.05fr;
+                gap: 56px
+            }
+        }
+
+        .escrow h2 {
+            color: #fff;
+            font-size: clamp(2.2rem, 4.6vw, 4.2rem);
+            font-weight: 800;
+            max-width: 11ch
+        }
+
+        .esc-steps {
+            position: relative;
+            margin-top: 28px;
+            display: grid;
+            gap: 26px
+        }
+
+        .esc-step {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 6px 18px;
+            align-items: start
+        }
+
+        .esc-n {
+            grid-row: span 3;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            font-family: var(--disp);
+            font-weight: 800;
+            font-size: 1.1rem;
+            border: 1.5px solid rgba(255, 255, 255, .35);
+            color: #fff;
+            transition: background .4s, color .4s, border-color .4s
+        }
+
+        .esc-step h3 {
+            color: #fff;
+            font-size: 1.55rem;
+            font-weight: 700;
+            align-self: center
+        }
+
+        .esc-step p {
+            color: rgba(255, 255, 255, .72);
+            max-width: 32em
+        }
+
+        .esc-step small {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--gold);
+            font-weight: 600;
+            font-size: .86rem
+        }
+
+        .esc-step small svg {
+            width: 15px;
+            height: 15px
+        }
+
+        .escrow.is-pinned .esc-steps {
+            display: block;
+            min-height: 9.6rem
+        }
+
+        .escrow.is-pinned .esc-step {
+            position: absolute;
+            inset: 0 auto auto 0;
+            width: 100%;
+            opacity: 0;
+            transform: translateY(16px);
+            pointer-events: none;
+            transition: opacity .45s, transform .6s var(--ease)
+        }
+
+        .escrow.is-pinned .esc-step.is-on {
+            opacity: 1;
+            transform: none;
+            pointer-events: auto
+        }
+
+        .esc-step.is-on .esc-n {
+            background: var(--gold);
+            border-color: var(--gold);
+            color: var(--ink)
+        }
+
+        .esc-dots {
+            display: none;
+            gap: 8px;
+            margin-top: 20px
+        }
+
+        .escrow.is-pinned .esc-dots {
+            display: flex
+        }
+
+        .esc-dots i {
+            height: 4px;
+            flex: 1;
+            max-width: 64px;
+            border-radius: 2px;
+            background: rgba(255, 255, 255, .2);
+            position: relative;
+            overflow: hidden
+        }
+
+        .esc-dots i::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: var(--gold);
+            transform: scaleX(var(--p, 0));
+            transform-origin: 0 50%
+        }
+
+        .esc-stage {
+            position: relative
+        }
+
+        #esc-svg {
+            width: 100%;
+            height: auto;
+            max-height: 64vh;
+            margin-inline: auto
+        }
+
+        .flow {
+            stroke-dasharray: 3 9;
+            animation: flow 1.4s linear infinite
+        }
+
+        @keyframes flow {
+            to {
+                stroke-dashoffset: -24
+            }
+        }
+
+        @media(max-width:959px) {
+            .escrow.is-pinned .esc-inner {
+                align-content: start;
+                gap: 8px
+            }
+
+            .escrow h2 {
+                font-size: 1.9rem;
+                max-width: none
+            }
+
+            .esc-steps {
+                margin-top: 8px
+            }
+
+            .esc-step h3 {
+                font-size: 1.25rem
+            }
+
+            #esc-svg {
+                max-height: 34vh
+            }
+
+            .escrow.is-pinned .esc-steps {
+                min-height: 8.6rem
+            }
+
+            .esc-stage {
+                order: 2
+            }
+        }
+
+        /* ============ CATEGORIES ============ */
+        .sec {
+            padding-block: clamp(80px, 11vw, 160px)
+        }
+
+        #categories {
+            position: relative;
+            background-color: var(--paper);
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Cg fill='none' stroke='%2316A34A' stroke-width='.8' opacity='.19'%3E%3Ccircle cx='100' cy='100' r='32'/%3E%3Ccircle cx='100' cy='100' r='24'/%3E%3Ccircle cx='100' cy='100' r='16'/%3E%3Cpath d='M68 52Q50 38 32 52Q50 66 68 52z'/%3E%3Cpath d='M132 52Q150 38 168 52Q150 66 132 52z'/%3E%3Cpath d='M68 100Q50 82 32 100Q50 118 68 100z'/%3E%3Cpath d='M132 100Q150 82 168 100Q150 118 132 100z'/%3E%3Ccircle cx='100' cy='168' r='32'/%3E%3Ccircle cx='100' cy='168' r='24'/%3E%3Ccircle cx='100' cy='168' r='16'/%3E%3Cpath d='M68 148Q50 134 32 148Q50 162 68 148z'/%3E%3Cpath d='M132 148Q150 134 168 148Q150 162 132 148z'/%3E%3Cpath d='M20 20Q36 28 44 44Q28 36 20 20z'/%3E%3Cpath d='M180 20Q164 28 156 44Q172 36 180 20z'/%3E%3Cpath d='M20 180Q36 172 44 156Q28 164 20 180z'/%3E%3Cpath d='M180 180Q164 172 156 156Q172 164 180 180z'/%3E%3Cpath d='M100 68Q90 84 68 92Q90 84 100 68Q110 84 132 92Q110 84 100 68z'/%3E%3Cpath d='M100 108Q90 124 68 132Q90 124 100 108Q110 124 132 132Q110 124 100 108z'/%3E%3Cpath d='M50 68Q66 60 74 44Q58 60 50 68Q66 76 74 92Q58 76 50 68z'/%3E%3Cpath d='M150 68Q134 60 126 44Q142 60 150 68Q134 76 126 92Q142 76 150 68z'/%3E%3Cpath d='M50 132Q66 124 74 108Q58 124 50 132Q66 140 74 156Q58 140 50 132z'/%3E%3Cpath d='M150 132Q134 124 126 108Q142 124 150 132Q134 140 126 156Q142 140 150 132z'/%3E%3C/g%3E%3Cg fill='none' stroke='%23FBBF24' stroke-width='.6' opacity='.13'%3E%3Ccircle cx='100' cy='100' r='38'/%3E%3Ccircle cx='100' cy='100' r='10'/%3E%3Ccircle cx='100' cy='168' r='38'/%3E%3Ccircle cx='100' cy='168' r='10'/%3E%3Cpath d='M20 100Q38 88 56 100Q38 112 20 100z'/%3E%3Cpath d='M180 100Q162 88 144 100Q162 112 180 100z'/%3E%3C/g%3E%3C/svg%3E");
+            background-repeat: repeat;
+            background-size: 200px 200px
+        }
+
+        .sec-head {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px 40px;
+            align-items: flex-end;
+            justify-content: space-between;
+            margin-bottom: clamp(36px, 5vw, 64px)
+        }
+
+        .sec-head h2 {
+            font-size: clamp(2.4rem, 5.4vw, 4.8rem);
+            font-weight: 800;
+            max-width: 12ch
+        }
+
+        .sec-head p {
+            color: var(--gray);
+            max-width: 26em
+        }
+
+        .cat-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px
+        }
+
+        @media(min-width:900px) {
+            .cat-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 20px
+            }
+        }
+
+        .cat {
+            --bg: var(--deep);
+            --fg: var(--mist);
+            --acc: var(--gold);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            aspect-ratio: 4/4.6;
+            padding: clamp(16px, 2.2vw, 28px);
+            border-radius: clamp(22px, 2.6vw, 34px);
+            background: var(--bg);
+            color: var(--fg);
+            overflow: hidden;
+            isolation: isolate;
+            transition: transform .6s var(--ease)
+        }
+
+        .cat:nth-child(2) {
+            --bg: var(--gold);
+            --fg: var(--ink);
+            --acc: var(--forest)
+        }
+
+        .cat:nth-child(3) {
+            --bg: var(--mist);
+            --fg: var(--forest);
+            --acc: var(--gold-d)
+        }
+
+        .cat:nth-child(4) {
+            --bg: var(--forest)
+        }
+
+        .cat:nth-child(5) {
+            --bg: #0b2f22
+        }
+
+        .cat:nth-child(6) {
+            --bg: var(--green);
+            --fg: #fff;
+            --acc: #FFE28A
+        }
+
+        .cat-spot {
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity .4s;
+            background: radial-gradient(360px circle at var(--mx, 50%) var(--my, 50%), rgba(255, 255, 255, .22), transparent 60%)
+        }
+
+        .cat:hover .cat-spot {
+            opacity: 1
+        }
+
+        .cat:hover {
+            transform: translateY(-6px)
+        }
+
+        .ill {
+            width: min(64%, 190px);
+            height: auto;
+            stroke-width: 3;
+            transition: transform .6s var(--ease)
+        }
+
+        .cat:hover .ill {
+            transform: scale(1.08) rotate(-2deg)
+        }
+
+        .cat h3 {
+            color: var(--fg);
+            font-size: clamp(1.25rem, 2.4vw, 1.9rem);
+            font-weight: 700
+        }
+
+        .cat-count {
+            font-size: .9rem;
+            opacity: .8;
+            margin-top: 4px;
+            display: block
+        }
+
+        .cat-go {
+            position: absolute;
+            right: clamp(14px, 2vw, 24px);
+            top: clamp(14px, 2vw, 24px);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            background: var(--fg);
+            color: var(--bg);
+            transform: scale(.6) rotate(-45deg);
+            opacity: 0;
+            transition: transform .5s var(--ease), opacity .3s
+        }
+
+        .cat:hover .cat-go,
+        .cat:focus-visible .cat-go {
+            transform: none;
+            opacity: 1
+        }
+
+        .cat-go svg {
+            width: 18px;
+            height: 18px
+        }
+
+        .ill * {
+            vector-effect: non-scaling-stroke
+        }
+
+        .a-air {
+            stroke-dasharray: 6 9;
+            animation: flow 1.6s linear infinite
+        }
+
+        .a-air:nth-of-type(2) {
+            animation-delay: -.5s
+        }
+
+        .a-air:nth-of-type(3) {
+            animation-delay: -1s
+        }
+
+        .a-spin {
+            transform-origin: 60px 34px;
+            animation: spinr 22s linear infinite
+        }
+
+        .a-drop {
+            animation: drop 1.8s ease-in infinite;
+            opacity: 0
+        }
+
+        .a-drop:nth-of-type(2) {
+            animation-delay: .6s
+        }
+
+        .a-drop:nth-of-type(3) {
+            animation-delay: 1.2s
+        }
+
+        @keyframes drop {
+            0% {
+                transform: translateY(-6px);
+                opacity: 0
+            }
+
+            20% {
+                opacity: 1
+            }
+
+            100% {
+                transform: translateY(34px);
+                opacity: 0
+            }
+        }
+
+        .a-ray {
+            animation: blink2 2.4s ease-in-out infinite alternate
+        }
+
+        .a-ray:nth-of-type(even) {
+            animation-delay: -1.2s
+        }
+
+        @keyframes blink2 {
+            from {
+                opacity: .25
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        .a-saw {
+            animation: saw 1.1s ease-in-out infinite alternate
+        }
+
+        @keyframes saw {
+            from {
+                transform: translateX(-12px)
+            }
+
+            to {
+                transform: translateX(10px)
+            }
+        }
+
+        .a-dust {
+            animation: drop 1.4s ease-in infinite;
+            opacity: 0
+        }
+
+        .a-dust:nth-of-type(2) {
+            animation-delay: .45s
+        }
+
+        .a-dust:nth-of-type(3) {
+            animation-delay: .9s
+        }
+
+        .a-tile {
+            transform-box: fill-box;
+            transform-origin: center;
+            animation: tile 3s ease-in-out infinite
+        }
+
+        @keyframes tile {
+
+            0%,
+            60%,
+            100% {
+                transform: scale(1)
+            }
+
+            30% {
+                transform: scale(.72)
+            }
+        }
+
+        /* ============ ARTISANS ============ */
+        .artisans {
+            background: var(--mist);
+            position: relative
+        }
+
+        .stack {
+            display: grid;
+            gap: clamp(28px, 5vw, 56px);
+            padding-bottom: 12vh
+        }
+
+        .sc {
+            --bg: var(--forest);
+            --fg: #EAF7EE;
+            --soft: rgba(255, 255, 255, .1);
+            --mut: rgba(234, 247, 238, .72);
+            position: sticky;
+            top: calc(var(--hdr) + 16px + var(--i) * 26px);
+            display: grid;
+            grid-template-columns: 1fr;
+            min-height: 440px;
+            border-radius: clamp(26px, 3vw, 40px);
+            background: var(--bg);
+            color: var(--fg);
+            overflow: hidden;
+            box-shadow: 0 40px 80px -40px rgba(3, 48, 31, .6);
+            transform-origin: 50% 0
+        }
+
+        @media(min-width:900px) {
+            .sc {
+                grid-template-columns: 1.1fr .9fr
+            }
+        }
+
+        .sc:nth-child(2) {
+            --bg: var(--gold);
+            --fg: var(--ink);
+            --soft: rgba(3, 21, 14, .09);
+            --mut: rgba(3, 21, 14, .72)
+        }
+
+        .sc:nth-child(3) {
+            --bg: #fff;
+            --fg: var(--deep);
+            --soft: var(--mist);
+            --mut: var(--gray)
+        }
+
+        .sc-body {
+            padding: clamp(24px, 3.4vw, 48px);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            position: relative;
+            z-index: 2
+        }
+
+        .sc-top {
+            display: flex;
+            gap: 16px;
+            align-items: center
+        }
+
+        .sc-av {
+            position: relative;
+            width: 64px;
+            height: 64px;
+            border-radius: 20px;
+            flex: none;
+            display: grid;
+            place-items: center;
+            font-family: var(--disp);
+            font-weight: 800;
+            font-size: 1.3rem;
+            background: var(--gold);
+            color: var(--ink)
+        }
+
+        .sc:nth-child(2) .sc-av {
+            background: var(--ink);
+            color: var(--gold)
+        }
+
+        .sc:nth-child(3) .sc-av {
+            background: var(--forest);
+            color: #fff
+        }
+
+        .sc-ck {
+            position: absolute;
+            right: -5px;
+            bottom: -5px;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: var(--green);
+            border: 2.5px solid var(--bg);
+            display: grid;
+            place-items: center;
+            color: #fff
+        }
+
+        .sc-ck svg {
+            width: 11px;
+            height: 11px
+        }
+
+        .sc-top h3 {
+            color: var(--fg);
+            font-size: 1.6rem;
+            font-weight: 800
+        }
+
+        .sc-top p {
+            color: var(--mut);
+            font-size: .92rem
+        }
+
+        .sc-rate {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-weight: 700;
+            white-space: nowrap
+        }
+
+        .sc-rate svg {
+            width: 16px;
+            height: 16px;
+            color: var(--gold)
+        }
+
+        .sc:nth-child(2) .sc-rate svg {
+            color: var(--ink)
+        }
+
+        .sc-rate small {
+            color: var(--mut);
+            font-weight: 500
+        }
+
+        .sc-loc {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--mut);
+            font-size: .92rem
+        }
+
+        .sc-loc svg {
+            width: 16px;
+            height: 16px;
+            flex: none
+        }
+
+        .sc-metrics {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin: 0
+        }
+
+        .sc-metrics div {
+            background: var(--soft);
+            border-radius: 18px;
+            padding: 14px 18px
+        }
+
+        .sc-metrics dt {
+            font-size: .8rem;
+            color: var(--mut)
+        }
+
+        .sc-metrics dd {
+            margin: 2px 0 0;
+            font-family: var(--disp);
+            font-weight: 800;
+            font-size: 1.6rem;
+            letter-spacing: -.03em
+        }
+
+        .sc-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px
+        }
+
+        .sc-tags li {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            font-size: .82rem;
+            font-weight: 600;
+            padding: 7px 12px;
+            border-radius: 999px;
+            background: var(--soft)
+        }
+
+        .sc-tags svg {
+            width: 13px;
+            height: 13px;
+            color: var(--green)
+        }
+
+        .sc:nth-child(2) .sc-tags svg {
+            color: var(--forest)
+        }
+
+        .sc-foot {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            margin-top: auto;
+            padding: 10px;
+            padding-left: 20px;
+            border-radius: 3rem;
+        }
+
+        .avail {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            font-weight: 600;
+            font-size: .9rem
+        }
+
+        .avail i {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: #3ddc84;
+            animation: ping 2.2s infinite
+        }
+
+        .sc .btn-q {
+            background: var(--gold);
+            color: var(--ink)
+        }
+
+        .sc:nth-child(2) .btn-q {
+            background: var(--ink);
+            color: #fff
+        }
+
+        .sc:nth-child(3) .btn-q {
+            background: var(--green);
+            color: #fff
+        }
+
+        .sc .btn-q:hover {
+            transform: translateY(-2px)
+        }
+
+        .sc-art {
+            position: relative;
+            min-height: 220px;
+            display: grid;
+            place-items: center;
+            overflow: hidden
+        }
+
+        .sc-art svg {
+            width: min(120%, 460px);
+            height: auto;
+            position: absolute;
+            right: -10%;
+            bottom: -14%
+        }
+
+        @media(max-width:899px) {
+            .sc-art {
+                order: -1;
+                min-height: 170px
+            }
+
+            .sc-art svg {
+                width: min(90%, 300px);
+                right: auto;
+                bottom: -25%
+            }
+        }
+
+        .sc.is-match {
+            animation: match 1.6s ease-out
+        }
+
+        @keyframes match {
+
+            0%,
+            100% {
+                box-shadow: 0 40px 80px -40px rgba(3, 48, 31, .6)
+            }
+
+            30% {
+                box-shadow: 0 0 0 6px var(--gold), 0 40px 80px -30px rgba(251, 191, 36, .6)
+            }
+        }
+
+        .art1 .tr {
+            stroke: var(--gold);
+            stroke-opacity: .7;
+            stroke-width: 3;
+            fill: none;
+            stroke-dasharray: 8 12;
+            animation: flow 2.2s linear infinite
+        }
+
+        .art1 .nd {
+            fill: var(--gold);
+            animation: blink2 1.8s ease-in-out infinite alternate
+        }
+
+        .art2 .blades {
+            transform-origin: 150px 150px;
+            animation: spinr 14s linear infinite
+        }
+
+        .art3 .ring {
+            fill: none;
+            stroke: var(--forest);
+            stroke-width: 2.4;
+            transform-origin: 150px 150px
+        }
+
+        .art3 .g {
+            transform-origin: 150px 150px;
+            animation: spinr 80s linear infinite
+        }
+
+        /* ============ MATCH ============ */
+        .match {
+            background: var(--ink);
+            color: #fff;
+            position: relative;
+            overflow: hidden
+        }
+
+        .match::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(50% 60% at 15% 50%, rgba(22, 163, 74, .22), transparent 70%);
+            pointer-events: none
+        }
+
+        .match-grid {
+            position: relative;
+            display: grid;
+            gap: 56px;
+            align-items: center
+        }
+
+        @media(min-width:960px) {
+            .match-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 72px
+            }
+        }
+
+        .match h2 {
+            color: #fff;
+            font-size: clamp(2.4rem, 5vw, 4.4rem);
+            font-weight: 800;
+            max-width: 11ch
+        }
+
+        .radar {
+            position: relative;
+            width: min(100%, 420px);
+            aspect-ratio: 1;
+            margin: 36px auto 0
+        }
+
+        .radar svg {
+            width: 100%;
+            height: 100%
+        }
+
+        .sweep {
+            transform-origin: 210px 210px;
+            animation: spinr 6s linear infinite
+        }
+
+        .rd {
+            opacity: .2;
+            animation: rdp 6s linear infinite
+        }
+
+        .rd circle {
+            fill: var(--gold)
+        }
+
+        .rd .rd-h {
+            fill: rgba(251, 191, 36, .28)
+        }
+
+        @keyframes rdp {
+            0% {
+                opacity: 1
+            }
+
+            12% {
+                opacity: 1
+            }
+
+            60%,
+            100% {
+                opacity: .2
+            }
+        }
+
+        .pulse {
+            transform-origin: 210px 210px;
+            animation: rp 3.6s ease-out infinite;
+            fill: none;
+            stroke: var(--gold);
+            stroke-width: 1.5
+        }
+
+        .pulse:nth-of-type(2) {
+            animation-delay: 1.2s
+        }
+
+        .pulse:nth-of-type(3) {
+            animation-delay: 2.4s
+        }
+
+        @keyframes rp {
+            from {
+                transform: scale(.1);
+                opacity: .9
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 0
+            }
+        }
+
+        .chip {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 9px 14px 9px 10px;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, .96);
+            color: var(--deep);
+            font-size: .8rem;
+            line-height: 1.25;
+            box-shadow: 0 18px 40px -12px rgba(0, 0, 0, .6);
+            opacity: 0;
+            animation: chip 9s ease-in-out infinite;
+            white-space: nowrap
+        }
+
+        .chip b {
+            display: block;
+            font-size: .85rem
+        }
+
+        .chip span.av {
+            width: 30px;
+            height: 30px;
+            border-radius: 10px;
+            background: var(--forest);
+            color: var(--gold);
+            display: grid;
+            place-items: center;
+            font: 800 .72rem var(--disp)
+        }
+
+        .chip:nth-of-type(1) {
+            left: -4%;
+            top: 12%
+        }
+
+        .chip:nth-of-type(2) {
+            right: -6%;
+            top: 44%;
+            animation-delay: 3s
+        }
+
+        .chip:nth-of-type(3) {
+            left: 6%;
+            bottom: 6%;
+            animation-delay: 6s
+        }
+
+        @keyframes chip {
+            0% {
+                opacity: 0;
+                transform: translateY(14px) scale(.96)
+            }
+
+            8%,
+            32% {
+                opacity: 1;
+                transform: none
+            }
+
+            40%,
+            100% {
+                opacity: 0;
+                transform: translateY(-8px)
+            }
+        }
+
+        @media(max-width:520px) {
+            .chip {
+                font-size: .72rem
+            }
+
+            .chip:nth-of-type(1) {
+                left: 0
+            }
+
+            .chip:nth-of-type(2) {
+                right: 0
+            }
+        }
+
+        .points {
+            margin-top: 28px;
+            display: grid;
+            gap: 12px
+        }
+
+        .points li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: rgba(255, 255, 255, .86)
+        }
+
+        .points svg {
+            width: 20px;
+            height: 20px;
+            color: var(--green);
+            flex: none
+        }
+
+        .card {
+            background: #fff;
+            color: var(--ink);
+            border-radius: 32px;
+            padding: clamp(24px, 3.4vw, 44px);
+            position: relative;
+            box-shadow: 0 50px 100px -40px rgba(0, 0, 0, .7)
+        }
+
+        .card h3 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin-bottom: 22px
+        }
+
+        .field {
+            margin-bottom: 16px;
+            position: relative
+        }
+
+        .field label {
+            display: block;
+            font-size: .82rem;
+            font-weight: 600;
+            color: var(--gray);
+            margin-bottom: 7px
+        }
+
+        .field input,
+        .field select,
+        .field textarea {
+            width: 100%;
+            background: var(--mist);
+            border: 1.5px solid transparent;
+            border-radius: 14px;
+            padding: 14px 16px;
+            font: 500 1rem var(--body);
+            color: var(--ink);
+            transition: border-color .2s, background .2s, box-shadow .2s
+        }
+
+        .field textarea {
+            resize: vertical;
+            min-height: 96px
+        }
+
+        .field input:focus,
+        .field select:focus,
+        .field textarea:focus {
+            outline: none;
+            background: #fff;
+            border-color: var(--green);
+            box-shadow: 0 0 0 4px rgba(22, 163, 74, .14)
+        }
+
+        .field.has-err input,
+        .field.has-err textarea {
+            border-color: var(--err);
+            background: #fff
+        }
+
+        .err {
+            color: var(--err);
+            font-size: .82rem;
+            margin-top: 6px;
+            display: none
+        }
+
+        .has-err .err {
+            display: block
+        }
+
+        .frow {
+            display: grid;
+            gap: 14px
+        }
+
+        @media(min-width:560px) {
+            .frow {
+                grid-template-columns: 1fr 1fr
+            }
+        }
+
+        .phone {
+            display: flex
+        }
+
+        .phone span {
+            display: grid;
+            place-items: center;
+            padding: 0 16px;
+            background: #dcebdf;
+            border-radius: 14px 0 0 14px;
+            font-weight: 700;
+            color: var(--forest)
+        }
+
+        .phone input {
+            border-radius: 0 14px 14px 0
+        }
+
+        .hp {
+            position: absolute;
+            left: -9999px;
+            width: 1px;
+            height: 1px;
+            opacity: 0
+        }
+
+        .submit {
+            width: 100%;
+            margin-top: 6px;
+            padding: 17px;
+            font-size: 1.02rem
+        }
+
+        .fine {
+            text-align: center;
+            font-size: .82rem;
+            color: var(--gray);
+            margin-top: 14px
+        }
+
+        .done {
+            text-align: center;
+            padding: 16px 0 6px
+        }
+
+        .done[hidden] {
+            display: none
+        }
+
+        .done svg {
+            width: 92px;
+            height: 92px;
+            margin: 0 auto 18px;
+            color: var(--green)
+        }
+
+        .done circle,
+        .done path {
+            stroke-dasharray: 1;
+            stroke-dashoffset: 1;
+            animation: dr .9s var(--ease) forwards
+        }
+
+        .done path {
+            animation-delay: .5s
+        }
+
+        @keyframes dr {
+            to {
+                stroke-dashoffset: 0
+            }
+        }
+
+        .done h3 {
+            margin-bottom: 8px
+        }
+
+        .done p {
+            color: var(--gray);
+            max-width: 24em;
+            margin: 0 auto 22px
+        }
+
+        /* ============ MODAL / TOAST ============ */
+        .modal-bg {
+            position: fixed;
+            inset: 0;
+            z-index: 200;
+            background: rgba(3, 21, 14, .6);
+            backdrop-filter: blur(6px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            overflow-y: auto
+        }
+
+        .modal-bg.open {
+            display: flex
+        }
+
+        .modal {
+            background: #fff;
+            border-radius: 30px;
+            width: 100%;
+            max-width: 480px;
+            padding: clamp(24px, 4vw, 38px);
+            position: relative;
+            box-shadow: 0 40px 100px rgba(3, 21, 14, .5);
+            animation: min .5s var(--ease);
+            margin: auto
+        }
+
+        @keyframes min {
+            from {
+                opacity: 0;
+                transform: translateY(24px) scale(.97)
+            }
+        }
+
+        .modal-x {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            color: var(--gray);
+            transition: background .2s
+        }
+
+        .modal-x:hover {
+            background: var(--mist)
+        }
+
+        .modal-x svg {
+            width: 18px;
+            height: 18px
+        }
+
+        .modal h3 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin-bottom: 2px
+        }
+
+        .modal .role {
+            color: var(--gray);
+            margin-bottom: 18px
+        }
+
+        .fee {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--mist);
+            border-radius: 14px;
+            padding: 13px 16px;
+            margin-bottom: 18px;
+            font-size: .92rem
+        }
+
+        .fee strong {
+            font-family: var(--disp);
+            font-size: 1.2rem;
+            color: var(--deep)
+        }
+
+        .toast {
+            position: fixed;
+            left: 50%;
+            bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+            z-index: 250;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--ink);
+            color: #fff;
+            padding: 14px 20px;
+            border-radius: 999px;
+            box-shadow: 0 20px 50px rgba(3, 21, 14, .4);
+            max-width: min(92vw, 440px);
+            font-size: .92rem;
+            transform: translate(-50%, 30px);
+            opacity: 0;
+            pointer-events: none;
+            transition: transform .5s var(--ease), opacity .3s
+        }
+
+        .toast.show {
+            transform: translate(-50%, 0);
+            opacity: 1
+        }
+
+        .toast svg {
+            width: 20px;
+            height: 20px;
+            color: var(--gold);
+            flex: none
+        }
+
+        /* ============ FOOTER ============ */
+        footer {
+            background: var(--ink);
+            color: #fff;
+            overflow: hidden;
+            position: relative
+        }
+
+        .f-top {
+            display: grid;
+            gap: 44px;
+            padding-block: clamp(64px, 9vw, 120px) clamp(28px, 4vw, 56px)
+        }
+
+        @media(min-width:900px) {
+            .f-top {
+                grid-template-columns: 1.3fr 2fr;
+                gap: 64px
+            }
+        }
+
+        .f-cta h2 {
+            color: #fff;
+            font-size: clamp(2rem, 4vw, 3.4rem);
+            font-weight: 800;
+            max-width: 11ch;
+            margin-bottom: 24px
+        }
+
+        .f-cols {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px
+        }
+
+        @media(max-width:560px) {
+            .f-cols {
+                grid-template-columns: 1fr 1fr
+            }
+        }
+
+        .f-cols h5 {
+            font-size: .9rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 16px;
+            letter-spacing: 0
+        }
+
+        .f-cols ul {
+            display: grid;
+            gap: 11px
+        }
+
+        .f-cols a,
+        .f-cols span {
+            color: rgba(255, 255, 255, .7);
+            font-size: .94rem;
+            transition: color .2s
+        }
+
+        .f-cols a:hover {
+            color: #fff
+        }
+
+        .foot-bridge {
+            width: 100%;
+            height: auto;
+            color: #fff;
+            margin-top: 8px
+        }
+
+        .fl {
+            animation: blink2 2.4s ease-in-out infinite alternate
+        }
+
+        .wv {
+            animation: rip 6s ease-in-out infinite alternate
+        }
+
+        .wv.w2 {
+            animation-delay: -3s
+        }
+
+        .f-word {
+            font-family: var(--disp);
+            font-weight: 800;
+            text-align: center;
+            letter-spacing: -.06em;
+            line-height: .8;
+            font-size: clamp(4.5rem, 21vw, 22rem);
+            color: var(--mist);
+            padding-top: .06em;
+            overflow: hidden;
+            user-select: none
+        }
+
+        .f-word .l {
+            display: inline-block
+        }
+
+        .f-bot {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px 28px;
+            justify-content: space-between;
+            align-items: center;
+            padding-block: 26px calc(26px + env(safe-area-inset-bottom, 0px));
+            font-size: .86rem;
+            color: rgba(255, 255, 255, .6);
+            border-top: 1px solid rgba(255, 255, 255, .12);
+            margin-top: 8px
+        }
+
+        .f-bot nav {
+            display: flex;
+            gap: 22px;
+            flex-wrap: wrap
+        }
+
+        .f-bot a:hover {
+            color: #fff
+        }
+
+        .totop {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            color: #fff
+        }
+
+        .totop svg {
+            width: 16px;
+            height: 16px
+        }
+
+        .dock::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 30px;
+            background: conic-gradient(from 0deg, var(--green), var(--gold), var(--green));
+            z-index: -1;
+            opacity: .2;
+            animation: dockglow 5s linear infinite
+        }
+
+        @keyframes dockglow {
+            0% {
+                filter: blur(8px) hue-rotate(0deg)
+            }
+
+            50% {
+                filter: blur(12px) hue-rotate(15deg)
+            }
+
+            100% {
+                filter: blur(8px) hue-rotate(0deg)
+            }
+        }
+
+        .dock {
+            position: relative
+        }
+
+        .cat {
+            transition: transform .6s var(--ease), box-shadow .6s var(--ease)
+        }
+
+        .cat:hover {
+            box-shadow: 0 20px 50px -15px rgba(0, 0, 0, .25)
+        }
+
+        .sec-divider {
+            width: 60px;
+            height: 3px;
+            border-radius: 2px;
+            background: linear-gradient(90deg, var(--green), var(--gold));
+            margin-bottom: 20px;
+            opacity: 0;
+            transform: scaleX(0);
+            transform-origin: 0 50%;
+            transition: transform .8s var(--ease), opacity .6s
+        }
+
+        @media(prefers-reduced-motion:reduce) {
+            html {
+                scroll-behavior: auto
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation: none !important;
+                transition-duration: .01ms !important
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <a class="skip" href="#main">Skip to content</a>
+    <div class="progress" id="progress" aria-hidden="true"></div>
+
+    <header class="hdr" id="hdr">
+        <div class="pill-nav">
+            <a class="brand" href="#top" aria-label="NaijaPro home">
+                NaijaPro
+            </a>
+            <nav class="nav" aria-label="Primary">
+                <a href="#find">Find artisans</a>
+                <span class="nav-sep" aria-hidden="true"></span>
+                <a href="#escrow">Escrow</a>
+                <span class="nav-sep" aria-hidden="true"></span>
+                <a href="#artisans">Top rated</a>
+            </nav>
+            <div class="pill-act">
+                <a class="btn-pill" href="#match" data-magnet>Post a job</a>
+                <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false"
+                    aria-controls="menu"><span></span><span></span></button>
+            </div>
+        </div>
+    </header>
+
+    <div class="menu" id="menu" aria-label="Menu">
+        <a class="m" href="#find">Find artisans</a>
+        <a class="m" href="#escrow">How escrow works</a>
+        <a class="m" href="#artisans">Top rated</a>
+        <a class="m" href="#match">Post a job</a>
+        <small>Lagos &amp; Abuja · Escrow-protected</small>
+    </div>
+
+    <main id="main">
+        <!-- ================= HERO ================= -->
+        <section class="hero" id="hero" aria-label="NaijaPro introduction">
+            <div class="hero-stage">
+                <svg id="scene" viewBox="0 0 1400 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            <filter id="sglow"><feGaussianBlur stdDeviation="2"/></filter>
+            <linearGradient id="fadeL" x1="0" y1="0" x2="620" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#03150E"/><stop offset="1" stop-color="#03150E" stop-opacity="0"/></linearGradient>
+            <linearGradient id="fadeB" x1="0" y1="680" x2="0" y2="900" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#03150E" stop-opacity="0"/><stop offset="1" stop-color="#03150E"/></linearGradient>
+            <clipPath id="pc"><path d="M735 660 L758 570 L764 210 L690 70 L738 42 L793 148 L800 166 L807 148 L862 42 L910 70 L836 210 L842 570 L865 660 Z"/></clipPath>
+        </defs>
+        <g id="sky"><rect x="0" y="0" width="1400" height="900" fill="#03150E"/></g>
+        <g id="L-clouds" opacity=".04"><line x1="50" y1="100" x2="300" y2="100" stroke="#EAF7EE" stroke-width="1"/><line x1="400" y1="70" x2="620" y2="70" stroke="#EAF7EE" stroke-width=".8"/><line x1="1000" y1="95" x2="1280" y2="95" stroke="#EAF7EE" stroke-width=".8"/></g>
+        <g id="L-sun"><circle cx="350" cy="200" r="50" fill="none" stroke="#EAF7EE" stroke-width=".8" opacity=".04"/></g>
+        <g id="sun-shift"></g>
+        <g id="stars" opacity="0"><circle cx="100" cy="40" r="1.5" fill="#EAF7EE" class="tw"/><circle cx="300" cy="80" r="1" fill="#EAF7EE" class="tw" style="animation-delay:-1s"/><circle cx="500" cy="30" r="1.5" fill="#EAF7EE" class="tw" style="animation-delay:-2s"/><circle cx="700" cy="60" r="1" fill="#EAF7EE" class="tw" style="animation-delay:-.5s"/><circle cx="1000" cy="45" r="1.5" fill="#EAF7EE" class="tw" style="animation-delay:-1.5s"/><circle cx="1200" cy="70" r="1" fill="#EAF7EE" class="tw" style="animation-delay:-2.5s"/><circle cx="150" cy="130" r="1" fill="#EAF7EE" class="tw" style="animation-delay:-.8s"/><circle cx="850" cy="25" r="1.2" fill="#EAF7EE" class="tw" style="animation-delay:-1.8s"/><circle cx="1100" cy="110" r="1" fill="#EAF7EE" class="tw" style="animation-delay:-.3s"/></g>
+        <g id="night" opacity="0"><rect x="0" y="0" width="1400" height="900" fill="#03150E"/></g>
+        <g id="L-far" fill="#0a2e1c" opacity=".55"><rect x="20" y="380" width="50" height="200" rx="2"/><rect x="85" y="340" width="42" height="240" rx="2"/><rect x="140" y="400" width="58" height="180" rx="2"/><rect x="215" y="355" width="38" height="225" rx="2"/><rect x="268" y="415" width="48" height="165" rx="2"/><rect x="330" y="370" width="55" height="210" rx="2"/><rect x="400" y="405" width="40" height="175" rx="2"/><rect x="1000" y="365" width="48" height="215" rx="2"/><rect x="1062" y="340" width="42" height="240" rx="2"/><rect x="1120" y="385" width="55" height="195" rx="2"/><rect x="1190" y="355" width="38" height="225" rx="2"/><rect x="1245" y="395" width="50" height="185" rx="2"/><rect x="1310" y="365" width="45" height="215" rx="2"/><rect x="1370" y="400" width="30" height="180" rx="2"/></g>
+        <g id="L-mid" fill="#064E3B" opacity=".7"><rect x="35" y="410" width="55" height="170" rx="2"/><rect x="105" y="365" width="48" height="215" rx="2"/><rect x="170" y="430" width="62" height="150" rx="2"/><rect x="250" y="385" width="42" height="195" rx="2"/><rect x="310" y="445" width="50" height="135" rx="2"/><rect x="375" y="400" width="48" height="180" rx="2"/><rect x="1015" y="405" width="50" height="175" rx="2"/><rect x="1085" y="375" width="45" height="205" rx="2"/><rect x="1150" y="415" width="58" height="165" rx="2"/><rect x="1230" y="385" width="42" height="195" rx="2"/><rect x="1290" y="420" width="52" height="160" rx="2"/><rect x="1355" y="395" width="45" height="185" rx="2"/></g>
+        <g id="L-mid-lights" opacity="0" fill="#16A34A"><rect x="50" y="425" width="5" height="5" rx="1"/><rect x="65" y="445" width="5" height="5" rx="1"/><rect x="50" y="465" width="5" height="5" rx="1"/><rect x="120" y="380" width="5" height="5" rx="1"/><rect x="135" y="400" width="5" height="5" rx="1"/><rect x="185" y="445" width="5" height="5" rx="1"/><rect x="200" y="465" width="5" height="5" rx="1"/><rect x="265" y="400" width="5" height="5" rx="1"/><rect x="280" y="420" width="5" height="5" rx="1"/><rect x="1030" y="420" width="5" height="5" rx="1"/><rect x="1100" y="390" width="5" height="5" rx="1"/><rect x="1100" y="410" width="5" height="5" rx="1"/><rect x="1165" y="430" width="5" height="5" rx="1"/><rect x="1180" y="450" width="5" height="5" rx="1"/><rect x="1245" y="400" width="5" height="5" rx="1"/><rect x="1305" y="435" width="5" height="5" rx="1"/></g>
+        <g id="L-water"><line x1="0" y1="660" x2="1400" y2="660" stroke="#EAF7EE" stroke-width=".5" opacity=".06"/><line x1="0" y1="700" x2="1400" y2="700" stroke="#EAF7EE" stroke-width=".4" opacity=".04"/><line x1="0" y1="740" x2="1400" y2="740" stroke="#EAF7EE" stroke-width=".3" opacity=".03"/><line x1="0" y1="780" x2="1400" y2="780" stroke="#EAF7EE" stroke-width=".3" opacity=".02"/><line x1="0" y1="820" x2="1400" y2="820" stroke="#EAF7EE" stroke-width=".2" opacity=".015"/></g>
+        <g id="shimmer"><line x1="680" y1="670" x2="920" y2="670" stroke="#EAF7EE" stroke-width="1" opacity=".08" class="shim"/><line x1="700" y1="710" x2="900" y2="710" stroke="#EAF7EE" stroke-width=".8" opacity=".06" class="shim"/><line x1="710" y1="750" x2="890" y2="750" stroke="#EAF7EE" stroke-width=".6" opacity=".04" class="shim"/></g>
+        <g id="shimmer-shift"></g>
+        <g id="L-bridge">
+          <g id="deck"><path d="M0 615 L1400 520 L1400 548 L0 643 Z" fill="#064E3B" opacity=".9"/><path d="M0 643 L1400 548 L1400 556 L0 651 Z" fill="#03301F" opacity=".4"/></g>
+          <g id="pylon">
+            <path d="M735 660 L758 570 L764 210 L690 70 L738 42 L793 148 L800 166 L807 148 L862 42 L910 70 L836 210 L842 570 L865 660 Z" fill="#16A34A"/>
+            <path d="M764 210 L772 210 L776 570 L758 570 Z" fill="#1a8a4a" opacity=".3"/>
+            <rect x="778" y="240" width="44" height="30" rx="2" fill="#03150E"/>
+            <rect x="780" y="298" width="40" height="26" rx="2" fill="#03150E"/>
+            <rect x="782" y="350" width="36" height="22" rx="2" fill="#03150E"/>
+            <g clip-path="url(#pc)" stroke="#0d7a36" stroke-width="1.5" opacity=".35"><line x1="730" y1="220" x2="870" y2="220"/><line x1="732" y1="240" x2="868" y2="240"/><line x1="733" y1="260" x2="867" y2="260"/><line x1="734" y1="280" x2="866" y2="280"/><line x1="736" y1="300" x2="864" y2="300"/><line x1="737" y1="320" x2="863" y2="320"/><line x1="738" y1="340" x2="862" y2="340"/><line x1="739" y1="360" x2="861" y2="360"/><line x1="740" y1="380" x2="860" y2="380"/><line x1="742" y1="400" x2="858" y2="400"/><line x1="743" y1="420" x2="857" y2="420"/><line x1="744" y1="440" x2="856" y2="440"/><line x1="746" y1="460" x2="854" y2="460"/><line x1="747" y1="480" x2="853" y2="480"/><line x1="748" y1="500" x2="852" y2="500"/><line x1="750" y1="520" x2="850" y2="520"/><line x1="752" y1="540" x2="848" y2="540"/><line x1="754" y1="560" x2="846" y2="560"/><line x1="756" y1="580" x2="844" y2="580"/><line x1="758" y1="600" x2="842" y2="600"/><line x1="760" y1="620" x2="840" y2="620"/><line x1="762" y1="640" x2="838" y2="640"/></g>
+          </g>
+          <g stroke="#EAF7EE" stroke-width=".8" opacity=".15"><line x1="800" y1="166" x2="80" y2="615"/><line x1="800" y1="166" x2="220" y2="605"/><line x1="800" y1="166" x2="360" y2="593"/><line x1="800" y1="166" x2="500" y2="582"/><line x1="800" y1="166" x2="650" y2="572"/><line x1="800" y1="166" x2="950" y2="553"/><line x1="800" y1="166" x2="1100" y2="540"/><line x1="800" y1="166" x2="1250" y2="528"/></g>
+          <g stroke="#FBBF24" stroke-width="1" opacity=".4"><line class="stay" x1="800" y1="166" x2="130" y2="610"/><line class="stay" x1="800" y1="166" x2="280" y2="600"/><line class="stay" x1="800" y1="166" x2="430" y2="588"/><line class="stay" x1="800" y1="166" x2="580" y2="577"/><line class="stay" x1="800" y1="166" x2="700" y2="568"/><line class="stay" x1="800" y1="166" x2="900" y2="555"/><line class="stay" x1="800" y1="166" x2="1030" y2="544"/><line class="stay" x1="800" y1="166" x2="1180" y2="532"/><line class="stay" x1="800" y1="166" x2="1330" y2="522"/></g>
+        </g>
+        <g id="L-bridge-lights" opacity="0"><circle cx="180" cy="607" r="3" fill="#EAF7EE" filter="url(#glow)"/><circle cx="350" cy="595" r="3" fill="#EAF7EE" filter="url(#glow)"/><circle cx="520" cy="582" r="3" fill="#EAF7EE" filter="url(#glow)"/><circle cx="680" cy="570" r="3" fill="#EAF7EE" filter="url(#glow)"/><circle cx="850" cy="557" r="3" fill="#EAF7EE" filter="url(#glow)"/><circle cx="1020" cy="544" r="3" fill="#EAF7EE" filter="url(#glow)"/><circle cx="1190" cy="531" r="3" fill="#EAF7EE" filter="url(#glow)"/><circle cx="1350" cy="520" r="3" fill="#EAF7EE" filter="url(#glow)"/><circle cx="800" cy="42" r="5" fill="#FBBF24" filter="url(#glow)"/></g>
+        <g id="L-fg" fill="none" stroke="#EAF7EE" opacity=".06"><path d="M0 680Q120 668 240 676Q380 686 500 672L510 690L510 900L0 900Z"/><path d="M890 670Q1020 658 1150 668Q1300 680 1400 668L1400 900L890 900Z"/></g>
+        <g id="pylon-top"><circle cx="800" cy="42" r="1"/></g>
+        <rect x="0" y="0" width="620" height="900" fill="url(#fadeL)"/>
+        <rect x="0" y="0" width="1400" height="900" fill="url(#fadeB)"/>
+        </svg>
+                <div class="hero-shade" aria-hidden="true"></div>
+                <div class="hero-copy wrap-wide">
+                    <p class="hero-chip"><svg viewBox="0 0 20 20" fill="none">
+                            <path d="M10 2l6 2.5v4c0 4.4-2.6 8.1-6 9.5-3.4-1.4-6-5.1-6-9.5v-4L10 2z"
+                                stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" />
+                            <path d="M7.3 10l1.9 1.9 3.6-3.9" stroke="currentColor" stroke-width="1.6"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>Escrow-protected. BVN &amp; NIN verified.</p>
+                    <h1 id="hero-h1" aria-label="Fix it right. Pay when it’s done."><span class="line">Fix it
+                            right.</span><span class="line">Pay when</span><span class="line">it’s done.</span></h1>
+                </div>
+                <div class="hero-foot wrap-wide">
+                    <div>
+                        <p class="hero-sub">Vetted artisans across Lagos and Abuja. Your money waits in escrow until you
+                            approve the work.</p>
+                        <div class="hero-cta">
+                            <a class="btn btn-gold" href="#match" data-magnet>Post a job <svg viewBox="0 0 20 20"
+                                    fill="none">
+                                    <path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg></a>
+                            <a class="btn btn-glass" href="#artisans">Browse artisans</a>
+                        </div>
+                    </div>
+                    <p class="hero-live"><i></i><span>₦48.6M in escrow right now</span></p>
+                </div>
+                <div class="hero-tag" id="hero-tag" aria-hidden="true"><span class="ht-line"></span><span>Lekki–Ikoyi
+                        Link Bridge<br><small>Lagos, Nigeria</small></span></div>
+                <div class="scroll-cue" aria-hidden="true"><span></span></div>
+            </div>
+        </section>
+
+        <!-- ================= FIND ================= -->
+        <section class="find" id="find" aria-label="Find a pro">
+            <div class="wrap">
+                <div class="dock" id="dock">
+                    <form class="dock-form" id="search-form" novalidate>
+                        <div class="dock-f">
+                            <svg viewBox="0 0 20 20" fill="none">
+                                <path d="M12.5 3.5a3.5 3.5 0 004.2 4.2l-9 9a2 2 0 01-2.8-2.8l9-9a3.5 3.5 0 01-1.4-1.4z"
+                                    stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" />
+                            </svg>
+                            <div style="min-width:0;flex:1"><label for="trade">Trade</label>
+                                <select id="trade" name="trade">
+                                    <option value="electrical">Electrical &amp; wiring</option>
+                                    <option value="solar">Solar &amp; inverter</option>
+                                    <option value="hvac" selected>AC &amp; HVAC servicing</option>
+                                    <option value="plumbing">Plumbing &amp; borehole</option>
+                                    <option value="carpentry">Carpentry &amp; cabinetry</option>
+                                    <option value="tiling">Tiling &amp; POP ceiling</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="dock-f">
+                            <svg viewBox="0 0 20 20" fill="none">
+                                <path d="M10 18s6-5.7 6-10a6 6 0 10-12 0c0 4.3 6 10 6 10z" stroke="currentColor"
+                                    stroke-width="1.6" />
+                                <circle cx="10" cy="8" r="2.2" stroke="currentColor" stroke-width="1.6" />
+                            </svg>
+                            <div style="min-width:0;flex:1"><label for="area">Area</label>
+                                <select id="area" name="area">
+                                    <option selected>Lekki Phase 1 &amp; Ikoyi, Lagos</option>
+                                    <option>Ikeja GRA &amp; Maryland, Lagos</option>
+                                    <option>Victoria Island &amp; Oniru, Lagos</option>
+                                    <option>Maitama &amp; Wuse 2, Abuja</option>
+                                    <option>Gwarinpa &amp; Jabi, Abuja</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="dock-f">
+                            <svg viewBox="0 0 20 20" fill="none">
+                                <path d="M11 2L4 12h5l-1 6 7-10h-5l1-6z" stroke="currentColor" stroke-width="1.6"
+                                    stroke-linejoin="round" />
+                            </svg>
+                            <div style="min-width:0;flex:1"><label for="when">When</label>
+                                <select id="when" name="when">
+                                    <option selected>Today</option>
+                                    <option>This week</option>
+                                    <option>Flexible</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button class="btn btn-green dock-go" type="submit">Find pros</button>
+                    </form>
+                    <div class="tags"><span>Popular in Lagos:</span>
+                        <button type="button" data-key="solar">Inverter diagnostic</button>
+                        <button type="button" data-key="hvac">Split AC gas recharge</button>
+                        <button type="button" data-key="plumbing">Water pump repair</button>
+                    </div>
+                </div>
+
+                <div class="stats" id="stats">
+                    <div class="stat">
+                        <svg class="stat-ic" viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="2.4"
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <rect x="10" y="24" width="36" height="24" rx="6" />
+                            <path d="M18 24v-6a10 10 0 0120 0v6" />
+                            <circle cx="28" cy="36" r="3.5" fill="#FBBF24" stroke="none" />
+                        </svg>
+                        <div>
+                            <div class="stat-n">₦<span class="count" data-to="48.6" data-dec="1">48.6</span>M</div>
+                            <div class="stat-l">held in escrow now</div>
+                        </div>
+                    </div>
+                    <div class="stat">
+                        <svg class="stat-ic" viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="2.4"
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M33 12a9 9 0 0010 10L22 43a5 5 0 01-7-7l21-21" />
+                            <circle cx="44" cy="12" r="3" fill="#FBBF24" stroke="none" />
+                        </svg>
+                        <div>
+                            <div class="stat-n"><span class="count" data-to="429" data-dec="0">429</span></div>
+                            <div class="stat-l">jobs in progress</div>
+                        </div>
+                    </div>
+                    <div class="stat">
+                        <svg class="stat-ic" viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="2.4"
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <rect x="8" y="17" width="40" height="22" rx="5" />
+                            <circle cx="28" cy="28" r="5" />
+                            <path d="M10 46L46 10" stroke="#FBBF24" />
+                        </svg>
+                        <div>
+                            <div class="stat-n"><span class="count" data-to="0" data-dec="0">0</span></div>
+                            <div class="stat-l">cash-in-hand payments</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= MARQUEE ================= -->
+        <section class="marquee"
+            aria-label="Neighbourhoods we cover: Lekki, Ikoyi, Victoria Island, Yaba, Ikeja, Surulere, Ajah, Oniru, Maitama, Wuse, Jabi, Gwarinpa, Garki, Asokoro, Katampe and Lugbe">
+            <div class="mq-row mq-r1" aria-hidden="true">
+                <div class="mq-track"><span>Lekki</span><svg class="mq-st" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 1l2 4.5 5 .7-3.6 3.5.9 5L8 12.3 3.7 14.7l.9-5L1 6.2l5-.7z" />
+                    </svg><span>Ikoyi</span><svg class="mq-st" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 1l2 4.5 5 .7-3.6 3.5.9 5L8 12.3 3.7 14.7l.9-5L1 6.2l5-.7z" />
+                    </svg><span>Victoria Island</span><svg class="mq-st" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 1l2 4.5 5 .7-3.6 3.5.9 5L8 12.3 3.7 14.7l.9-5L1 6.2l5-.7z" />
+                    </svg><span>Yaba</span><svg class="mq-st" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 1l2 4.5 5 .7-3.6 3.5.9 5L8 12.3 3.7 14.7l.9-5L1 6.2l5-.7z" />
+                    </svg><span>Ikeja</span><svg class="mq-st" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 1l2 4.5 5 .7-3.6 3.5.9 5L8 12.3 3.7 14.7l.9-5L1 6.2l5-.7z" />
+                    </svg><span>Surulere</span><svg class="mq-st" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 1l2 4.5 5 .7-3.6 3.5.9 5L8 12.3 3.7 14.7l.9-5L1 6.2l5-.7z" />
+                    </svg><span>Ajah</span><svg class="mq-st" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 1l2 4.5 5 .7-3.6 3.5.9 5L8 12.3 3.7 14.7l.9-5L1 6.2l5-.7z" />
+                    </svg><span>Oniru</span><svg class="mq-st" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 1l2 4.5 5 .7-3.6 3.5.9 5L8 12.3 3.7 14.7l.9-5L1 6.2l5-.7z" />
+                    </svg><span>Lekki</span><svg class="mq-st" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 1l2 4.5 5 .7-3.6 3.5.9 5L8 12.3 3.7 14.7l.9-5L1 6.2l5-.7z" />
+                    </svg><span>Ikoyi</span><svg class="mq-st" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 1l2 4.5 5 .7-3.6 3.5.9 5L8 12.3 3.7 14.7l.9-5L1 6.2l5-.7z" />
+                    </svg><span>Victoria Island</span><svg class="mq-st" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 1l2 4.5 5 .7-3.6 3.5.9 5L8 12.3 3.7 14.7l.9-5L1 6.2l5-.7z" />
+                    </svg><span>Yaba</span><svg class="mq-st" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 1l2 4.5 5 .7-3.6 3.5.9 5L8 12.3 3.7 14.7l.9-5L1 6.2l5-.7z" />
+                    </svg><span>Ikeja</span><svg class="mq-st" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 1l2 4.5 5 .7-3.6 3.5.9 5L8 12.3 3.7 14.7l.9-5L1 6.2l5-.7z" />
+                    </svg><span>Surulere</span><svg class="mq-st" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 1l2 4.5 5 .7-3.6 3.5.9 5L8 12.3 3.7 14.7l.9-5L1 6.2l5-.7z" />
+                    </svg><span>Ajah</span><svg class="mq-st" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 1l2 4.5 5 .7-3.6 3.5.9 5L8 12.3 3.7 14.7l.9-5L1 6.2l5-.7z" />
+                    </svg><span>Oniru</span></div>
+            </div>
+            <div class="mq-row mq-r2" aria-hidden="true">
+                <div class="mq-track"><span>Maitama</span><svg class="mq-st" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 1l2 4.5 5 .7-3.6 3.5.9 5L8 12.3 3.7 14.7l.9-5L1 6.2l5-.7z" />
+                    </svg><span>Wuse</span><svg class="mq-st" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 1l2 4.5 5 .7-3.6 3.5.9 5L8 12.3 3.7 14.7l.9-5L1 6.2l5-.7z" />
+                    </svg><span>Jabi</span><svg class="mq-st" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 1l2 4.5 5 .7-3.6 3.5.9 5L8 12.3 3.7 14.7l.9-5L1 6.2l5-.7z" />
+                    </svg><span>Gwarinpa</span><svg class="mq-st" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 1l2 4.5 5 .7-3.6 3.5.9 5L8 12.3 3.7 14.7l.9-5L1 6.2l5-.7z" />
+                    </svg><span>Garki</span><svg class="mq-st" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 1l2 4.5 5 .7-3.6 3.5.9 5L8 12.3 3.7 14.7l.9-5L1 6.2l5-.7z" />
+                    </svg><span>Asokoro</span><svg class="mq-st" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 1l2 4.5 5 .7-3.6 3.5.9 5L8 12.3 3.7 14.7l.9-5L1 6.2l5-.7z" />
+                    </svg><span>Katampe</span><svg class="mq-st" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 1l2 4.5 5 .7-3.6 3.5.9 5L8 12.3 3.7 14.7l.9-5L1 6.2l5-.7z" />
+                    </svg><span>Lugbe</span><svg class="mq-st" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 1l2 4.5 5 .7-3.6 3.5.9 5L8 12.3 3.7 14.7l.9-5L1 6.2l5-.7z" />
+                    </svg><span>Maitama</span><svg class="mq-st" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 1l2 4.5 5 .7-3.6 3.5.9 5L8 12.3 3.7 14.7l.9-5L1 6.2l5-.7z" />
+                    </svg><span>Wuse</span><svg class="mq-st" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 1l2 4.5 5 .7-3.6 3.5.9 5L8 12.3 3.7 14.7l.9-5L1 6.2l5-.7z" />
+                    </svg><span>Jabi</span><svg class="mq-st" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 1l2 4.5 5 .7-3.6 3.5.9 5L8 12.3 3.7 14.7l.9-5L1 6.2l5-.7z" />
+                    </svg><span>Gwarinpa</span><svg class="mq-st" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 1l2 4.5 5 .7-3.6 3.5.9 5L8 12.3 3.7 14.7l.9-5L1 6.2l5-.7z" />
+                    </svg><span>Garki</span><svg class="mq-st" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 1l2 4.5 5 .7-3.6 3.5.9 5L8 12.3 3.7 14.7l.9-5L1 6.2l5-.7z" />
+                    </svg><span>Asokoro</span><svg class="mq-st" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 1l2 4.5 5 .7-3.6 3.5.9 5L8 12.3 3.7 14.7l.9-5L1 6.2l5-.7z" />
+                    </svg><span>Katampe</span><svg class="mq-st" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 1l2 4.5 5 .7-3.6 3.5.9 5L8 12.3 3.7 14.7l.9-5L1 6.2l5-.7z" />
+                    </svg><span>Lugbe</span></div>
+            </div>
+        </section>
+
+        <!-- ================= ESCROW ================= -->
+        <section class="escrow" id="escrow" aria-labelledby="esc-h">
+            <div class="wrap esc-inner">
+                <div class="esc-copy">
+                    <h2 id="esc-h" data-split>Your money moves only when you say so.</h2>
+                    <ol class="esc-steps" id="esc-steps">
+                        <li class="esc-step is-on"><span class="esc-n">1</span>
+                            <h3>Fund it</h3>
+                            <p>Lock the agreed quote in escrow. The artisan gets the go-ahead.</p><small><svg
+                                    viewBox="0 0 20 20" fill="none">
+                                    <path
+                                        d="M3 8h14M5 8V6a2 2 0 012-2h6a2 2 0 012 2v2m-11 0v8a2 2 0 002 2h8a2 2 0 002-2V8"
+                                        stroke="currentColor" stroke-width="1.6" />
+                                </svg>Held by a licensed bank custodian</small>
+                        </li>
+                        <li class="esc-step"><span class="esc-n">2</span>
+                            <h3>Watch it</h3>
+                            <p>Timestamped photos and material receipts arrive as the work happens.</p><small><svg
+                                    viewBox="0 0 20 20" fill="none">
+                                    <circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.6" />
+                                    <path d="M10 6v4l3 2" stroke="currentColor" stroke-width="1.6"
+                                        stroke-linecap="round" />
+                                </svg>Live activity log, visible to you</small>
+                        </li>
+                        <li class="esc-step"><span class="esc-n">3</span>
+                            <h3>Approve it</h3>
+                            <p>Happy? One tap releases the money. Not happy? Our dispute desk steps in.</p><small><svg
+                                    viewBox="0 0 20 20" fill="none">
+                                    <path d="M4 10l4 4 8-9" stroke="currentColor" stroke-width="1.8"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>No release without your say-so</small>
+                        </li>
+                    </ol>
+                    <div class="esc-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+                </div>
+                <div class="esc-stage">
+                    <svg id="esc-svg" viewBox="0 0 900 500" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                        role="img"
+                        aria-label="Diagram: your payment goes into a locked escrow, work is documented, then you approve and the money is released to the artisan.">
+                        <defs>
+                            <radialGradient id="glowG">
+                                <stop offset="0" stop-color="#FBBF24" stop-opacity=".5" />
+                                <stop offset="1" stop-color="#FBBF24" stop-opacity="0" />
+                            </radialGradient>
+                        </defs>
+                        <circle id="esc-glow" cx="450" cy="290" r="250" fill="url(#glowG)" opacity="0" />
+                        <path class="flow" d="M172 325H332" stroke="#3f7a5b" stroke-width="2.5" />
+                        <path class="flow" d="M568 325H716" stroke="#3f7a5b" stroke-width="2.5" />
+                        <path id="esc-ring" pathLength="1" d="M450 110A175 175 0 0 1 450 460A175 175 0 0 1 450 110"
+                            stroke="#FBBF24" stroke-width="3" opacity=".9" />
+                        <!-- client phone -->
+                        <g transform="translate(110 325)">
+                            <rect x="-44" y="-82" width="88" height="164" rx="18" fill="#0b3b2a" stroke="#EAF7EE"
+                                stroke-width="2.5" />
+                            <path d="M-14 -66h28" stroke="#EAF7EE" stroke-opacity=".5" stroke-width="3" />
+                            <path d="M-26 -34h52M-26 -16h34" stroke="#EAF7EE" stroke-opacity=".3" stroke-width="3" />
+                            <rect x="-28" y="34" width="56" height="26" rx="13" fill="#16A34A" stroke="none" />
+                            <text y="52" text-anchor="middle" font-size="12" font-weight="700" fill="#fff" stroke="none"
+                                font-family="Figtree,system-ui,sans-serif">Fund</text>
+                        </g>
+                        <text x="110" y="490" text-anchor="middle" font-size="16" fill="#9cc9ae" stroke="none"
+                            font-family="Figtree,system-ui,sans-serif">You</text>
+                        <!-- padlock -->
+                        <g id="lock">
+                            <g id="shackle">
+                                <path d="M398 258V212a52 52 0 0 1 104 0V258" stroke="#FBBF24" stroke-width="14" />
+                            </g>
+                            <rect x="350" y="250" width="200" height="150" rx="28" fill="#0b3b2a" stroke="#16A34A"
+                                stroke-width="3" />
+                            <circle cx="450" cy="313" r="15" fill="#03150E" stroke="none" />
+                            <path d="M450 320V346" stroke="#03150E" stroke-width="9" stroke-linecap="round" />
+                        </g>
+                        <text x="450" y="490" text-anchor="middle" font-size="16" fill="#9cc9ae" stroke="none"
+                            font-family="Figtree,system-ui,sans-serif">Escrow</text>
+                        <g id="esc-tick">
+                            <circle cx="450" cy="325" r="38" fill="#16A34A" stroke="none" />
+                            <path d="M432 326l13 13 24-27" stroke="#fff" stroke-width="7" />
+                        </g>
+                        <!-- proof chips -->
+                        <g class="chip-g" transform="translate(348 420)">
+                            <g class="pc">
+                                <rect x="-38" y="-24" width="76" height="48" rx="12" fill="#0b3b2a" stroke="#3f7a5b"
+                                    stroke-width="2" />
+                                <path d="M-20 12l11-14 8 9 7-8 14 13" stroke="#EAF7EE" stroke-width="2.4" />
+                                <circle cx="-12" cy="-8" r="3.2" fill="#FBBF24" stroke="none" />
+                            </g>
+                        </g>
+                        <g class="chip-g" transform="translate(450 432)">
+                            <g class="pc">
+                                <rect x="-38" y="-24" width="76" height="48" rx="12" fill="#0b3b2a" stroke="#3f7a5b"
+                                    stroke-width="2" />
+                                <path d="M-16 -12h32M-16 -3h32M-16 6h20" stroke="#EAF7EE" stroke-width="2.4" />
+                            </g>
+                        </g>
+                        <g class="chip-g" transform="translate(552 420)">
+                            <g class="pc">
+                                <rect x="-38" y="-24" width="76" height="48" rx="12" fill="#0b3b2a" stroke="#3f7a5b"
+                                    stroke-width="2" />
+                                <circle cx="0" cy="0" r="14" stroke="#EAF7EE" stroke-width="2.4" />
+                                <path d="M0 -7v7l5 3" stroke="#FBBF24" stroke-width="2.4" />
+                            </g>
+                        </g>
+                        <!-- artisan -->
+                        <g id="art-node">
+                            <circle id="art-glow" cx="790" cy="325" r="105" fill="url(#glowG)" opacity="0" />
+                            <circle cx="790" cy="325" r="72" fill="#0b3b2a" stroke="#EAF7EE" stroke-opacity=".6"
+                                stroke-width="2.5" />
+                            <path d="M748 336a42 38 0 0 1 84 0z" fill="#FBBF24" stroke="none" />
+                            <rect x="738" y="334" width="104" height="11" rx="5.5" fill="#f0a500" stroke="none" />
+                            <path d="M790 300v-6" stroke="#f0a500" stroke-width="8" />
+                            <path d="M770 366h40" stroke="#EAF7EE" stroke-opacity=".5" stroke-width="5" />
+                        </g>
+                        <g transform="translate(838 268) scale(1.7)">
+                            <g id="wrench">
+                                <path
+                                    d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"
+                                    fill="#16A34A" stroke="#EAF7EE" stroke-width="1.2" transform="translate(-12 -12)" />
+                            </g>
+                        </g>
+                        <text x="790" y="490" text-anchor="middle" font-size="16" fill="#9cc9ae" stroke="none"
+                            font-family="Figtree,system-ui,sans-serif">Artisan</text>
+                        <g id="sparks" transform="translate(790 325)" fill="#FBBF24" stroke="none">
+                            <circle r="5" />
+                            <circle r="4" />
+                            <circle r="5" />
+                            <circle r="4" />
+                            <circle r="5" />
+                            <circle r="4" />
+                            <circle r="5" />
+                            <circle r="4" />
+                        </g>
+                        <!-- coins -->
+                        <g transform="translate(110 325)">
+                            <g id="coin">
+                                <circle r="24" fill="#FBBF24" stroke="none" />
+                                <circle r="18" stroke="#a86b00" stroke-width="2" /><text y="8" text-anchor="middle"
+                                    font-size="23" font-weight="800" fill="#4a3200" stroke="none"
+                                    font-family="Figtree,system-ui,sans-serif">₦</text>
+                            </g>
+                        </g>
+                        <g transform="translate(450 325)">
+                            <g id="coin2">
+                                <circle r="24" fill="#FBBF24" stroke="none" />
+                                <circle r="18" stroke="#a86b00" stroke-width="2" /><text y="8" text-anchor="middle"
+                                    font-size="23" font-weight="800" fill="#4a3200" stroke="none"
+                                    font-family="Figtree,system-ui,sans-serif">₦</text>
+                            </g>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= CATEGORIES ================= -->
+        <section class="sec" id="categories" aria-labelledby="cat-h">
+            <div class="wrap">
+                <div class="sec-head">
+                    <h2 id="cat-h" data-split>Every trade, verified.</h2>
+                    <p>24 verified trades across Lagos and Abuja. Tap one.</p>
+                </div>
+                <div class="cat-grid" id="cat-grid">
+                    <a class="cat" href="#artisans" data-key="hvac">
+                        <span class="cat-spot"></span>
+                        <svg class="ill" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-linecap="round"
+                            stroke-linejoin="round" aria-hidden="true">
+                            <rect x="12" y="24" width="96" height="32" rx="9" />
+                            <path d="M24 46h72" />
+                            <circle cx="94" cy="35" r="2.6" fill="var(--acc)" stroke="none" />
+                            <path class="a-air" d="M34 68c-7 9 7 13 0 24" stroke="var(--acc)" />
+                            <path class="a-air" d="M60 68c-7 9 7 13 0 24" stroke="var(--acc)" />
+                            <path class="a-air" d="M86 68c-7 9 7 13 0 24" stroke="var(--acc)" />
+                        </svg>
+                        <div>
+                            <h3>AC repair</h3><span class="cat-count"><b class="count" data-to="118"
+                                    data-dec="0">118</b> pros active</span>
+                        </div>
+                        <span class="cat-go" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none">
+                                <path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg></span>
+                    </a>
+                    <a class="cat" href="#artisans" data-key="solar">
+                        <span class="cat-spot"></span>
+                        <svg class="ill" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-linecap="round"
+                            stroke-linejoin="round" aria-hidden="true">
+                            <g class="a-spin">
+                                <circle cx="60" cy="34" r="12" fill="var(--acc)" stroke="none" />
+                                <path d="M60 10v6M60 52v6M36 34h6M78 34h6M43 17l4 4M73 47l4 4M77 17l-4 4M47 47l-4 4"
+                                    stroke="var(--acc)" />
+                            </g>
+                            <path d="M20 106l12-34h56l12 34z" />
+                            <path d="M28 89h64M50 72l-5 34M70 72l5 34" />
+                        </svg>
+                        <div>
+                            <h3>Solar &amp; inverter</h3><span class="cat-count"><b class="count" data-to="94"
+                                    data-dec="0">94</b> pros active</span>
+                        </div>
+                        <span class="cat-go" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none">
+                                <path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg></span>
+                    </a>
+                    <a class="cat" href="#artisans" data-key="plumbing">
+                        <span class="cat-spot"></span>
+                        <svg class="ill" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-linecap="round"
+                            stroke-linejoin="round" aria-hidden="true">
+                            <path d="M10 34H62a14 14 0 0 1 14 14v8" />
+                            <rect x="66" y="56" width="20" height="10" rx="3" />
+                            <path d="M36 34V22M27 22h18" />
+                            <path class="a-drop" d="M76 72c-4 6-6 9-6 12a6 6 0 0 0 12 0c0-3-2-6-6-12z" fill="var(--acc)"
+                                stroke="none" />
+                            <path class="a-drop" d="M76 72c-4 6-6 9-6 12a6 6 0 0 0 12 0c0-3-2-6-6-12z" fill="var(--acc)"
+                                stroke="none" />
+                            <path class="a-drop" d="M76 72c-4 6-6 9-6 12a6 6 0 0 0 12 0c0-3-2-6-6-12z" fill="var(--acc)"
+                                stroke="none" />
+                            <path d="M44 112h64" />
+                        </svg>
+                        <div>
+                            <h3>Plumbing</h3><span class="cat-count"><b class="count" data-to="146" data-dec="0">146</b>
+                                pros active</span>
+                        </div>
+                        <span class="cat-go" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none">
+                                <path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg></span>
+                    </a>
+                    <a class="cat" href="#artisans" data-key="electrical">
+                        <span class="cat-spot"></span>
+                        <svg class="ill" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-linecap="round"
+                            stroke-linejoin="round" aria-hidden="true">
+                            <path d="M60 22a27 27 0 0 0-15 49c4 3 5 6 5 11h20c0-5 1-8 5-11A27 27 0 0 0 60 22z" />
+                            <path d="M50 92h20M53 102h14" />
+                            <path d="M50 52l10 12 10-12" stroke="var(--acc)" />
+                            <path class="a-ray" d="M60 8v6M28 20l4 4M92 20l-4 4M14 50h6M100 50h6" stroke="var(--acc)" />
+                        </svg>
+                        <div>
+                            <h3>Electrical</h3><span class="cat-count"><b class="count" data-to="204"
+                                    data-dec="0">204</b> pros active</span>
+                        </div>
+                        <span class="cat-go" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none">
+                                <path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg></span>
+                    </a>
+                    <a class="cat" href="#artisans" data-key="carpentry">
+                        <span class="cat-spot"></span>
+                        <svg class="ill" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-linecap="round"
+                            stroke-linejoin="round" aria-hidden="true">
+                            <rect x="10" y="76" width="100" height="24" rx="4" />
+                            <path d="M22 86h32M62 91h36M30 94h20" stroke-opacity=".6" />
+                            <g class="a-saw">
+                                <path d="M22 60h64V44L22 38z" />
+                                <path d="M22 60l4 5 4-5 4 5 4-5 4 5 4-5 4 5 4-5 4 5 4-5 4 5 4-5" />
+                                <path d="M86 42h16a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H86" stroke="var(--acc)" />
+                            </g>
+                            <circle class="a-dust" cx="58" cy="70" r="2.4" fill="var(--acc)" stroke="none" />
+                            <circle class="a-dust" cx="66" cy="70" r="2.4" fill="var(--acc)" stroke="none" />
+                            <circle class="a-dust" cx="50" cy="70" r="2.4" fill="var(--acc)" stroke="none" />
+                        </svg>
+                        <div>
+                            <h3>Carpentry</h3><span class="cat-count"><b class="count" data-to="87" data-dec="0">87</b>
+                                pros active</span>
+                        </div>
+                        <span class="cat-go" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none">
+                                <path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg></span>
+                    </a>
+                    <a class="cat" href="#artisans" data-key="tiling">
+                        <span class="cat-spot"></span>
+                        <svg class="ill" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-linecap="round"
+                            stroke-linejoin="round" aria-hidden="true">
+                            <rect class="a-tile" x="16" y="16" width="26" height="26" rx="5" />
+                            <rect class="a-tile" style="animation-delay:.2s" x="47" y="16" width="26" height="26"
+                                rx="5" />
+                            <rect class="a-tile" style="animation-delay:.4s" x="78" y="16" width="26" height="26" rx="5"
+                                fill="var(--acc)" stroke="none" />
+                            <rect class="a-tile" style="animation-delay:.2s" x="16" y="47" width="26" height="26"
+                                rx="5" />
+                            <rect class="a-tile" style="animation-delay:.4s" x="47" y="47" width="26" height="26" rx="5"
+                                fill="var(--acc)" stroke="none" />
+                            <rect class="a-tile" style="animation-delay:.6s" x="78" y="47" width="26" height="26"
+                                rx="5" />
+                            <rect class="a-tile" style="animation-delay:.4s" x="16" y="78" width="26" height="26" rx="5"
+                                fill="var(--acc)" stroke="none" />
+                            <rect class="a-tile" style="animation-delay:.6s" x="47" y="78" width="26" height="26"
+                                rx="5" />
+                            <rect class="a-tile" style="animation-delay:.8s" x="78" y="78" width="26" height="26"
+                                rx="5" />
+                        </svg>
+                        <div>
+                            <h3>Tiling &amp; POP</h3><span class="cat-count"><b class="count" data-to="79"
+                                    data-dec="0">79</b> pros active</span>
+                        </div>
+                        <span class="cat-go" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none">
+                                <path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg></span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= ARTISANS ================= -->
+        <section class="sec artisans" id="artisans" aria-labelledby="art-h">
+            <div class="wrap">
+                <div class="sec-head">
+                    <h2 id="art-h" data-split>Top rated this week.</h2>
+                    <p>BVN &amp; NIN checked. Ratings from real escrow jobs only.</p>
+                </div>
+                <div class="stack" id="stack">
+
+                    <article class="sc" style="--i:0" data-trade="electrical solar">
+                        <div class="sc-body">
+                            <header class="sc-top">
+                                <div class="sc-av" aria-hidden="true">EO<span class="sc-ck"><svg viewBox="0 0 20 20"
+                                            fill="none">
+                                            <path d="M4 10l4 4 8-9" stroke="currentColor" stroke-width="3"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg></span></div>
+                                <div>
+                                    <h3>Emeka O.</h3>
+                                    <p>Master electrician &amp; solar installer</p>
+                                </div>
+                                <div class="sc-rate" aria-label="Rated 4.9 from 142 jobs"><svg viewBox="0 0 20 20"
+                                        fill="currentColor">
+                                        <path
+                                            d="M10 1.8l2.6 5.5 6 .8-4.4 4.2 1.1 6-5.3-2.9-5.3 2.9 1.1-6L1.4 8.1l6-.8z" />
+                                    </svg>4.9 <small>(142)</small></div>
+                            </header>
+                            <p class="sc-loc"><svg viewBox="0 0 20 20" fill="none">
+                                    <path d="M10 18s6-5.7 6-10a6 6 0 10-12 0c0 4.3 6 10 6 10z" stroke="currentColor"
+                                        stroke-width="1.6" />
+                                    <circle cx="10" cy="8" r="2.2" stroke="currentColor" stroke-width="1.6" />
+                                </svg>Lekki / Victoria Island, Lagos</p>
+                            <dl class="sc-metrics">
+                                <div>
+                                    <dt>Escrow completed</dt>
+                                    <dd>99.4%</dd>
+                                </div>
+                                <div>
+                                    <dt>Diagnostic fee</dt>
+                                    <dd>₦15,000</dd>
+                                </div>
+                            </dl>
+                            <ul class="sc-tags">
+                                <li><svg viewBox="0 0 20 20" fill="none">
+                                        <path d="M4 10l4 4 8-9" stroke="currentColor" stroke-width="2.4"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>BVN + address vetted</li>
+                                <li><svg viewBox="0 0 20 20" fill="none">
+                                        <path d="M4 10l4 4 8-9" stroke="currentColor" stroke-width="2.4"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>Lithium inverter certified</li>
+                            </ul>
+                            <footer class="sc-foot"><span class="avail"><i></i>Available today</span><button
+                                    class="btn btn-q js-quote" type="button" data-name="Emeka O."
+                                    data-role="Master electrician &amp; solar installer" data-fee="₦15,000">Request
+                                    quote</button></footer>
+                        </div>
+                        <div class="sc-art art1" aria-hidden="true">
+                            <svg viewBox="0 0 300 300" fill="none">
+                                <path class="tr" d="M20 260H100V200H180V140H260V60" />
+                                <path class="tr" d="M20 200H60V120H140V60H200V20" />
+                                <path class="tr" d="M100 280V232H220V180H290" />
+                                <circle class="nd" cx="260" cy="60" r="6" />
+                                <circle class="nd" cx="200" cy="20" r="6" style="animation-delay:-.6s" />
+                                <circle class="nd" cx="290" cy="180" r="6" style="animation-delay:-1.2s" />
+                                <circle class="nd" cx="20" cy="260" r="6" style="animation-delay:-.3s" />
+                                <path d="M168 46L104 168h44l-14 88 76-134h-46z" fill="#FBBF24" />
+                            </svg>
+                        </div>
+                    </article>
+
+                    <article class="sc" style="--i:1" data-trade="hvac">
+                        <div class="sc-body">
+                            <header class="sc-top">
+                                <div class="sc-av" aria-hidden="true">BA<span class="sc-ck"><svg viewBox="0 0 20 20"
+                                            fill="none">
+                                            <path d="M4 10l4 4 8-9" stroke="currentColor" stroke-width="3"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg></span></div>
+                                <div>
+                                    <h3>Babatunde A.</h3>
+                                    <p>HVAC &amp; inverter AC specialist</p>
+                                </div>
+                                <div class="sc-rate" aria-label="Rated 4.8 from 98 jobs"><svg viewBox="0 0 20 20"
+                                        fill="currentColor">
+                                        <path
+                                            d="M10 1.8l2.6 5.5 6 .8-4.4 4.2 1.1 6-5.3-2.9-5.3 2.9 1.1-6L1.4 8.1l6-.8z" />
+                                    </svg>4.8 <small>(98)</small></div>
+                            </header>
+                            <p class="sc-loc"><svg viewBox="0 0 20 20" fill="none">
+                                    <path d="M10 18s6-5.7 6-10a6 6 0 10-12 0c0 4.3 6 10 6 10z" stroke="currentColor"
+                                        stroke-width="1.6" />
+                                    <circle cx="10" cy="8" r="2.2" stroke="currentColor" stroke-width="1.6" />
+                                </svg>Ikeja / Maryland, Lagos</p>
+                            <dl class="sc-metrics">
+                                <div>
+                                    <dt>Escrow completed</dt>
+                                    <dd>98.9%</dd>
+                                </div>
+                                <div>
+                                    <dt>Standard service</dt>
+                                    <dd>₦12,500</dd>
+                                </div>
+                            </dl>
+                            <ul class="sc-tags">
+                                <li><svg viewBox="0 0 20 20" fill="none">
+                                        <path d="M4 10l4 4 8-9" stroke="currentColor" stroke-width="2.4"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>NIN + CAC registered</li>
+                                <li><svg viewBox="0 0 20 20" fill="none">
+                                        <path d="M4 10l4 4 8-9" stroke="currentColor" stroke-width="2.4"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>R32 gas diagnostics</li>
+                            </ul>
+                            <footer class="sc-foot"><span class="avail"><i></i>Available today</span><button
+                                    class="btn btn-q js-quote" type="button" data-name="Babatunde A."
+                                    data-role="HVAC &amp; inverter AC specialist" data-fee="₦12,500">Request
+                                    quote</button></footer>
+                        </div>
+                        <div class="sc-art art2" aria-hidden="true">
+                            <svg viewBox="0 0 300 300" fill="none">
+                                <circle cx="150" cy="150" r="132" stroke="#03150E" stroke-opacity=".25"
+                                    stroke-width="3" />
+                                <circle cx="150" cy="150" r="104" stroke="#03150E" stroke-opacity=".15"
+                                    stroke-width="2" />
+                                <g class="blades" fill="#03150E">
+                                    <path id="bl" d="M150 150C160 112 190 82 236 86C224 122 194 146 150 150Z" />
+                                    <use href="#bl" transform="rotate(60 150 150)" />
+                                    <use href="#bl" transform="rotate(120 150 150)" />
+                                    <use href="#bl" transform="rotate(180 150 150)" />
+                                    <use href="#bl" transform="rotate(240 150 150)" />
+                                    <use href="#bl" transform="rotate(300 150 150)" />
+                                </g>
+                                <circle cx="150" cy="150" r="16" fill="#FBBF24" stroke="#03150E" stroke-width="5" />
+                            </svg>
+                        </div>
+                    </article>
+
+                    <article class="sc" style="--i:2" data-trade="carpentry">
+                        <div class="sc-body">
+                            <header class="sc-top">
+                                <div class="sc-av" aria-hidden="true">CN<span class="sc-ck"><svg viewBox="0 0 20 20"
+                                            fill="none">
+                                            <path d="M4 10l4 4 8-9" stroke="currentColor" stroke-width="3"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg></span></div>
+                                <div>
+                                    <h3>Chioma N.</h3>
+                                    <p>Architectural interior woodwork</p>
+                                </div>
+                                <div class="sc-rate" aria-label="Rated 5.0 from 84 jobs"><svg viewBox="0 0 20 20"
+                                        fill="currentColor">
+                                        <path
+                                            d="M10 1.8l2.6 5.5 6 .8-4.4 4.2 1.1 6-5.3-2.9-5.3 2.9 1.1-6L1.4 8.1l6-.8z" />
+                                    </svg>5.0 <small>(84)</small></div>
+                            </header>
+                            <p class="sc-loc"><svg viewBox="0 0 20 20" fill="none">
+                                    <path d="M10 18s6-5.7 6-10a6 6 0 10-12 0c0 4.3 6 10 6 10z" stroke="currentColor"
+                                        stroke-width="1.6" />
+                                    <circle cx="10" cy="8" r="2.2" stroke="currentColor" stroke-width="1.6" />
+                                </svg>Ikoyi / Ajah, Lagos</p>
+                            <dl class="sc-metrics">
+                                <div>
+                                    <dt>Escrow completed</dt>
+                                    <dd>100%</dd>
+                                </div>
+                                <div>
+                                    <dt>Consultation</dt>
+                                    <dd>₦20,000</dd>
+                                </div>
+                            </dl>
+                            <ul class="sc-tags">
+                                <li><svg viewBox="0 0 20 20" fill="none">
+                                        <path d="M4 10l4 4 8-9" stroke="currentColor" stroke-width="2.4"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>Master finisher grade</li>
+                                <li><svg viewBox="0 0 20 20" fill="none">
+                                        <path d="M4 10l4 4 8-9" stroke="currentColor" stroke-width="2.4"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>3D CAD ready</li>
+                            </ul>
+                            <footer class="sc-foot"><span class="avail"><i></i>Accepting bookings</span><button
+                                    class="btn btn-q js-quote" type="button" data-name="Chioma N."
+                                    data-role="Architectural interior woodwork" data-fee="₦20,000">Request
+                                    quote</button></footer>
+                        </div>
+                        <div class="sc-art art3" aria-hidden="true">
+                            <svg viewBox="0 0 300 300" fill="none">
+                                <g class="g">
+                                    <ellipse class="ring" cx="150" cy="150" rx="128" ry="118" />
+                                    <ellipse class="ring" cx="152" cy="150" rx="108" ry="100" />
+                                    <ellipse class="ring" cx="150" cy="152" rx="90" ry="82" />
+                                    <ellipse class="ring" cx="153" cy="150" rx="72" ry="66" />
+                                    <ellipse class="ring" cx="150" cy="150" rx="54" ry="48" />
+                                    <ellipse class="ring" cx="151" cy="152" rx="36" ry="32" />
+                                    <ellipse class="ring" cx="150" cy="150" rx="18" ry="15" fill="#16A34A"
+                                        stroke="none" />
+                                </g>
+                                <path d="M20 246L280 54" stroke="#FBBF24" stroke-width="5" stroke-linecap="round" />
+                            </svg>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= MATCH ================= -->
+        <section class="sec match" id="match" aria-labelledby="match-h">
+            <div class="wrap match-grid">
+                <div>
+                    <h2 id="match-h" data-split>Quotes in about 15 minutes.</h2>
+                    <ul class="points">
+                        <li><svg viewBox="0 0 20 20" fill="none">
+                                <path d="M4 10l4 4 8-9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>BVN and address checked before anyone is matched to you</li>
+                        <li><svg viewBox="0 0 20 20" fill="none">
+                                <path d="M4 10l4 4 8-9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>7-day workmanship warranty from NaijaPro</li>
+                        <li><svg viewBox="0 0 20 20" fill="none">
+                                <path d="M4 10l4 4 8-9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>Material receipts tracked and visible to you</li>
+                    </ul>
+                    <div class="radar" aria-hidden="true">
+                        <svg viewBox="0 0 420 420" fill="none">
+                            <defs>
+                                <linearGradient id="swG" gradientUnits="userSpaceOnUse" x1="410" y1="210" x2="338"
+                                    y2="57">
+                                    <stop offset="0" stop-color="#16A34A" stop-opacity=".55" />
+                                    <stop offset="1" stop-color="#16A34A" stop-opacity="0" />
+                                </linearGradient>
+                            </defs>
+                            <circle cx="210" cy="210" r="50" stroke="#16A34A" stroke-opacity=".35" />
+                            <circle cx="210" cy="210" r="100" stroke="#16A34A" stroke-opacity=".3" />
+                            <circle cx="210" cy="210" r="150" stroke="#16A34A" stroke-opacity=".25" />
+                            <circle cx="210" cy="210" r="200" stroke="#16A34A" stroke-opacity=".2" />
+                            <path d="M210 10V410M10 210H410" stroke="#16A34A" stroke-opacity=".15" />
+                            <circle class="pulse" cx="210" cy="210" r="200" />
+                            <circle class="pulse" cx="210" cy="210" r="200" />
+                            <circle class="pulse" cx="210" cy="210" r="200" />
+                            <g class="sweep">
+                                <path d="M210 210L410 210A200 200 0 0 0 338.6 56.8Z" fill="url(#swG)" />
+                            </g>
+                            <g class="rd" style="animation-delay:-.5s">
+                                <circle class="rd-h" cx="168" cy="138" r="14" />
+                                <circle cx="168" cy="138" r="4" />
+                            </g>
+                            <g class="rd" style="animation-delay:-1.5s">
+                                <circle class="rd-h" cx="262" cy="168" r="12" />
+                                <circle cx="262" cy="168" r="3.5" />
+                            </g>
+                            <g class="rd" style="animation-delay:-2.5s">
+                                <circle class="rd-h" cx="148" cy="262" r="13" />
+                                <circle cx="148" cy="262" r="4" />
+                            </g>
+                            <g class="rd" style="animation-delay:-3.5s">
+                                <circle class="rd-h" cx="292" cy="278" r="11" />
+                                <circle cx="292" cy="278" r="3" />
+                            </g>
+                            <g class="rd" style="animation-delay:-4.5s">
+                                <circle class="rd-h" cx="228" cy="312" r="12" />
+                                <circle cx="228" cy="312" r="3.5" />
+                            </g>
+                            <g class="rd" style="animation-delay:-1s">
+                                <circle class="rd-h" cx="178" cy="332" r="10" />
+                                <circle cx="178" cy="332" r="3" />
+                            </g>
+                            <g class="rd" style="animation-delay:-3s">
+                                <circle class="rd-h" cx="312" cy="158" r="11" />
+                                <circle cx="312" cy="158" r="3.5" />
+                            </g>
+                            <circle cx="210" cy="210" r="9" fill="#FBBF24" />
+                            <circle cx="210" cy="210" r="18" stroke="#FBBF24" stroke-opacity=".5" />
+                        </svg>
+                        <div class="chip"><span class="av">EO</span>
+                            <div><b>Emeka O.</b>₦15,000 · 12 min away</div>
+                        </div>
+                        <div class="chip"><span class="av">BA</span>
+                            <div><b>Babatunde A.</b>₦12,500 · 18 min away</div>
+                        </div>
+                        <div class="chip"><span class="av">CN</span>
+                            <div><b>Chioma N.</b>₦20,000 · 25 min away</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card" id="match-card">
+                    <div id="match-formwrap">
+                        <h3>Rapid artisan match</h3>
+                        <form id="match-form" novalidate>
+                            <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off"
+                                aria-hidden="true">
+                            <div class="field"><label for="project-trade">What needs fixing or installing?</label>
+                                <input id="project-trade" name="job" type="text"
+                                    placeholder="e.g. 1.5HP AC leaking water" required minlength="4" autocomplete="off"
+                                    aria-describedby="e-job">
+                                <p class="err" id="e-job">Tell us what needs doing (a few words is enough).</p>
+                            </div>
+                            <div class="frow">
+                                <div class="field"><label for="city-area">Area</label>
+                                    <input id="city-area" name="area" type="text"
+                                        placeholder="e.g. Chevron Drive, Lekki" required autocomplete="address-level2"
+                                        aria-describedby="e-area">
+                                    <p class="err" id="e-area">Add your area so we can match nearby pros.</p>
+                                </div>
+                                <div class="field"><label for="urgency-level">Preferred time</label>
+                                    <select id="urgency-level" name="time">
+                                        <option>Within 2 hours</option>
+                                        <option selected>Today</option>
+                                        <option>This weekend</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="field"><label for="phone-number">WhatsApp number</label>
+                                <div class="phone"><span>+234</span><input id="phone-number" name="phone" type="tel"
+                                        inputmode="tel" placeholder="803 000 0000" required autocomplete="tel-national"
+                                        aria-describedby="e-phone"></div>
+                                <p class="err" id="e-phone">Enter a valid Nigerian mobile number, e.g. 803 000 0000.</p>
+                            </div>
+                            <button class="btn btn-green submit" type="submit"><span>Send request</span></button>
+                            <p class="fine">No payment yet. You review profiles before funding any escrow.</p>
+                        </form>
+                    </div>
+                    <div class="done" id="match-done" hidden role="status">
+                        <svg viewBox="0 0 92 92" fill="none" stroke="currentColor" stroke-width="4"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="46" cy="46" r="40" pathLength="1" />
+                            <path d="M28 47l13 13 24-27" pathLength="1" />
+                        </svg>
+                        <h3>Request sent</h3>
+                        <p>Watch your WhatsApp. Vetted artisans nearby will send fixed quotes shortly.</p>
+                        <button class="btn btn-green" type="button" id="match-again">Post another job</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer>
+        <div class="wrap">
+            <div class="f-top">
+                <div class="f-cta">
+                    <h2>Something broken? Post the job.</h2>
+                    <a class="btn btn-gold" href="#match">Post a job <svg viewBox="0 0 20 20" fill="none">
+                            <path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg></a>
+                </div>
+                <div class="f-cols">
+                    <div>
+                        <h5>Marketplace</h5>
+                        <ul>
+                            <li><a href="#categories">Electrical</a></li>
+                            <li><a href="#categories">Plumbing</a></li>
+                            <li><a href="#categories">AC &amp; HVAC</a></li>
+                            <li><a href="#categories">Carpentry</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5>Trust</h5>
+                        <ul>
+                            <li><a href="#escrow">Escrow protection</a></li>
+                            <li><a href="#artisans">BVN &amp; NIN checks</a></li>
+                            <li><a href="#match">Workmanship warranty</a></li>
+                            <li><a href="#escrow">Dispute desk</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5>Coverage</h5>
+                        <ul>
+                            <li><span>Lagos: Island &amp; Mainland</span></li>
+                            <li><span>Abuja: FCT</span></li>
+                            <li><a href="#match">24/7 concierge</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="wrap-wide" style="padding-inline:0"><svg class="foot-bridge" viewBox="0 0 1400 120" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <line class="fb" x1="0" y1="95" x2="1400" y2="95" stroke="currentColor" stroke-width="1"
+                    opacity=".15" />
+                <line class="fb" x1="0" y1="100" x2="1400" y2="100" stroke="currentColor" stroke-width="1.5"
+                    opacity=".1" />
+                <line class="fb" x1="30" y1="70" x2="1370" y2="70" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" />
+                <line class="fb" x1="30" y1="67" x2="1370" y2="67" stroke="currentColor" stroke-width=".6"
+                    opacity=".3" />
+                <line class="fb" x1="30" y1="73" x2="1370" y2="73" stroke="currentColor" stroke-width=".4"
+                    opacity=".2" />
+                <path class="fb" d="M683 70L700 8L717 70" stroke="currentColor" stroke-width="2.5" fill="none"
+                    stroke-linecap="round" stroke-linejoin="round" />
+                <line class="fb" x1="691" y1="38" x2="709" y2="38" stroke="currentColor" stroke-width="1.2"
+                    opacity=".35" />
+                <line class="fb" x1="694" y1="54" x2="706" y2="54" stroke="currentColor" stroke-width="1.2"
+                    opacity=".35" />
+                <line class="fb" x1="700" y1="12" x2="50" y2="70" stroke="currentColor" stroke-width=".7"
+                    opacity=".3" />
+                <line class="fb" x1="700" y1="12" x2="130" y2="70" stroke="currentColor" stroke-width=".7"
+                    opacity=".3" />
+                <line class="fb" x1="700" y1="12" x2="210" y2="70" stroke="currentColor" stroke-width=".7"
+                    opacity=".3" />
+                <line class="fb" x1="700" y1="12" x2="290" y2="70" stroke="currentColor" stroke-width=".7"
+                    opacity=".3" />
+                <line class="fb" x1="700" y1="12" x2="370" y2="70" stroke="currentColor" stroke-width=".7"
+                    opacity=".3" />
+                <line class="fb" x1="700" y1="12" x2="450" y2="70" stroke="currentColor" stroke-width=".7"
+                    opacity=".3" />
+                <line class="fb" x1="700" y1="12" x2="530" y2="70" stroke="currentColor" stroke-width=".7"
+                    opacity=".3" />
+                <line class="fb" x1="700" y1="12" x2="610" y2="70" stroke="currentColor" stroke-width=".7"
+                    opacity=".3" />
+                <line class="fb" x1="700" y1="12" x2="790" y2="70" stroke="currentColor" stroke-width=".7"
+                    opacity=".3" />
+                <line class="fb" x1="700" y1="12" x2="870" y2="70" stroke="currentColor" stroke-width=".7"
+                    opacity=".3" />
+                <line class="fb" x1="700" y1="12" x2="950" y2="70" stroke="currentColor" stroke-width=".7"
+                    opacity=".3" />
+                <line class="fb" x1="700" y1="12" x2="1030" y2="70" stroke="currentColor" stroke-width=".7"
+                    opacity=".3" />
+                <line class="fb" x1="700" y1="12" x2="1110" y2="70" stroke="currentColor" stroke-width=".7"
+                    opacity=".3" />
+                <line class="fb" x1="700" y1="12" x2="1190" y2="70" stroke="currentColor" stroke-width=".7"
+                    opacity=".3" />
+                <line class="fb" x1="700" y1="12" x2="1270" y2="70" stroke="currentColor" stroke-width=".7"
+                    opacity=".3" />
+                <line class="fb" x1="700" y1="12" x2="1350" y2="70" stroke="currentColor" stroke-width=".7"
+                    opacity=".3" />
+                <line class="fb" x1="700" y1="14" x2="90" y2="70" stroke="currentColor" stroke-width=".5"
+                    opacity=".2" />
+                <line class="fb" x1="700" y1="14" x2="170" y2="70" stroke="currentColor" stroke-width=".5"
+                    opacity=".2" />
+                <line class="fb" x1="700" y1="14" x2="250" y2="70" stroke="currentColor" stroke-width=".5"
+                    opacity=".2" />
+                <line class="fb" x1="700" y1="14" x2="330" y2="70" stroke="currentColor" stroke-width=".5"
+                    opacity=".2" />
+                <line class="fb" x1="700" y1="14" x2="410" y2="70" stroke="currentColor" stroke-width=".5"
+                    opacity=".2" />
+                <line class="fb" x1="700" y1="14" x2="490" y2="70" stroke="currentColor" stroke-width=".5"
+                    opacity=".2" />
+                <line class="fb" x1="700" y1="14" x2="570" y2="70" stroke="currentColor" stroke-width=".5"
+                    opacity=".2" />
+                <line class="fb" x1="700" y1="14" x2="650" y2="70" stroke="currentColor" stroke-width=".5"
+                    opacity=".2" />
+                <line class="fb" x1="700" y1="14" x2="750" y2="70" stroke="currentColor" stroke-width=".5"
+                    opacity=".2" />
+                <line class="fb" x1="700" y1="14" x2="830" y2="70" stroke="currentColor" stroke-width=".5"
+                    opacity=".2" />
+                <line class="fb" x1="700" y1="14" x2="910" y2="70" stroke="currentColor" stroke-width=".5"
+                    opacity=".2" />
+                <line class="fb" x1="700" y1="14" x2="990" y2="70" stroke="currentColor" stroke-width=".5"
+                    opacity=".2" />
+                <line class="fb" x1="700" y1="14" x2="1070" y2="70" stroke="currentColor" stroke-width=".5"
+                    opacity=".2" />
+                <line class="fb" x1="700" y1="14" x2="1150" y2="70" stroke="currentColor" stroke-width=".5"
+                    opacity=".2" />
+                <line class="fb" x1="700" y1="14" x2="1230" y2="70" stroke="currentColor" stroke-width=".5"
+                    opacity=".2" />
+                <line class="fb" x1="700" y1="14" x2="1310" y2="70" stroke="currentColor" stroke-width=".5"
+                    opacity=".2" />
+                <line class="fb" x1="30" y1="70" x2="30" y2="90" stroke="currentColor" stroke-width="1.5"
+                    opacity=".15" />
+                <line class="fb" x1="180" y1="70" x2="180" y2="90" stroke="currentColor" stroke-width="1.5"
+                    opacity=".15" />
+                <line class="fb" x1="350" y1="70" x2="350" y2="90" stroke="currentColor" stroke-width="1.5"
+                    opacity=".15" />
+                <line class="fb" x1="520" y1="70" x2="520" y2="90" stroke="currentColor" stroke-width="1.5"
+                    opacity=".15" />
+                <line class="fb" x1="660" y1="70" x2="660" y2="90" stroke="currentColor" stroke-width="1.5"
+                    opacity=".15" />
+                <line class="fb" x1="740" y1="70" x2="740" y2="90" stroke="currentColor" stroke-width="1.5"
+                    opacity=".15" />
+                <line class="fb" x1="880" y1="70" x2="880" y2="90" stroke="currentColor" stroke-width="1.5"
+                    opacity=".15" />
+                <line class="fb" x1="1050" y1="70" x2="1050" y2="90" stroke="currentColor" stroke-width="1.5"
+                    opacity=".15" />
+                <line class="fb" x1="1220" y1="70" x2="1220" y2="90" stroke="currentColor" stroke-width="1.5"
+                    opacity=".15" />
+                <line class="fb" x1="1370" y1="70" x2="1370" y2="90" stroke="currentColor" stroke-width="1.5"
+                    opacity=".15" />
+                <line class="fb" x1="30" y1="74" x2="1370" y2="74" stroke="currentColor" stroke-width=".4" opacity=".08"
+                    stroke-dasharray="4 8" />
+                <line class="fb" x1="60" y1="72" x2="660" y2="72" stroke="currentColor" stroke-width=".3" opacity=".06"
+                    stroke-dasharray="2 6" />
+                <line class="fb" x1="740" y1="72" x2="1340" y2="72" stroke="currentColor" stroke-width=".3"
+                    opacity=".06" stroke-dasharray="2 6" />
+                <circle class="fb" cx="700" cy="6" r="2.5" fill="currentColor" opacity=".4" />
+                <circle class="fb" cx="30" cy="70" r="2" fill="currentColor" opacity=".2" />
+                <circle class="fb" cx="1370" cy="70" r="2" fill="currentColor" opacity=".2" />
+                <path class="wv" d="M0 105Q140 100 280 105T560 105T840 105T1120 105T1400 105" stroke="currentColor"
+                    stroke-width=".8" opacity=".12" />
+                <path class="wv w2" d="M0 110Q140 107 280 110T560 110T840 110T1120 110T1400 110" stroke="currentColor"
+                    stroke-width=".6" opacity=".08" />
+            </svg></div>
+        <div class="f-word" id="f-word" aria-hidden="true">NaijaPro</div>
+        <div class="wrap">
+            <div class="f-bot">
+                <p>© 2026 NaijaPro Technologies Ltd. Built for trust and craftsmanship in Nigeria.</p>
+                <nav aria-label="Legal"><a href="#">Privacy</a><a href="#">Terms</a><a href="#escrow">Escrow
+                        protocol</a></nav>
+                <a class="totop" href="#top" id="totop">Back to top <svg viewBox="0 0 20 20" fill="none">
+                        <path d="M10 16V4M5 9l5-5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ================= MODAL / TOAST ================= -->
+    <div class="modal-bg" id="quote-modal" role="dialog" aria-modal="true" aria-labelledby="qm-title">
+        <div class="modal">
+            <button class="modal-x" type="button" id="qm-close" aria-label="Close"><svg viewBox="0 0 20 20" fill="none">
+                    <path d="M5 5l10 10M15 5L5 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                </svg></button>
+            <form id="quote-form" novalidate>
+                <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+                <h3 id="qm-title">Request a quote</h3>
+                <p class="role" id="qm-role"></p>
+                <div class="fee"><span>Diagnostic escrow hold</span><strong id="qm-fee"></strong></div>
+                <div class="field"><label for="qm-job">Describe the job</label>
+                    <textarea id="qm-job" name="job" placeholder="Briefly describe what needs inspection or replacing…"
+                        required minlength="10" aria-describedby="e-qjob"></textarea>
+                    <p class="err" id="e-qjob">Add a short description (at least 10 characters).</p>
+                </div>
+                <div class="field"><label for="qm-phone">Your mobile number</label>
+                    <input id="qm-phone" name="phone" type="tel" inputmode="tel" placeholder="080 0000 0000" required
+                        autocomplete="tel" aria-describedby="e-qphone">
+                    <p class="err" id="e-qphone">Enter a valid Nigerian mobile number, e.g. 0803 000 0000.</p>
+                </div>
+                <button class="btn btn-green submit" type="submit"><span>Send direct request</span></button>
+            </form>
+        </div>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite">
+        <svg viewBox="0 0 20 20" fill="none">
+            <path d="M4 10l4 4 8-9" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
+                stroke-linejoin="round" />
+        </svg>
+        <span id="toast-text"></span>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+    <script>
+        (function () {
+            'use strict';
+
+            /* ---------- config ---------- */
+            // Point this at your backend to receive leads (POST JSON). Left empty, requests are simulated.
+            var CONFIG = { endpoint: '' };
+
+            var $ = function (s, c) { return (c || document).querySelector(s); };
+            var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
+            var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            var hasLibs = !!(window.gsap && window.ScrollTrigger);
+            var motion = hasLibs && !reduce;
+            var lenis = null;
+            var root = document.documentElement;
+
+            /* ---------- helpers ---------- */
+            function scrollToEl(el, offset) {
+                if (!el) return;
+                if (lenis) { lenis.scrollTo(el, { offset: offset == null ? -60 : offset, duration: 1.5 }); }
+                else { el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }); }
+            }
+            var toastTimer;
+            function toast(msg) {
+                var t = $('#toast'); $('#toast-text').textContent = msg;
+                t.classList.add('show'); clearTimeout(toastTimer);
+                toastTimer = setTimeout(function () { t.classList.remove('show'); }, 4600);
+            }
+            function normPhone(v) {
+                var d = String(v || '').replace(/\D/g, '');
+                if (d.indexOf('234') === 0) d = d.slice(3);
+                if (d.charAt(0) === '0') d = d.slice(1);
+                return /^[789][01]\d{8}$/.test(d) ? '+234' + d : null;
+            }
+            function submitLead(type, payload) {
+                if (!CONFIG.endpoint) return new Promise(function (r) { setTimeout(function () { r({ ok: true }); }, 900); });
+                return fetch(CONFIG.endpoint, {
+                    method: 'POST', headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(Object.assign({ type: type, sentAt: new Date().toISOString() }, payload))
+                }).then(function (res) { if (!res.ok) throw new Error('Request failed'); return res; });
+            }
+            function setErr(input, bad) {
+                var f = input.closest('.field'); if (!f) return;
+                f.classList.toggle('has-err', bad);
+                input.setAttribute('aria-invalid', bad ? 'true' : 'false');
+            }
+            function check(input) {
+                var v = input.value.trim(), bad = false;
+                if (input.name === 'phone') bad = !normPhone(v);
+                else if (input.required) bad = v.length < (parseInt(input.getAttribute('minlength'), 10) || 1);
+                setErr(input, bad); return !bad;
+            }
+            function wireValidation(form) {
+                $$('input[required],textarea[required]', form).forEach(function (i) {
+                    i.addEventListener('blur', function () { if (i.value) check(i); });
+                    i.addEventListener('input', function () { if (i.closest('.has-err')) check(i); });
+                });
+            }
+            function validateForm(form) {
+                var ok = true, first = null;
+                $$('input[required],textarea[required]', form).forEach(function (i) { if (!check(i)) { ok = false; if (!first) first = i; } });
+                if (first) first.focus();
+                return ok;
+            }
+            function busy(btn, on, label) {
+                btn.classList.toggle('is-loading', on); btn.disabled = on;
+                var s = $('span', btn); if (s && label) s.textContent = label;
+            }
+
+            /* ---------- header, menu, progress ---------- */
+            var hdr = $('#hdr'), find = $('#find'), lastY = 0, ticking = false;
+            function onScroll() {
+                var y = window.scrollY || window.pageYOffset;
+                var solid = find.getBoundingClientRect().top < 90;
+                hdr.classList.toggle('is-solid', solid);
+                hdr.classList.toggle('is-hidden', solid && y > lastY + 4 && y > 400 && !root.classList.contains('menu-open'));
+                if (y < lastY - 4) hdr.classList.remove('is-hidden');
+                lastY = y; ticking = false;
+                var max = document.documentElement.scrollHeight - window.innerHeight;
+                $('#progress').style.transform = 'scaleX(' + (max > 0 ? Math.min(1, y / max) : 0) + ')';
+            }
+            window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
+            onScroll();
+
+            var burger = $('#burger');
+            function setMenu(open) {
+                root.classList.toggle('menu-open', open);
+                burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+                burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+                if (lenis) { open ? lenis.stop() : lenis.start(); }
+                else { document.body.style.overflow = open ? 'hidden' : ''; }
+            }
+            burger.addEventListener('click', function () { setMenu(!root.classList.contains('menu-open')); });
+            document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && root.classList.contains('menu-open')) setMenu(false); });
+
+            document.addEventListener('click', function (e) {
+                var a = e.target.closest('a[href^="#"]');
+                if (!a || a.hasAttribute('data-key')) return;
+                var id = a.getAttribute('href');
+                if (id === '#top' || id === '#') { if (id === '#') return; e.preventDefault(); setMenu(false); lenis ? lenis.scrollTo(0, { duration: 1.6 }) : window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }); return; }
+                var el = $(id); if (!el) return;
+                e.preventDefault();
+                if (root.classList.contains('menu-open')) { setMenu(false); setTimeout(function () { scrollToEl(el); }, 350); } else { scrollToEl(el); }
+            });
+
+            /* ---------- search + categories ---------- */
+            var LABELS = { hvac: 'AC repair', solar: 'solar & inverter', plumbing: 'plumbing', electrical: 'electrical', carpentry: 'carpentry', tiling: 'tiling & POP' };
+            function findPros(key) {
+                var sel = $('#trade'); if (sel && key) sel.value = key;
+                var cards = $$('.sc').filter(function (c) { return (c.getAttribute('data-trade') || '').split(' ').indexOf(key) > -1; });
+                if (cards.length) {
+                    scrollToEl($('#artisans'), -10);
+                    setTimeout(function () {
+                        cards.forEach(function (c) { c.classList.remove('is-match'); void c.offsetWidth; c.classList.add('is-match'); });
+                    }, 900);
+                    var area = ($('#area').value || '').split(',')[0].replace('&amp;', '&');
+                    toast(cards.length + ' verified ' + (LABELS[key] || 'artisan') + ' pro' + (cards.length > 1 ? 's' : '') + ' ready near ' + area + '.');
+                } else {
+                    $('#project-trade').value = 'Need ' + (LABELS[key] || 'a pro');
+                    scrollToEl($('#match'), -10);
+                    toast('No ' + (LABELS[key] || 'matching') + ' pro is featured today. Post a job and we’ll match you.');
+                }
+            }
+            $('#search-form').addEventListener('submit', function (e) { e.preventDefault(); findPros($('#trade').value); });
+            $$('.tags button').forEach(function (b) { b.addEventListener('click', function () { findPros(b.getAttribute('data-key')); }); });
+            $$('.cat').forEach(function (c) {
+                c.addEventListener('click', function (e) { e.preventDefault(); findPros(c.getAttribute('data-key')); });
+                c.addEventListener('pointermove', function (e) { var r = c.getBoundingClientRect(); c.style.setProperty('--mx', (e.clientX - r.left) + 'px'); c.style.setProperty('--my', (e.clientY - r.top) + 'px'); });
+            });
+
+            /* ---------- match form ---------- */
+            var mForm = $('#match-form');
+            wireValidation(mForm);
+            mForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+                if (mForm.website.value) return; // honeypot
+                if (!validateForm(mForm)) return;
+                var btn = $('.submit', mForm);
+                busy(btn, true, 'Sending…');
+                submitLead('match', { job: mForm.job.value.trim(), area: mForm.area.value.trim(), time: mForm.time.value, phone: normPhone(mForm.phone.value) })
+                    .then(function () {
+                        $('#match-formwrap').hidden = true; $('#match-done').hidden = false;
+                        var d = $('#match-done'); d.querySelectorAll('circle,path').forEach(function (n) { n.style.animation = 'none'; void n.getBoundingClientRect(); n.style.animation = ''; });
+                        toast('Request sent. Check WhatsApp for quotes.');
+                    })
+                    .catch(function () { toast('Couldn’t send that. Check your connection and try again.'); })
+                    .then(function () { busy(btn, false, 'Send request'); });
+            });
+            $('#match-again').addEventListener('click', function () { mForm.reset(); $$('.has-err', mForm).forEach(function (f) { f.classList.remove('has-err'); }); $('#match-done').hidden = true; $('#match-formwrap').hidden = false; $('#project-trade').focus(); });
+
+            /* ---------- quote modal ---------- */
+            var modal = $('#quote-modal'), qForm = $('#quote-form'), lastFocus = null, inertEls = $$('#main,#hdr,footer,#menu');
+            wireValidation(qForm);
+            function openModal(d) {
+                lastFocus = document.activeElement;
+                $('#qm-title').textContent = 'Request ' + d.name; $('#qm-role').textContent = d.role; $('#qm-fee').textContent = d.fee;
+                qForm.reset(); $$('.has-err', qForm).forEach(function (f) { f.classList.remove('has-err'); });
+                modal.classList.add('open'); inertEls.forEach(function (n) { n.setAttribute('inert', ''); });
+                if (lenis) lenis.stop(); else document.body.style.overflow = 'hidden';
+                setTimeout(function () { $('#qm-job').focus(); }, 30);
+                document.addEventListener('keydown', modalKeys);
+            }
+            function closeModal() {
+                modal.classList.remove('open'); inertEls.forEach(function (n) { n.removeAttribute('inert'); });
+                if (lenis) lenis.start(); else document.body.style.overflow = '';
+                document.removeEventListener('keydown', modalKeys);
+                if (lastFocus && lastFocus.focus) lastFocus.focus();
+            }
+            function modalKeys(e) {
+                if (e.key === 'Escape') { closeModal(); return; }
+                if (e.key !== 'Tab') return;
+                var f = $$('button,input:not(.hp),textarea,select,a[href]', modal).filter(function (n) { return !n.disabled && n.offsetParent !== null; });
+                if (!f.length) return;
+                var first = f[0], last = f[f.length - 1];
+                if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+                else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+            }
+            $$('.js-quote').forEach(function (b) { b.addEventListener('click', function () { openModal({ name: b.dataset.name, role: b.dataset.role, fee: b.dataset.fee }); }); });
+            $('#qm-close').addEventListener('click', closeModal);
+            modal.addEventListener('mousedown', function (e) { if (e.target === modal) closeModal(); });
+            qForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+                if (qForm.website.value) return;
+                if (!validateForm(qForm)) return;
+                var btn = $('.submit', qForm), name = $('#qm-title').textContent.replace('Request ', '');
+                busy(btn, true, 'Sending…');
+                submitLead('quote', { artisan: name, job: qForm.job.value.trim(), phone: normPhone(qForm.phone.value) })
+                    .then(function () { closeModal(); toast('Quote request sent. ' + name + ' has been notified.'); })
+                    .catch(function () { toast('Couldn’t send that. Please try again.'); })
+                    .then(function () { busy(btn, false, 'Send direct request'); });
+            });
+
+            /* ---------- reduced motion / no-library fallbacks ---------- */
+            var svg = $('#scene');
+            function fitScene() {
+                var r = svg.getBoundingClientRect(); if (!r.width || !r.height) return;
+                var aspect = r.width / r.height, vbH = 900, vbW = vbH * aspect;
+                var frac = aspect >= 1.5 ? 0.7 : aspect >= 1 ? 0.6 : 0.5;
+                svg.setAttribute('viewBox', (800 - frac * vbW).toFixed(1) + ' 0 ' + vbW.toFixed(1) + ' ' + vbH);
+                svg.setAttribute('preserveAspectRatio', 'xMidYMid slice');
+                var sx = aspect < 1 ? -270 : 0;
+                $('#sun-shift').setAttribute('transform', 'translate(' + sx + ' 0)');
+                $('#shimmer-shift').setAttribute('transform', 'translate(' + sx + ' 0)');
+                placeTag();
+            }
+            function placeTag() {
+                var tag = $('#hero-tag'), p = $('#pylon-top'); if (!tag || !p) return;
+                var r = p.getBoundingClientRect(), h = $('.hero-stage').getBoundingClientRect();
+                tag.style.left = (r.left - h.left + 26) + 'px'; tag.style.top = (r.top - h.top - 16) + 'px';
+            }
+            fitScene();
+            window.addEventListener('resize', fitScene);
+            if (reduce && svg.pauseAnimations) svg.pauseAnimations();
+            if (reduce) { $('#hero-tag').style.opacity = 1; }
+
+            /* ---------- motion ---------- */
+            function splitWords(el, label) {
+                var lines = $$('.line', el); if (!lines.length) lines = [el];
+                var text = el.textContent.replace(/\s+/g, ' ').trim();
+                if (label !== false) el.setAttribute('aria-label', text);
+                var out = [];
+                lines.forEach(function (ln) {
+                    var words = ln.textContent.trim().split(/\s+/); ln.textContent = '';
+                    words.forEach(function (w, i) {
+                        var o = document.createElement('span'); o.className = 'w'; o.setAttribute('aria-hidden', 'true');
+                        var n = document.createElement('span'); n.className = 'wi'; n.textContent = w; o.appendChild(n); ln.appendChild(o);
+                        if (i < words.length - 1) ln.appendChild(document.createTextNode(' '));
+                        out.push(n);
+                    });
+                });
+                return out;
+            }
+            function fmt(v, dec) { return Number(v).toLocaleString('en-US', { minimumFractionDigits: dec, maximumFractionDigits: dec }); }
+
+            function initMotion() {
+                var gsap = window.gsap, ST = window.ScrollTrigger;
+                gsap.registerPlugin(ST);
+                root.classList.add('has-motion');
+
+                /* smooth scroll */
+                if (window.Lenis) {
+                    lenis = new window.Lenis({ duration: 1.15, easing: function (t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); } });
+                    lenis.on('scroll', ST.update);
+                    gsap.ticker.add(function (t) { lenis.raf(t * 1000); });
+                    gsap.ticker.lagSmoothing(0);
+                }
+
+                /* hero intro */
+                var words = splitWords($('#hero-h1'));
+                gsap.set('.stay', { strokeDasharray: 1 });
+                var intro = gsap.timeline({ defaults: { ease: 'power3.out' } });
+                intro
+                    .from('#sky', { opacity: 0, duration: 1.4 }, 0)
+                    .from('#pylon', { scaleY: 0, svgOrigin: '800 604', duration: 1.6, ease: 'power3.out' }, 0.1)
+                    .from('#deck', { opacity: 0, duration: 1 }, 0.3)
+                    .from('.stay', { strokeDashoffset: 1, duration: 1.5, stagger: { each: 0.03, from: 'start' }, ease: 'power2.inOut' }, 0.7)
+                    .from('#L-bridge-lights', { opacity: 0, duration: 1.2 }, 1.4)
+                    .from('.hero-chip', { y: 18, opacity: 0, duration: 0.9 }, 0.8)
+                    .from(words, { yPercent: 115, duration: 1.1, stagger: 0.09 }, 0.9)
+                    .from('.hero-foot > *', { y: 26, opacity: 0, duration: 1, stagger: 0.14 }, 1.5)
+                    .from('.hdr', { y: -40, opacity: 0, duration: 0.9, clearProps: 'transform,opacity' }, 1.2)
+                    .fromTo('#hero-tag', { opacity: 0, x: -14 }, { opacity: 1, x: 0, duration: 1 }, 2.1)
+                    .from('#hero-tag .ht-line', { scaleX: 0, duration: 0.9 }, 2.2);
+                gsap.set('#L-bridge-lights', { opacity: 0.28, immediateRender: false });
+                intro.eventCallback('onComplete', placeTag);
+
+                /* hero scroll story: dusk -> night, camera dolly */
+                var o = '800 640';
+                var hs = gsap.timeline({ defaults: { ease: 'none' }, scrollTrigger: { trigger: '#hero', start: 'top top', end: '+=130%', scrub: 0.8, pin: true, anticipatePin: 1 } });
+                hs.to(['#L-far', '#L-mid', '#L-mid-lights'], { scale: 1.08, svgOrigin: o }, 0)
+                    .to(['#L-bridge', '#L-bridge-lights'], { scale: 1.34, svgOrigin: o }, 0)
+                    .to('#L-fg', { scale: 1.6, svgOrigin: '800 900' }, 0)
+                    .to('#L-sun', { y: 190, opacity: 0.5 }, 0)
+                    .to('#shimmer', { opacity: 0 }, 0.15)
+                    .to('#L-clouds', { opacity: 0.2 }, 0.1)
+                    .to('#night', { opacity: 0.8 }, 0.1)
+                    .to('#stars', { opacity: 1 }, 0.35)
+                    .to('#L-mid-lights', { opacity: 1 }, 0.4)
+                    .to('#L-bridge-lights', { opacity: 1 }, 0.4)
+                    .to('.hero-copy', { yPercent: -30, opacity: 0 }, 0.05)
+                    .to('.hero-foot', { y: 60, opacity: 0 }, 0.1)
+                    .to('#hero-tag', { opacity: 0 }, 0)
+                    .to('.scroll-cue', { opacity: 0 }, 0);
+
+                /* pointer parallax */
+                if (window.matchMedia('(pointer:fine)').matches) {
+                    var pl = [['#L-far', 6], ['#L-mid', 12], ['#L-water', 8], ['#L-bridge', 22], ['#L-bridge-lights', 22], ['#L-fg', 50]].map(function (p) { return { q: gsap.quickTo(p[0], 'x', { duration: 1.4, ease: 'power3.out' }), a: p[1] }; });
+                    $('#hero').addEventListener('pointermove', function (e) { var nx = e.clientX / window.innerWidth - 0.5; pl.forEach(function (l) { l.q(-nx * l.a); }); });
+                }
+
+                /* section headings */
+                $$('[data-split]').forEach(function (h) {
+                    var w = splitWords(h);
+                    gsap.from(w, { yPercent: 115, duration: 1.1, stagger: 0.07, ease: 'power4.out', scrollTrigger: { trigger: h, start: 'top 85%', once: true } });
+                });
+                gsap.from('.sec-head p', { y: 24, opacity: 0, duration: 1, ease: 'power3.out', scrollTrigger: { trigger: '.sec-head', start: 'top 80%', once: true } });
+
+                /* counters */
+                $$('.count').forEach(function (el) {
+                    var to = parseFloat(el.getAttribute('data-to')), dec = parseInt(el.getAttribute('data-dec'), 10) || 0, obj = { v: 0 };
+                    if (!to) return;
+                    el.textContent = fmt(0, dec);
+                    ST.create({
+                        trigger: el, start: 'top 92%', once: true, onEnter: function () {
+                            gsap.to(obj, { v: to, duration: 2.2, ease: 'power2.out', onUpdate: function () { el.textContent = fmt(obj.v, dec); } });
+                        }
+                    });
+                });
+                gsap.from('.dock', { y: 60, opacity: 0, duration: 1.1, ease: 'power3.out', scrollTrigger: { trigger: '.dock', start: 'top 95%', once: true } });
+                gsap.from('.stat', { y: 30, opacity: 0, stagger: 0.12, duration: 1, ease: 'power3.out', scrollTrigger: { trigger: '.stats', start: 'top 90%', once: true } });
+
+                /* marquee */
+                gsap.to('.mq-r1 .mq-track', { xPercent: -26, ease: 'none', scrollTrigger: { trigger: '.marquee', start: 'top bottom', end: 'bottom top', scrub: 0.6 } });
+                gsap.fromTo('.mq-r2 .mq-track', { xPercent: -26 }, { xPercent: 0, ease: 'none', scrollTrigger: { trigger: '.marquee', start: 'top bottom', end: 'bottom top', scrub: 0.6 } });
+
+                /* escrow: pinned story */
+                var esc = $('#escrow'), steps = $$('.esc-step'), dots = $$('.esc-dots i');
+                esc.classList.add('is-pinned');
+                function setStep(i) { steps.forEach(function (s, k) { s.classList.toggle('is-on', k === i); }); }
+                setStep(0);
+                gsap.set('#esc-ring', { strokeDasharray: 1, strokeDashoffset: 1 });
+                gsap.set('#shackle', { y: -36 });
+                var tl = gsap.timeline({
+                    defaults: { ease: 'none' }, scrollTrigger: {
+                        trigger: esc, start: 'top top', end: '+=280%', scrub: 0.7, pin: true, anticipatePin: 1,
+                        onUpdate: function (s) {
+                            var p = s.progress, i = Math.min(2, Math.floor(p * 3 - 0.0001)); if (i < 0) i = 0; setStep(i);
+                            dots.forEach(function (d, k) { d.style.setProperty('--p', Math.max(0, Math.min(1, p * 3 - k)).toFixed(3)); });
+                        }
+                    }
+                });
+                tl.to('#coin', { x: 340, duration: 0.7, ease: 'power2.inOut' }, 0.1)
+                    .to('#coin', { y: -70, duration: 0.35, ease: 'power2.out' }, 0.1)
+                    .to('#coin', { y: 0, duration: 0.35, ease: 'power2.in' }, 0.45)
+                    .to('#coin', { scale: 0, opacity: 0, transformOrigin: '50% 50%', duration: 0.16, ease: 'power2.in' }, 0.79)
+                    .to('#shackle', { y: 0, duration: 0.22, ease: 'back.out(2.4)' }, 0.86)
+                    .to('#esc-glow', { opacity: 0.85, duration: 0.2 }, 0.9)
+                    .to('#esc-ring', { strokeDashoffset: 0, duration: 0.95 }, 1.02)
+                    .fromTo('.pc', { scale: 0, opacity: 0, transformOrigin: '50% 50%' }, { scale: 1, opacity: 1, duration: 0.22, stagger: 0.24, ease: 'back.out(2.2)' }, 1.1)
+                    .to('#wrench', { rotation: 360, transformOrigin: '50% 50%', duration: 1 }, 1.0)
+                    .to('#shackle', { y: -36, duration: 0.2, ease: 'power2.out' }, 2.04)
+                    .fromTo('#esc-tick', { scale: 0, opacity: 0, transformOrigin: '50% 50%' }, { scale: 1, opacity: 1, duration: 0.24, ease: 'back.out(2.6)' }, 2.1)
+                    .fromTo('#coin2', { x: 0, y: 0, scale: 0, opacity: 0, transformOrigin: '50% 50%' }, { scale: 1, opacity: 1, duration: 0.14, ease: 'power2.out' }, 2.28)
+                    .to('#coin2', { x: 340, duration: 0.55, ease: 'power2.inOut' }, 2.4)
+                    .to('#coin2', { y: -80, duration: 0.28, ease: 'power2.out' }, 2.4)
+                    .to('#coin2', { y: 0, duration: 0.27, ease: 'power2.in' }, 2.68)
+                    .to('#coin2', { scale: 0, opacity: 0, duration: 0.12 }, 2.95)
+                    .to('#art-glow', { opacity: 1, duration: 0.15 }, 2.94)
+                    .fromTo('#sparks circle', { x: 0, y: 0, opacity: 1, scale: 1 }, { x: function (i) { return Math.cos(i * Math.PI / 4) * 98; }, y: function (i) { return Math.sin(i * Math.PI / 4) * 98; }, opacity: 0, scale: 0.3, duration: 0.3, ease: 'power2.out' }, 2.95)
+                    .to({}, { duration: 0.1 }, 3.2);
+
+                /* categories */
+                gsap.from('.cat', { clipPath: 'inset(100% 0% 0% 0% round 30px)', y: 50, duration: 1.1, stagger: 0.09, ease: 'power4.out', scrollTrigger: { trigger: '#cat-grid', start: 'top 82%', once: true } });
+
+                /* artisan stack */
+                var cards = $$('.sc');
+                cards.forEach(function (c, i) {
+                    if (i === cards.length - 1) return;
+                    gsap.to(c, { scale: 0.92, filter: 'brightness(.72)', ease: 'none', scrollTrigger: { trigger: cards[i + 1], start: 'top 85%', end: 'top 20%', scrub: true } });
+                });
+                gsap.from('.sc-av', { scale: 0, rotate: -30, duration: 0.9, stagger: 0.15, ease: 'back.out(2)', scrollTrigger: { trigger: '#stack', start: 'top 70%', once: true } });
+                var rings = $$('.art3 .ring');
+                gsap.set(rings, { strokeDasharray: 1000, strokeDashoffset: 1000 });
+                gsap.to(rings, { strokeDashoffset: 0, duration: 2.4, stagger: 0.12, ease: 'power2.out', scrollTrigger: { trigger: '.art3', start: 'top 85%', once: true } });
+
+                /* match */
+                gsap.from('#match-card', { y: 80, opacity: 0, duration: 1.2, ease: 'power3.out', scrollTrigger: { trigger: '#match-card', start: 'top 88%', once: true } });
+                gsap.from('.points li', { x: -30, opacity: 0, stagger: 0.12, duration: 0.9, ease: 'power3.out', scrollTrigger: { trigger: '.points', start: 'top 88%', once: true } });
+                gsap.from('.radar', { scale: 0.7, opacity: 0, duration: 1.4, ease: 'power3.out', scrollTrigger: { trigger: '.radar', start: 'top 90%', once: true } });
+
+                /* section parallax accents */
+                gsap.utils.toArray('.sec-head').forEach(function (h) {
+                    gsap.from(h, { y: 40, opacity: 0, duration: 1.2, ease: 'power3.out', scrollTrigger: { trigger: h, start: 'top 85%', once: true } });
+                });
+
+                /* dock tilt on scroll */
+                gsap.from('.dock', { rotateX: 4, transformPerspective: 800, transformOrigin: '50% 100%', duration: 1.4, ease: 'power3.out', scrollTrigger: { trigger: '.dock', start: 'top 95%', once: true } });
+
+                /* footer columns stagger */
+                gsap.from('.f-cols > div', { y: 40, opacity: 0, stagger: 0.12, duration: 1, ease: 'power3.out', scrollTrigger: { trigger: '.f-cols', start: 'top 92%', once: true } });
+
+                /* footer */
+                var fw = $('#f-word'), txt = fw.textContent; fw.textContent = '';
+                txt.split('').forEach(function (ch) { var s = document.createElement('span'); s.className = 'l'; s.textContent = ch; fw.appendChild(s); });
+                gsap.set('.fb', { strokeDasharray: 1, strokeDashoffset: 1 });
+                gsap.to('.fb', { strokeDashoffset: 0, ease: 'none', stagger: 0.02, scrollTrigger: { trigger: '.foot-bridge', start: 'top 92%', end: 'top 35%', scrub: 0.8 } });
+                gsap.from('.f-word .l', { yPercent: 105, duration: 1.2, stagger: 0.06, ease: 'power4.out', scrollTrigger: { trigger: '#f-word', start: 'top 95%', once: true } });
+
+                /* magnetic buttons */
+                if (window.matchMedia('(pointer:fine)').matches) {
+                    $$('[data-magnet]').forEach(function (b) {
+                        var qx = gsap.quickTo(b, 'x', { duration: 0.5, ease: 'power3.out' }), qy = gsap.quickTo(b, 'y', { duration: 0.5, ease: 'power3.out' });
+                        b.addEventListener('pointermove', function (e) { var r = b.getBoundingClientRect(); qx((e.clientX - r.left - r.width / 2) * 0.22); qy((e.clientY - r.top - r.height / 2) * 0.3); });
+                        b.addEventListener('pointerleave', function () { qx(0); qy(0); });
+                    });
+                }
+
+                window.addEventListener('load', function () { ST.refresh(); });
+                if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { ST.refresh(); placeTag(); });
+            }
+
+            if (motion) { try { initMotion(); } catch (err) { console.error('Motion init failed; page remains usable.', err); } }
+        })();
+    </script>
+</body>
+
+</html>
