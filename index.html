@@ -4671,7 +4671,8 @@
                 function addPins(layer, list) { list.forEach(function (p) { L.marker(p.ll, { icon: pinIcon(p.n, p.dim) }).bindPopup('<b>' + p.t + '</b><br>' + p.n + ' pros · from ₦' + p.f, { className: 'map-pop' }).addTo(layer); }); }
                 if (window.L && $('#map-el')) {
                     cityMap = L.map('map-el', { scrollWheelZoom: false, dragging: !('ontouchstart' in window), tap: true }).setView([6.52, 3.42], 11);
-                    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', { maxZoom: 19, attribution: '© OpenStreetMap · © CARTO' }).addTo(cityMap);
+                    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}', { maxZoom: 16, attribution: '© OpenStreetMap · © Esri' }).addTo(cityMap);
+                    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}', { maxZoom: 16 }).addTo(cityMap);
                     lagosLayer = L.layerGroup().addTo(cityMap); abujaLayer = L.layerGroup();
                     addPins(lagosLayer, [
                         { ll: [6.455, 3.394], n: 64, t: 'Lekki', f: '12,500' },
