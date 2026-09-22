@@ -346,8 +346,7 @@
             color: #fff
         }
 
-        .hdr.is-hidden,
-        .hdr.is-parked {
+        .hdr.is-hidden {
             transform: translateX(-50%) translateY(-120%);
             opacity: 0
         }
@@ -3907,7 +3906,6 @@
                 var y = window.scrollY || window.pageYOffset;
                 var solid = find.getBoundingClientRect().top < 90;
                 hdr.classList.toggle('is-solid', solid);
-                hdr.classList.toggle('is-parked', y < ($('#hero').offsetHeight - 140));
                 hdr.classList.toggle('is-hidden', solid && y > lastY + 4 && y > 400 && !root.classList.contains('menu-open'));
                 if (y < lastY - 4) hdr.classList.remove('is-hidden');
                 lastY = y; ticking = false;
@@ -4088,12 +4086,7 @@
                 gsap.set('.hero-photo', { scale: 1.08, transformOrigin: '50% 60%' });
                 gsap.set('.hero-chip', { opacity: 0, y: 12 });
                 gsap.set(words, { yPercent: 115 });
-                var hdrEl = $('#hdr'), heroEl = $('#hero');
-                function navPast() { return window.scrollY > (heroEl.offsetHeight - 140); }
-                var showNav = navPast();
-                if (showNav) { gsap.set('.hdr', { opacity: 0, y: -20 }); }
-                else { hdrEl.classList.add('is-parked'); }
-                window.addEventListener('scroll', function () { hdrEl.classList.toggle('is-parked', !navPast()); }, { passive: true });
+                gsap.set('.hdr', { opacity: 0, y: -20 });
                 gsap.set('#hero-tag', { opacity: 0, x: -10 });
                 gsap.set('#hero-tag .ht-line', { scaleX: 0 });
                 var intro = gsap.timeline({ defaults: { ease: 'power3.out' } });
@@ -4102,8 +4095,8 @@
                     .to('.hero-chip', { y: 0, opacity: 1, duration: 0.6 }, 0.4)
                     .to(words, { yPercent: 0, duration: 0.7, stagger: 0.04 }, 0.45)
                     .to('#hero-tag', { opacity: 1, x: 0, duration: 0.6 }, 0.7)
-                    .to('#hero-tag .ht-line', { scaleX: 1, duration: 0.4 }, 0.8);
-                if (showNav) { intro.to('.hdr', { y: 0, opacity: 1, duration: 0.5, clearProps: 'transform,opacity' }, 0.5); }
+                    .to('#hero-tag .ht-line', { scaleX: 1, duration: 0.4 }, 0.8)
+                    .to('.hdr', { y: 0, opacity: 1, duration: 0.5, clearProps: 'transform,opacity' }, 0.5);
                 intro.eventCallback('onComplete', placeTag);
 
                 /* pointer parallax */
