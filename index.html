@@ -20,6 +20,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Figtree:wght@400;500;600;700&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
     <script
         type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"NaijaPro","description":"Escrow-protected marketplace for vetted artisans in Lagos and Abuja.","areaServed":["Lagos","Abuja"]}</script>
 
@@ -1425,10 +1426,9 @@
         #categories {
             position: relative;
             background-color: var(--paper);
-            background-image: linear-gradient(rgba(247, 246, 239, .62), rgba(247, 246, 239, .62)), url("doodle-bg.jpg");
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260' viewBox='0 0 260 260'%3E%3Cg fill='none' stroke-linecap='round'%3E%3Ccircle cx='60' cy='70' r='34' stroke='%2316A34A' stroke-width='3' opacity='.28'/%3E%3Ccircle cx='60' cy='70' r='24' stroke='%2316A34A' stroke-width='2' opacity='.2'/%3E%3Ccircle cx='205' cy='195' r='22' stroke='%23B7791F' stroke-width='3' opacity='.35'/%3E%3Ccircle cx='232' cy='232' r='10' stroke='%23B7791F' stroke-width='2.5' opacity='.3'/%3E%3Cpath d='M178 48h24M190 36v24' stroke='%2316A34A' stroke-width='4' opacity='.3'/%3E%3Cpath d='M18 208q14-26 28 0t28 0' stroke='%23B7791F' stroke-width='4' opacity='.35'/%3E%3Cpath d='M142 128l14 14M156 128l-14 14' stroke='%2316A34A' stroke-width='3.5' opacity='.3'/%3E%3Cpath d='M150 30l28 52-56 0z' stroke='%2316A34A' stroke-width='3' opacity='.25'/%3E%3Cpath d='M22 52h34M30 66h22' stroke='%23B7791F' stroke-width='3' opacity='.3'/%3E%3C/g%3E%3Cg fill='%2316A34A' opacity='.3'%3E%3Ccircle cx='42' cy='148' r='3.5'/%3E%3Ccircle cx='72' cy='168' r='3.5'/%3E%3Ccircle cx='104' cy='128' r='3.5'/%3E%3Ccircle cx='152' cy='208' r='3.5'/%3E%3Ccircle cx='224' cy='122' r='3.5'/%3E%3Ccircle cx='244' cy='92' r='3.5'/%3E%3C/g%3E%3C/svg%3E");
+            background-repeat: repeat;
+            background-size: 260px 260px
         }
 
         .sec-head {
@@ -2131,19 +2131,63 @@
             position: relative
         }
 
-        #map-svg {
+        #map-el {
             display: block;
+            position: relative;
+            z-index: 0;
             width: 100%;
-            height: auto
+            height: 440px;
+            background: #03150E
         }
 
-        .map-pin {
-            transform-box: fill-box;
-            transform-origin: center
+        @media(max-width:640px) {
+            #map-el {
+                height: 330px
+            }
         }
 
-        .map-pin .halo {
-            animation: rdp 2.6s ease-out infinite
+        .leaflet-container {
+            font-family: var(--body)
+        }
+
+        .m-pin {
+            width: 34px;
+            height: 34px;
+            background: var(--gold);
+            border: 3px solid #03150E;
+            color: #03150E;
+            font: 800 13px var(--disp);
+            display: grid;
+            place-items: center;
+            box-shadow: 3px 3px 0 rgba(0, 0, 0, .5)
+        }
+
+        .m-pin.dim {
+            background: var(--green);
+            color: #fff
+        }
+
+        .map-pop .leaflet-popup-content-wrapper {
+            border-radius: 0;
+            border: 3px solid var(--ink);
+            box-shadow: 5px 5px 0 rgba(0, 0, 0, .4)
+        }
+
+        .map-pop .leaflet-popup-content {
+            margin: 12px 16px;
+            font-weight: 700;
+            line-height: 1.45
+        }
+
+        .map-pop .leaflet-popup-tip {
+            border: 3px solid var(--ink);
+            box-shadow: none
+        }
+
+        .map-board .leaflet-control-zoom a {
+            border-radius: 0 !important;
+            color: var(--ink) !important;
+            border: none !important
         }
 
         .map-legend {
@@ -3894,7 +3938,8 @@
                         </div>
                     </div>
                     <div class="map-stage">
-                        <svg id="map-svg" viewBox="0 0 1000 560" role="img" aria-label="Stylised coverage map of Lagos and Abuja with artisan clusters">
+                        <div id="map-el" role="application" aria-label="Live map of artisan coverage in Lagos and Abuja"></div>
+                        <svg id="map-svg" style="display:none" viewBox="0 0 1000 560" role="img" aria-label="Stylised coverage map of Lagos and Abuja with artisan clusters">
                             <rect x="0" y="0" width="1000" height="560" fill="#03150E"/>
                             <path d="M0 380 Q 200 330 380 360 Q 600 395 760 350 Q 900 315 1000 340 L1000 430 Q 820 470 620 440 Q 400 410 220 445 Q 100 460 0 445 Z" fill="#0B3B2A" stroke="#16A34A" stroke-width="3"/>
                             <g stroke="#EAF7EE" stroke-width="4" opacity=".22" stroke-linecap="round"><path d="M80 120 Q 300 160 520 140 T 940 180"/><path d="M120 60 L 240 500"/><path d="M420 40 L 500 520"/><path d="M700 60 L 660 520"/><path d="M80 260 Q 500 220 940 280"/></g>
@@ -4255,6 +4300,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
         (function () {
             'use strict';
@@ -4620,18 +4666,44 @@
                 gsap.from('.dock .tags button', { y: 16, opacity: 0, stagger: 0.06, duration: 0.6, ease: 'power3.out', scrollTrigger: { trigger: '.tags', start: 'top 94%', once: true } });
 
                 /* live map */
+                var cityMap = null, lagosLayer = null, abujaLayer = null;
+                function pinIcon(n, dim) { return L.divIcon({ className: '', html: '<div class="m-pin' + (dim ? ' dim' : '') + '">' + n + '</div>', iconSize: [34, 34], iconAnchor: [17, 17], popupAnchor: [0, -18] }); }
+                function addPins(layer, list) { list.forEach(function (p) { L.marker(p.ll, { icon: pinIcon(p.n, p.dim) }).bindPopup('<b>' + p.t + '</b><br>' + p.n + ' pros · from ₦' + p.f, { className: 'map-pop' }).addTo(layer); }); }
+                if (window.L && $('#map-el')) {
+                    cityMap = L.map('map-el', { scrollWheelZoom: false, dragging: !('ontouchstart' in window), tap: true }).setView([6.52, 3.42], 11);
+                    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', { maxZoom: 19, attribution: '© OpenStreetMap · © CARTO' }).addTo(cityMap);
+                    lagosLayer = L.layerGroup().addTo(cityMap); abujaLayer = L.layerGroup();
+                    addPins(lagosLayer, [
+                        { ll: [6.455, 3.394], n: 64, t: 'Lekki', f: '12,500' },
+                        { ll: [6.453, 3.423], n: 51, t: 'Ikoyi', f: '15,000' },
+                        { ll: [6.428, 3.421], n: 38, t: 'Victoria Island', f: '15,000', dim: 1 },
+                        { ll: [6.601, 3.351], n: 42, t: 'Ikeja', f: '10,000' },
+                        { ll: [6.509, 3.379], n: 35, t: 'Yaba', f: '8,500' },
+                        { ll: [6.492, 3.359], n: 28, t: 'Surulere', f: '9,000', dim: 1 },
+                        { ll: [6.469, 3.585], n: 31, t: 'Ajah', f: '11,000', dim: 1 },
+                        { ll: [6.572, 3.371], n: 22, t: 'Maryland', f: '9,500', dim: 1 }
+                    ]);
+                    addPins(abujaLayer, [
+                        { ll: [9.083, 7.490], n: 26, t: 'Maitama', f: '14,000' },
+                        { ll: [9.058, 7.485], n: 33, t: 'Wuse', f: '12,000' },
+                        { ll: [9.050, 7.530], n: 19, t: 'Asokoro', f: '15,000' },
+                        { ll: [9.064, 7.424], n: 21, t: 'Jabi', f: '11,500', dim: 1 },
+                        { ll: [9.107, 7.411], n: 24, t: 'Gwarinpa', f: '10,500', dim: 1 },
+                        { ll: [9.026, 7.486], n: 17, t: 'Garki', f: '11,000', dim: 1 },
+                        { ll: [8.991, 7.378], n: 12, t: 'Lugbe', f: '9,000', dim: 1 }
+                    ]);
+                }
                 $$('.map-tab').forEach(function (b) {
                     b.addEventListener('click', function () {
                         $$('.map-tab').forEach(function (x) { x.classList.remove('is-on'); x.setAttribute('aria-selected', 'false'); });
                         b.classList.add('is-on'); b.setAttribute('aria-selected', 'true');
                         var city = b.getAttribute('data-city');
-                        $('#pins-lagos').style.display = city === 'lagos' ? '' : 'none';
-                        $('#pins-abuja').style.display = city === 'abuja' ? '' : 'none';
-                        gsap.from(city === 'lagos' ? '#pins-lagos .map-pin' : '#pins-abuja .map-pin', { scale: 0, transformOrigin: '50% 50%', stagger: 0.06, duration: 0.5, ease: 'back.out(2)' });
+                        if (!cityMap) return;
+                        if (city === 'lagos') { cityMap.removeLayer(abujaLayer); lagosLayer.addTo(cityMap); cityMap.flyTo([6.52, 3.42], 11, { duration: 1.2 }); }
+                        else { cityMap.removeLayer(lagosLayer); abujaLayer.addTo(cityMap); cityMap.flyTo([9.06, 7.47], 11, { duration: 1.2 }); }
                     });
                 });
                 gsap.from('.map-board', { y: 70, opacity: 0, duration: 1.2, ease: 'power3.out', scrollTrigger: { trigger: '.map-board', start: 'top 88%', once: true } });
-                gsap.from('#pins-lagos .map-pin', { scale: 0, transformOrigin: '50% 50%', stagger: 0.07, duration: 0.6, ease: 'back.out(2)', scrollTrigger: { trigger: '#map-svg', start: 'top 80%', once: true } });
                 gsap.from('.map-stats > div', { y: 30, opacity: 0, stagger: 0.1, duration: 0.8, ease: 'power3.out', scrollTrigger: { trigger: '.map-stats', start: 'top 92%', once: true } });
 
                 /* section parallax accents */
