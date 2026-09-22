@@ -554,6 +554,36 @@
             height: 100%
         }
 
+        #scene #L-far,
+        #scene #L-mid {
+            opacity: .14
+        }
+
+        #scene #L-far rect,
+        #scene #L-mid rect {
+            fill: none;
+            stroke: rgba(255, 255, 255, .6);
+            stroke-width: 2
+        }
+
+        #scene #L-bridge path,
+        #scene #L-bridge rect,
+        #scene #L-bridge ellipse,
+        #scene #L-bridge line {
+            fill: none;
+            stroke: #fff
+        }
+
+        #scene #L-bridge {
+            opacity: .22
+        }
+
+        #scene #L-bridge .beacon {
+            fill: var(--gold);
+            stroke: none;
+            opacity: 1
+        }
+
         .hero-shade {
             position: absolute;
             inset: 0;
@@ -565,8 +595,12 @@
             position: absolute;
             left: 0;
             right: 0;
-            top: clamp(92px, 16vh, 170px);
-            z-index: 3
+            top: clamp(92px, 14vh, 150px);
+            z-index: 3;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center
         }
 
         .hero-chip {
@@ -593,7 +627,8 @@
             font-size: clamp(3.2rem, 6.4vw, 6.4rem);
             line-height: .94;
             letter-spacing: -.045em;
-            text-shadow: 0 2px 40px rgba(2, 11, 7, .5)
+            text-shadow: 0 2px 40px rgba(2, 11, 7, .5);
+            text-align: center
         }
 
         .hero h1 .line {
@@ -608,21 +643,26 @@
             z-index: 3;
             display: flex;
             flex-wrap: wrap;
-            align-items: flex-end;
-            justify-content: space-between;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
             gap: 16px 24px
         }
 
         .hero-sub {
-            max-width: 31em;
+            max-width: 34em;
+            margin-inline: auto;
             font-size: clamp(1rem, 1.3vw, 1.18rem);
             color: rgba(255, 255, 255, .86);
-            text-shadow: 0 1px 18px rgba(2, 11, 7, .7)
+            text-shadow: 0 1px 18px rgba(2, 11, 7, .7);
+            text-align: center
         }
 
         .hero-cta {
             display: flex;
             flex-wrap: wrap;
+            justify-content: center;
             gap: 12px;
             margin-top: 22px
         }
@@ -2720,17 +2760,16 @@
         <g id="L-bridge">
           <g id="deck"><path d="M0 640 L1400 620 L1400 660 L0 680 Z" fill="#064E3B" opacity=".9"/><path d="M0 680 L1400 660 L1400 670 L0 690 Z" fill="#03301F" opacity=".5"/><g fill="#0a2e1c" opacity=".8"><rect x="60" y="590" width="90" height="60" rx="2"/><rect x="72" y="572" width="66" height="20" rx="2"/><rect x="1250" y="585" width="100" height="65" rx="2"/><rect x="1262" y="567" width="76" height="20" rx="2"/><rect x="180" y="605" width="12" height="50"/><rect x="1220" y="600" width="12" height="55"/></g><g fill="#16A34A" opacity=".9"><rect x="80" y="560" width="50" height="14" rx="7"/><rect x="1270" y="555" width="60" height="14" rx="7"/></g></g>
           <g id="pylon">
-            <rect x="560" y="520" width="480" height="140" rx="6" fill="#16A34A"/>
-            <rect x="560" y="520" width="480" height="140" rx="6" fill="none" stroke="#03150E" stroke-width="4" opacity=".25"/>
-            <g stroke="#03150E" stroke-width="3" opacity=".35"><line x1="600" y1="530" x2="600" y2="650"/><line x1="640" y1="530" x2="640" y2="650"/><line x1="680" y1="530" x2="680" y2="650"/><line x1="720" y1="530" x2="720" y2="650"/><line x1="760" y1="530" x2="760" y2="650"/><line x1="840" y1="530" x2="840" y2="650"/><line x1="880" y1="530" x2="880" y2="650"/><line x1="920" y1="530" x2="920" y2="650"/><line x1="960" y1="530" x2="960" y2="650"/><line x1="1000" y1="530" x2="1000" y2="650"/></g>
-            <ellipse cx="800" cy="440" rx="300" ry="105" fill="#16A34A" stroke="#03150E" stroke-width="5"/>
-            <ellipse cx="800" cy="405" rx="300" ry="95" fill="#1DB954" opacity=".55"/>
-            <ellipse cx="800" cy="350" rx="175" ry="58" fill="#0b3b2a" stroke="#03150E" stroke-width="5"/>
-            <ellipse cx="800" cy="338" rx="175" ry="48" fill="none" stroke="#FBBF24" stroke-width="3" opacity=".7"/>
-            <rect x="788" y="275" width="24" height="50" rx="4" fill="#16A34A" stroke="#03150E" stroke-width="4"/>
-            <circle cx="800" cy="268" r="6" fill="#FBBF24" filter="url(#glow)" class="beacon"/>
-            <g stroke="#FBBF24" stroke-width="2.5" opacity=".85"><line class="stay" x1="800" y1="330" x2="540" y2="430"/><line class="stay" x1="800" y1="330" x2="600" y2="445"/><line class="stay" x1="800" y1="330" x2="670" y2="455"/><line class="stay" x1="800" y1="330" x2="740" y2="460"/><line class="stay" x1="800" y1="330" x2="860" y2="460"/><line class="stay" x1="800" y1="330" x2="930" y2="455"/><line class="stay" x1="800" y1="330" x2="1000" y2="445"/><line class="stay" x1="800" y1="330" x2="1060" y2="430"/></g>
-            <g fill="#03150E" opacity=".85"><rect x="620" y="560" width="60" height="44" rx="3"/><rect x="700" y="560" width="60" height="44" rx="3"/><rect x="840" y="560" width="60" height="44" rx="3"/><rect x="920" y="560" width="60" height="44" rx="3"/></g>
+            <rect x="330" y="520" width="940" height="150" rx="6" fill="none" stroke-width="4" opacity=".9"/>
+            <g stroke-width="3" opacity=".7"><line x1="420" y1="530" x2="420" y2="660"/><line x1="490" y1="530" x2="490" y2="660"/><line x1="560" y1="530" x2="560" y2="660"/><line x1="630" y1="530" x2="630" y2="660"/><line x1="700" y1="530" x2="700" y2="660"/><line x1="770" y1="530" x2="770" y2="660"/><line x1="830" y1="530" x2="830" y2="660"/><line x1="900" y1="530" x2="900" y2="660"/><line x1="970" y1="530" x2="970" y2="660"/><line x1="1040" y1="530" x2="1040" y2="660"/><line x1="1110" y1="530" x2="1110" y2="660"/><line x1="1180" y1="530" x2="1180" y2="660"/></g>
+            <ellipse cx="800" cy="440" rx="520" ry="150" fill="none" stroke-width="5"/>
+            <ellipse cx="800" cy="405" rx="520" ry="135" fill="none" stroke-width="2" opacity=".6"/>
+            <ellipse cx="800" cy="345" rx="260" ry="72" fill="none" stroke-width="5"/>
+            <ellipse cx="800" cy="332" rx="260" ry="60" fill="none" stroke-width="2" opacity=".7"/>
+            <rect x="788" y="250" width="24" height="60" rx="4" fill="none" stroke-width="4"/>
+            <circle cx="800" cy="242" r="7" fill="#FBBF24" filter="url(#glow)" class="beacon"/>
+            <g stroke-width="2.5" opacity=".9"><line class="stay" x1="800" y1="320" x2="300" y2="430"/><line class="stay" x1="800" y1="320" x2="430" y2="455"/><line class="stay" x1="800" y1="320" x2="560" y2="470"/><line class="stay" x1="800" y1="320" x2="690" y2="478"/><line class="stay" x1="800" y1="320" x2="910" y2="478"/><line class="stay" x1="800" y1="320" x2="1040" y2="470"/><line class="stay" x1="800" y1="320" x2="1170" y2="455"/><line class="stay" x1="800" y1="320" x2="1300" y2="430"/></g>
+            <g opacity=".9"><rect x="450" y="560" width="80" height="48" rx="3" fill="none" stroke-width="3"/><rect x="560" y="560" width="80" height="48" rx="3" fill="none" stroke-width="3"/><rect x="960" y="560" width="80" height="48" rx="3" fill="none" stroke-width="3"/><rect x="1070" y="560" width="80" height="48" rx="3" fill="none" stroke-width="3"/></g>
           </g>
           <g stroke="#EAF7EE" stroke-width=".9" opacity=".18"><line x1="200" y1="480" x2="200" y2="640"/><line x1="1200" y1="475" x2="1200" y2="640"/><line x1="200" y1="490" x2="420" y2="520"/><line x1="1200" y1="490" x2="980" y2="520"/></g>
         </g>
