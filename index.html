@@ -4093,7 +4093,6 @@
                 gsap.set('#hero-tag .ht-line', { scaleX: 0 });
                 var intro = gsap.timeline({ defaults: { ease: 'power3.out' } });
                 intro
-                    .from('.hero', { opacity: 0, duration: 0.5 }, 0)
                     .to('.hero-photo', { scale: 1, duration: 1.6, ease: 'power2.out' }, 0.1)
                     .to('.hero-chip', { y: 0, opacity: 1, duration: 0.6 }, 0.4)
                     .to(words, { yPercent: 0, duration: 0.7, stagger: 0.04 }, 0.45)
