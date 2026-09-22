@@ -565,6 +565,14 @@
             object-position: center 42%
         }
 
+        .hero-dim {
+            position: absolute;
+            inset: 0;
+            background: #02120b;
+            opacity: 0;
+            pointer-events: none
+        }
+
         #scene #L-far,
         #scene #L-mid,
         #scene #L-mid-lights {
@@ -2735,6 +2743,7 @@
         <section class="hero" id="hero" aria-label="NaijaPro introduction">
             <div class="hero-stage">
                 <img class="hero-photo" src="hero-theatre.jpg" alt="National Theatre, Iganmu, Lagos" fetchpriority="high">
+                <div class="hero-dim" aria-hidden="true"></div>
                 <svg id="scene" viewBox="0 0 1400 900" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <defs>
             <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
@@ -4107,7 +4116,8 @@
                 /* hero scroll story: dusk -> night, camera dolly */
                 var o = '800 640';
                 var hs = gsap.timeline({ defaults: { ease: 'none' }, scrollTrigger: { trigger: '#hero', start: 'top top', end: '+=130%', scrub: 0.8, pin: true, anticipatePin: 1 } });
-                hs.to('.hero-photo', { scale: 1.18, filter: 'brightness(.5)', transformOrigin: '50% 60%' }, 0)
+                hs.to('.hero-photo', { scale: 1.18, transformOrigin: '50% 60%' }, 0)
+                    .to('.hero-dim', { opacity: 0.55 }, 0)
                     .to('.hero-copy', { yPercent: -30, opacity: 0 }, 0.05)
                     .to('.hero-foot', { y: 60, opacity: 0 }, 0.1)
                     .to('#hero-tag', { opacity: 0 }, 0)
