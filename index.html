@@ -568,14 +568,25 @@
 
         #scene #L-bridge path,
         #scene #L-bridge rect,
-        #scene #L-bridge ellipse,
-        #scene #L-bridge line {
+        #scene #L-bridge ellipse {
+            fill: #fff;
+            stroke: none
+        }
+
+        #scene #L-bridge line,
+        #scene #L-bridge .stay {
             fill: none;
             stroke: #fff
         }
 
         #scene #L-bridge {
-            opacity: .22
+            opacity: .15
+        }
+
+        #scene #L-bridge .cut {
+            fill: none;
+            stroke: #03150E;
+            opacity: .6
         }
 
         #scene #L-bridge .beacon {
@@ -2760,16 +2771,19 @@
         <g id="L-bridge">
           <g id="deck"><path d="M0 640 L1400 620 L1400 660 L0 680 Z" fill="#064E3B" opacity=".9"/><path d="M0 680 L1400 660 L1400 670 L0 690 Z" fill="#03301F" opacity=".5"/><g fill="#0a2e1c" opacity=".8"><rect x="60" y="590" width="90" height="60" rx="2"/><rect x="72" y="572" width="66" height="20" rx="2"/><rect x="1250" y="585" width="100" height="65" rx="2"/><rect x="1262" y="567" width="76" height="20" rx="2"/><rect x="180" y="605" width="12" height="50"/><rect x="1220" y="600" width="12" height="55"/></g><g fill="#16A34A" opacity=".9"><rect x="80" y="560" width="50" height="14" rx="7"/><rect x="1270" y="555" width="60" height="14" rx="7"/></g></g>
           <g id="pylon">
-            <rect x="330" y="520" width="940" height="150" rx="6" fill="none" stroke-width="4" opacity=".9"/>
-            <g stroke-width="3" opacity=".7"><line x1="420" y1="530" x2="420" y2="660"/><line x1="490" y1="530" x2="490" y2="660"/><line x1="560" y1="530" x2="560" y2="660"/><line x1="630" y1="530" x2="630" y2="660"/><line x1="700" y1="530" x2="700" y2="660"/><line x1="770" y1="530" x2="770" y2="660"/><line x1="830" y1="530" x2="830" y2="660"/><line x1="900" y1="530" x2="900" y2="660"/><line x1="970" y1="530" x2="970" y2="660"/><line x1="1040" y1="530" x2="1040" y2="660"/><line x1="1110" y1="530" x2="1110" y2="660"/><line x1="1180" y1="530" x2="1180" y2="660"/></g>
-            <ellipse cx="800" cy="440" rx="520" ry="150" fill="none" stroke-width="5"/>
-            <ellipse cx="800" cy="405" rx="520" ry="135" fill="none" stroke-width="2" opacity=".6"/>
-            <ellipse cx="800" cy="345" rx="260" ry="72" fill="none" stroke-width="5"/>
-            <ellipse cx="800" cy="332" rx="260" ry="60" fill="none" stroke-width="2" opacity=".7"/>
-            <rect x="788" y="250" width="24" height="60" rx="4" fill="none" stroke-width="4"/>
-            <circle cx="800" cy="242" r="7" fill="#FBBF24" filter="url(#glow)" class="beacon"/>
-            <g stroke-width="2.5" opacity=".9"><line class="stay" x1="800" y1="320" x2="300" y2="430"/><line class="stay" x1="800" y1="320" x2="430" y2="455"/><line class="stay" x1="800" y1="320" x2="560" y2="470"/><line class="stay" x1="800" y1="320" x2="690" y2="478"/><line class="stay" x1="800" y1="320" x2="910" y2="478"/><line class="stay" x1="800" y1="320" x2="1040" y2="470"/><line class="stay" x1="800" y1="320" x2="1170" y2="455"/><line class="stay" x1="800" y1="320" x2="1300" y2="430"/></g>
-            <g opacity=".9"><rect x="450" y="560" width="80" height="48" rx="3" fill="none" stroke-width="3"/><rect x="560" y="560" width="80" height="48" rx="3" fill="none" stroke-width="3"/><rect x="960" y="560" width="80" height="48" rx="3" fill="none" stroke-width="3"/><rect x="1070" y="560" width="80" height="48" rx="3" fill="none" stroke-width="3"/></g>
+            <rect x="250" y="745" width="900" height="55" rx="4"/>
+            <rect x="300" y="720" width="800" height="28" rx="4"/>
+            <g><rect x="380" y="668" width="26" height="55"/><rect x="460" y="668" width="26" height="55"/><rect x="540" y="668" width="26" height="55"/><rect x="620" y="668" width="26" height="55"/><rect x="700" y="668" width="26" height="55"/><rect x="780" y="668" width="26" height="55"/><rect x="860" y="668" width="26" height="55"/><rect x="940" y="668" width="26" height="55"/><rect x="1020" y="668" width="26" height="55"/><rect x="1100" y="668" width="18" height="55"/></g>
+            <rect x="380" y="530" width="840" height="142" rx="6"/>
+            <g class="cuts" stroke-width="3"><line class="cut" x1="450" y1="540" x2="450" y2="662"/><line class="cut" x1="510" y1="540" x2="510" y2="662"/><line class="cut" x1="570" y1="540" x2="570" y2="662"/><line class="cut" x1="630" y1="540" x2="630" y2="662"/><line class="cut" x1="690" y1="540" x2="690" y2="662"/><line class="cut" x1="750" y1="540" x2="750" y2="662"/><line class="cut" x1="810" y1="540" x2="810" y2="662"/><line class="cut" x1="870" y1="540" x2="870" y2="662"/><line class="cut" x1="930" y1="540" x2="930" y2="662"/><line class="cut" x1="990" y1="540" x2="990" y2="662"/><line class="cut" x1="1050" y1="540" x2="1050" y2="662"/><line class="cut" x1="1110" y1="540" x2="1110" y2="662"/><line class="cut" x1="1160" y1="540" x2="1160" y2="662"/></g>
+            <rect x="380" y="512" width="840" height="22" rx="8"/>
+            <path d="M280 512 Q450 430 650 470 Q800 495 950 470 Q1150 430 1320 512 L1240 560 Q1100 500 950 520 Q800 542 650 520 Q500 500 360 560 Z"/>
+            <ellipse cx="800" cy="420" rx="420" ry="105"/>
+            <ellipse cx="800" cy="372" rx="240" ry="62"/>
+            <rect x="786" y="252" width="28" height="62" rx="5"/>
+            <circle cx="800" cy="243" r="8" fill="#FBBF24" filter="url(#glow)" class="beacon"/>
+            <g stroke-width="2.5" opacity=".9"><line class="stay" x1="800" y1="330" x2="400" y2="440"/><line class="stay" x1="800" y1="330" x2="520" y2="462"/><line class="stay" x1="800" y1="330" x2="640" y2="474"/><line class="stay" x1="800" y1="330" x2="760" y2="480"/><line class="stay" x1="800" y1="330" x2="880" y2="480"/><line class="stay" x1="800" y1="330" x2="1000" y2="474"/><line class="stay" x1="800" y1="330" x2="1120" y2="462"/><line class="stay" x1="800" y1="330" x2="1240" y2="440"/></g>
+            <g><rect x="740" y="600" width="120" height="72" rx="4" fill="none" class="cut" stroke-width="4"/><circle cx="800" cy="628" r="14" fill="none" class="cut" stroke-width="3"/></g>
           </g>
           <g stroke="#EAF7EE" stroke-width=".9" opacity=".18"><line x1="200" y1="480" x2="200" y2="640"/><line x1="1200" y1="475" x2="1200" y2="640"/><line x1="200" y1="490" x2="420" y2="520"/><line x1="1200" y1="490" x2="980" y2="520"/></g>
         </g>
