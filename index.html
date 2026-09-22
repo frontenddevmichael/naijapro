@@ -896,9 +896,59 @@
         .dock {
             position: relative;
             background: #fff;
-            border-radius: 28px;
-            padding: 12px;
-            box-shadow: 0 40px 90px -30px rgba(3, 48, 31, .35), 0 0 0 1px var(--line)
+            border-radius: 0;
+            border: 5px solid var(--ink);
+            padding: 0;
+            box-shadow: 12px 12px 0 var(--ink);
+            transform: rotate(-.6deg);
+            counter-reset: field
+        }
+
+        .dock-head {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--ink);
+            color: #fff;
+            padding: 12px 20px;
+            font-size: .8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: .1em
+        }
+
+        .dock-head .ticket-no {
+            margin-left: auto;
+            font-family: var(--disp);
+            color: var(--gold);
+            letter-spacing: .06em
+        }
+
+        .ticket-live {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            color: #7ee2a8
+        }
+
+        .ticket-live i {
+            width: 9px;
+            height: 9px;
+            background: #3ddc84;
+            animation: ping 2.2s infinite
+        }
+
+        .dock-body {
+            padding: 20px 20px 8px
+        }
+
+        .dock-perf {
+            height: 20px;
+            margin: 14px 0 4px;
+            background-image: radial-gradient(circle, var(--paper) 5px, rgba(0, 0, 0, 0) 6px);
+            background-size: 26px 20px;
+            background-position: center;
+            border-top: 3px dashed var(--ink)
         }
 
         .dock-form {
@@ -926,14 +976,16 @@
             align-items: center;
             gap: 12px;
             padding: 12px 18px;
-            border-radius: 18px;
+            border-radius: 0;
+            border: 3px solid var(--ink);
             background: var(--mist);
-            transition: box-shadow .25s, background .25s
+            transition: box-shadow .1s, background .1s, transform .1s
         }
 
         .dock-f:focus-within {
             background: #fff;
-            box-shadow: inset 0 0 0 2px var(--green)
+            box-shadow: inset 0 0 0 3px var(--gold);
+            transform: translate(-2px, -2px)
         }
 
         .dock-f svg {
@@ -945,9 +997,16 @@
 
         .dock-f label {
             display: block;
-            font-size: .8rem;
-            font-weight: 600;
-            color: var(--gray)
+            font-size: .74rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            color: var(--ink)
+        }
+
+        .dock-f label::before {
+            counter-increment: field;
+            content: "0" counter(field) " · "
         }
 
         .dock-f select {
@@ -971,9 +1030,28 @@
         }
 
         .dock-go {
-            min-height: 60px;
+            min-height: 64px;
             padding-inline: 32px;
-            font-size: 1rem
+            font-size: 1.05rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: .02em;
+            background: var(--gold) !important;
+            color: var(--ink) !important;
+            border: 3px solid var(--ink);
+            border-radius: 0;
+            box-shadow: 5px 5px 0 var(--ink);
+            transition: transform .08s, box-shadow .08s
+        }
+
+        .dock-go:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 7px 7px 0 var(--ink)
+        }
+
+        .dock-go:active {
+            transform: translate(3px, 3px);
+            box-shadow: 0 0 0 var(--ink)
         }
 
         .tags {
@@ -987,18 +1065,35 @@
         }
 
         .tags button {
-            padding: 6px 14px;
-            border-radius: 999px;
-            background: var(--mist);
+            padding: 9px 16px;
+            border-radius: 0;
+            border: 2.5px solid var(--ink);
+            background: #fff;
             color: var(--deep);
-            font-weight: 500;
-            font-size: .85rem;
-            transition: background .2s, transform .3s var(--ease)
+            font-weight: 800;
+            font-size: .8rem;
+            text-transform: uppercase;
+            letter-spacing: .03em;
+            box-shadow: 3px 3px 0 var(--ink);
+            transition: transform .08s, box-shadow .08s
+        }
+
+        .tags button:nth-child(2) {
+            transform: rotate(-1.2deg)
+        }
+
+        .tags button:nth-child(3) {
+            transform: rotate(1deg)
+        }
+
+        .tags button:nth-child(4) {
+            transform: rotate(-.6deg)
         }
 
         .tags button:hover {
-            background: #d9f0e0;
-            transform: translateY(-2px)
+            background: var(--gold);
+            transform: translate(-2px, -2px) rotate(0deg);
+            box-shadow: 5px 5px 0 var(--ink)
         }
 
         .stats {
@@ -2889,6 +2984,8 @@
             <div class="wrap" style="position:relative">
                 <svg class="decor decor-dots" style="top:-20px;left:-30px" viewBox="0 0 120 120" aria-hidden="true"><g fill="var(--green)"><circle cx="10" cy="10" r="2.5"/><circle cx="30" cy="10" r="2.5"/><circle cx="50" cy="10" r="2.5"/><circle cx="70" cy="10" r="2.5"/><circle cx="90" cy="10" r="2.5"/><circle cx="110" cy="10" r="2.5"/><circle cx="10" cy="30" r="2.5"/><circle cx="30" cy="30" r="2.5"/><circle cx="50" cy="30" r="2.5"/><circle cx="70" cy="30" r="2.5"/><circle cx="90" cy="30" r="2.5"/><circle cx="110" cy="30" r="2.5"/><circle cx="10" cy="50" r="2.5"/><circle cx="30" cy="50" r="2.5"/><circle cx="50" cy="50" r="2.5"/><circle cx="70" cy="50" r="2.5"/><circle cx="90" cy="50" r="2.5"/><circle cx="110" cy="50" r="2.5"/></g></svg>
                 <div class="dock" id="dock">
+                    <div class="dock-head" aria-hidden="true"><span>Work order</span><span class="ticket-no">№ <b id="ticket-no">04821</b></span><span class="ticket-live"><i></i>desk open</span></div>
+                    <div class="dock-body">
                     <form class="dock-form" id="search-form" novalidate>
                         <div class="dock-f">
                             <svg viewBox="0 0 20 20" fill="none">
@@ -2937,7 +3034,9 @@
                         </div>
                         <button class="btn btn-green dock-go" type="submit">Find pros</button>
                     </form>
-                    <div class="tags"><span>Popular in Lagos:</span>
+                    </div>
+                    <div class="dock-perf" aria-hidden="true"></div>
+                    <div class="tags" style="padding:2px 20px 22px"><span>Tear one off:</span>
                         <button type="button" data-key="solar">Inverter diagnostic</button>
                         <button type="button" data-key="hvac">Split AC gas recharge</button>
                         <button type="button" data-key="plumbing">Water pump repair</button>
@@ -4015,7 +4114,8 @@
                     toast('No ' + (LABELS[key] || 'matching') + ' pro is featured today. Post a job and we’ll match you.');
                 }
             }
-            $('#search-form').addEventListener('submit', function (e) { e.preventDefault(); findPros($('#trade').value); });
+                function bumpTicket() { var t = $('#ticket-no'); if (!t) return; var n = parseInt(t.textContent, 10) || 4821; t.textContent = String(n + 1).padStart(5, '0'); }
+                $('#search-form').addEventListener('submit', function (e) { e.preventDefault(); bumpTicket(); findPros($('#trade').value); });
             $$('.tags button').forEach(function (b) { b.addEventListener('click', function () { findPros(b.getAttribute('data-key')); }); });
             $$('.cat').forEach(function (c) {
                 c.addEventListener('click', function (e) { e.preventDefault(); findPros(c.getAttribute('data-key')); });
@@ -4188,7 +4288,9 @@
                         }
                     });
                 });
-                gsap.from('.dock', { y: 60, opacity: 0, rotateX: 4, transformPerspective: 800, transformOrigin: '50% 100%', duration: 1.1, ease: 'power3.out', scrollTrigger: { trigger: '.dock', start: 'top 95%', once: true } });
+                gsap.set('.dock', { transformPerspective: 900, transformOrigin: '50% 100%' });
+                gsap.fromTo('.dock', { y: 110, rotateX: 28 }, { y: 0, rotateX: 0, ease: 'none', scrollTrigger: { trigger: '.find', start: 'top bottom', end: 'top 30%', scrub: 0.7 } });
+                gsap.from('.dock-f', { y: 26, opacity: 0, stagger: 0.1, duration: 0.7, ease: 'power3.out', scrollTrigger: { trigger: '.dock', start: 'top 85%', once: true } });
                 gsap.from('.stat', { y: 30, opacity: 0, stagger: 0.12, duration: 1, ease: 'power3.out', scrollTrigger: { trigger: '.stats', start: 'top 90%', once: true } });
 
                 /* marquee */
