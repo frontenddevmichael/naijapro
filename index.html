@@ -249,6 +249,52 @@
             box-shadow: 0 12px 30px -10px rgba(22, 163, 74, .6)
         }
 
+        .hero-cta .btn {
+            border-radius: 0;
+            border: 3px solid var(--ink);
+            font-weight: 800;
+            box-shadow: 5px 5px 0 var(--ink);
+            transition: transform .1s, box-shadow .1s, background-color .1s
+        }
+
+        .hero-cta .btn:hover {
+            transform: translate(-2px, -2px)
+        }
+
+        .hero-cta .btn:hover svg {
+            transform: translateX(3px)
+        }
+
+        .hero-cta .btn:active {
+            transform: translate(3px, 3px);
+            box-shadow: 0 0 0 var(--ink)
+        }
+
+        .hero-cta .btn-gold {
+            background: var(--gold);
+            color: var(--ink);
+            box-shadow: 5px 5px 0 var(--ink)
+        }
+
+        .hero-cta .btn-gold:hover {
+            background: #ffd25a;
+            box-shadow: 7px 7px 0 var(--ink)
+        }
+
+        .hero-cta .btn-glass {
+            background: #fff;
+            color: var(--green);
+            border: 3px solid var(--ink);
+            backdrop-filter: none;
+            box-shadow: 5px 5px 0 var(--ink)
+        }
+
+        .hero-cta .btn-glass:hover {
+            background: #fff;
+            border-color: var(--ink);
+            box-shadow: 7px 7px 0 var(--ink)
+        }
+
         .btn[disabled] {
             opacity: .7;
             cursor: progress
@@ -4096,7 +4142,7 @@
 
                 /* hero intro — fade scene, fast cable draw */
                 var words = splitWords($('#hero-h1'));
-                gsap.set('.hero-photo', { scale: 1.22, transformOrigin: '50% 60%' });
+                gsap.set('.hero-photo', { scale: 1.08, transformOrigin: '50% 60%' });
                 gsap.set('#L-bridge-lights', { opacity: 0 });
                 gsap.set('.hero-chip', { opacity: 0, y: 12 });
                 gsap.set(words, { yPercent: 115 });
@@ -4123,7 +4169,7 @@
                 /* hero scroll story: dusk -> night, camera dolly */
                 var o = '800 640';
                 var hs = gsap.timeline({ defaults: { ease: 'none' }, scrollTrigger: { trigger: '#hero', start: 'top top', end: '+=130%', scrub: 0.8, pin: true, anticipatePin: 1 } });
-                hs.to('.hero-photo', { scale: 1.18, transformOrigin: '50% 60%' }, 0)
+                hs.to('.hero-photo', { scale: 1.08, transformOrigin: '50% 60%' }, 0)
                     .to('.hero-dim', { opacity: 0.55 }, 0)
                     .to('.hero-copy', { yPercent: -30, opacity: 0 }, 0.05)
                     .to('.hero-foot', { y: 60, opacity: 0 }, 0.1)
