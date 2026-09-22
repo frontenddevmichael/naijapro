@@ -544,7 +544,8 @@
         .hero-stage {
             position: absolute;
             inset: 0;
-            overflow: hidden
+            overflow: hidden;
+            background: #0CA14B
         }
 
         #scene {
@@ -2694,6 +2695,7 @@
             }
         }
     </style>
+    <link rel="preload" as="image" href="hero-theatre.jpg" fetchpriority="high">
 </head>
 
 <body>
@@ -2732,7 +2734,7 @@
         <!-- ================= HERO ================= -->
         <section class="hero" id="hero" aria-label="NaijaPro introduction">
             <div class="hero-stage">
-                <img class="hero-photo" src="hero-theatre.png" alt="National Theatre, Iganmu, Lagos" fetchpriority="high">
+                <img class="hero-photo" src="hero-theatre.jpg" alt="National Theatre, Iganmu, Lagos" fetchpriority="high">
                 <svg id="scene" viewBox="0 0 1400 900" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <defs>
             <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
