@@ -299,7 +299,8 @@
             color: #fff
         }
 
-        .hdr.is-hidden {
+        .hdr.is-hidden,
+        .hdr.is-parked {
             transform: translateX(-50%) translateY(-120%);
             opacity: 0
         }
@@ -3919,6 +3920,7 @@
                 var y = window.scrollY || window.pageYOffset;
                 var solid = find.getBoundingClientRect().top < 90;
                 hdr.classList.toggle('is-solid', solid);
+                hdr.classList.toggle('is-parked', y < ($('#hero').offsetHeight - 140));
                 hdr.classList.toggle('is-hidden', solid && y > lastY + 4 && y > 400 && !root.classList.contains('menu-open'));
                 if (y < lastY - 4) hdr.classList.remove('is-hidden');
                 lastY = y; ticking = false;
@@ -4103,8 +4105,8 @@
                 function navPast() { return window.scrollY > (heroEl.offsetHeight - 140); }
                 var showNav = navPast();
                 if (showNav) { gsap.set('.hdr', { opacity: 0, y: -20 }); }
-                else { hdrEl.classList.add('is-hidden'); }
-                window.addEventListener('scroll', function () { hdrEl.classList.toggle('is-hidden', !navPast()); }, { passive: true });
+                else { hdrEl.classList.add('is-parked'); }
+                window.addEventListener('scroll', function () { hdrEl.classList.toggle('is-parked', !navPast()); }, { passive: true });
                 gsap.set('#hero-tag', { opacity: 0, x: -10 });
                 gsap.set('#hero-tag .ht-line', { scaleX: 0 });
                 var intro = gsap.timeline({ defaults: { ease: 'power3.out' } });
