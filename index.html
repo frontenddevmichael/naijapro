@@ -1425,9 +1425,10 @@
         #categories {
             position: relative;
             background-color: var(--paper);
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Cg fill='none' stroke='%2316A34A' stroke-width='.8' opacity='.19'%3E%3Ccircle cx='100' cy='100' r='32'/%3E%3Ccircle cx='100' cy='100' r='24'/%3E%3Ccircle cx='100' cy='100' r='16'/%3E%3Cpath d='M68 52Q50 38 32 52Q50 66 68 52z'/%3E%3Cpath d='M132 52Q150 38 168 52Q150 66 132 52z'/%3E%3Cpath d='M68 100Q50 82 32 100Q50 118 68 100z'/%3E%3Cpath d='M132 100Q150 82 168 100Q150 118 132 100z'/%3E%3Ccircle cx='100' cy='168' r='32'/%3E%3Ccircle cx='100' cy='168' r='24'/%3E%3Ccircle cx='100' cy='168' r='16'/%3E%3Cpath d='M68 148Q50 134 32 148Q50 162 68 148z'/%3E%3Cpath d='M132 148Q150 134 168 148Q150 162 132 148z'/%3E%3Cpath d='M20 20Q36 28 44 44Q28 36 20 20z'/%3E%3Cpath d='M180 20Q164 28 156 44Q172 36 180 20z'/%3E%3Cpath d='M20 180Q36 172 44 156Q28 164 20 180z'/%3E%3Cpath d='M180 180Q164 172 156 156Q172 164 180 180z'/%3E%3Cpath d='M100 68Q90 84 68 92Q90 84 100 68Q110 84 132 92Q110 84 100 68z'/%3E%3Cpath d='M100 108Q90 124 68 132Q90 124 100 108Q110 124 132 132Q110 124 100 108z'/%3E%3Cpath d='M50 68Q66 60 74 44Q58 60 50 68Q66 76 74 92Q58 76 50 68z'/%3E%3Cpath d='M150 68Q134 60 126 44Q142 60 150 68Q134 76 126 92Q142 76 150 68z'/%3E%3Cpath d='M50 132Q66 124 74 108Q58 124 50 132Q66 140 74 156Q58 140 50 132z'/%3E%3Cpath d='M150 132Q134 124 126 108Q142 124 150 132Q134 140 126 156Q142 140 150 132z'/%3E%3C/g%3E%3Cg fill='none' stroke='%23FBBF24' stroke-width='.6' opacity='.13'%3E%3Ccircle cx='100' cy='100' r='38'/%3E%3Ccircle cx='100' cy='100' r='10'/%3E%3Ccircle cx='100' cy='168' r='38'/%3E%3Ccircle cx='100' cy='168' r='10'/%3E%3Cpath d='M20 100Q38 88 56 100Q38 112 20 100z'/%3E%3Cpath d='M180 100Q162 88 144 100Q162 112 180 100z'/%3E%3C/g%3E%3C/svg%3E");
-            background-repeat: repeat;
-            background-size: 200px 200px
+            background-image: linear-gradient(rgba(247, 246, 239, .62), rgba(247, 246, 239, .62)), url("doodle-bg.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center
         }
 
         .sec-head {
@@ -2063,6 +2064,206 @@
         .art3 .g {
             transform-origin: 150px 150px;
             animation: spinr 80s linear infinite
+        }
+
+        /* ============ LIVE MAP ============ */
+        .map-board {
+            position: relative;
+            border: 5px solid var(--ink);
+            box-shadow: 12px 12px 0 var(--ink);
+            background: var(--ink);
+            transform: rotate(.4deg)
+        }
+
+        .map-bar {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+            background: var(--gold);
+            color: var(--ink);
+            border-bottom: 5px solid var(--ink);
+            padding: 12px 20px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            font-size: .82rem
+        }
+
+        .map-tabs {
+            display: flex;
+            gap: 8px;
+            margin-left: auto
+        }
+
+        .map-tab {
+            border: 3px solid var(--ink);
+            background: transparent;
+            color: var(--ink);
+            font-weight: 900;
+            font-size: .78rem;
+            text-transform: uppercase;
+            letter-spacing: .06em;
+            padding: 6px 16px;
+            transition: background .08s, color .08s
+        }
+
+        .map-tab.is-on {
+            background: var(--ink);
+            color: var(--gold)
+        }
+
+        .map-online {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px
+        }
+
+        .map-online i {
+            width: 10px;
+            height: 10px;
+            background: var(--green);
+            border: 2px solid var(--ink);
+            animation: ping 2.2s infinite
+        }
+
+        .map-stage {
+            position: relative
+        }
+
+        #map-svg {
+            display: block;
+            width: 100%;
+            height: auto
+        }
+
+        .map-pin {
+            transform-box: fill-box;
+            transform-origin: center
+        }
+
+        .map-pin .halo {
+            animation: rdp 2.6s ease-out infinite
+        }
+
+        .map-legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 26px;
+            padding: 14px 20px;
+            border-top: 5px solid var(--ink);
+            background: var(--ink);
+            color: rgba(255, 255, 255, .75);
+            font-size: .8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .06em
+        }
+
+        .map-legend b {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 700
+        }
+
+        .map-legend i {
+            width: 12px;
+            height: 12px;
+            flex: none
+        }
+
+        .map-chip {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 9px 14px 9px 10px;
+            background: #fff;
+            color: var(--deep);
+            border: 3px solid var(--ink);
+            box-shadow: 4px 4px 0 rgba(0, 0, 0, .5);
+            font-size: .8rem;
+            line-height: 1.25;
+            white-space: nowrap;
+            animation: chip 9s ease-in-out infinite
+        }
+
+        .map-chip b {
+            display: block;
+            font-size: .85rem
+        }
+
+        .map-chip .av {
+            width: 30px;
+            height: 30px;
+            background: var(--forest);
+            color: var(--gold);
+            display: grid;
+            place-items: center;
+            font: 800 .72rem var(--disp);
+            flex: none
+        }
+
+        .map-chip.mc1 {
+            left: 4%;
+            top: 10%
+        }
+
+        .map-chip.mc2 {
+            right: 4%;
+            top: 42%;
+            animation-delay: 3s
+        }
+
+        .map-chip.mc3 {
+            left: 8%;
+            bottom: 8%;
+            animation-delay: 6s
+        }
+
+        .map-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            margin-top: 26px
+        }
+
+        .map-stats div {
+            border: 3px solid var(--ink);
+            background: #fff;
+            box-shadow: 5px 5px 0 var(--ink);
+            padding: 14px 16px
+        }
+
+        .map-stats b {
+            display: block;
+            font-family: var(--disp);
+            font-weight: 900;
+            font-size: clamp(1.4rem, 3vw, 2.1rem);
+            letter-spacing: -.02em
+        }
+
+        .map-stats span {
+            font-size: .78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .06em;
+            color: var(--gray)
+        }
+
+        @media(max-width:640px) {
+            .map-chip.mc1 {
+                left: 2%
+            }
+
+            .map-chip.mc2 {
+                right: 2%
+            }
+
+            .map-stats {
+                grid-template-columns: 1fr
+            }
         }
 
         /* ============ MATCH ============ */
@@ -3677,6 +3878,62 @@
             </div>
         </section>
 
+        <!-- ================= LIVE MAP ================= -->
+        <section class="sec" id="map" aria-labelledby="map-h" style="background:var(--mist)">
+            <div class="wrap">
+                <div class="sec-head">
+                    <h2 id="map-h" data-split>Live on the ground.</h2>
+                    <p>Pros online right now, street by street.</p>
+                </div>
+                <div class="map-board">
+                    <div class="map-bar"><span>Live coverage</span>
+                        <span class="map-online"><i></i><b class="count" data-to="312" data-dec="0">312</b>&nbsp;pros online</span>
+                        <div class="map-tabs" role="tablist" aria-label="City">
+                            <button class="map-tab is-on" type="button" data-city="lagos" role="tab" aria-selected="true">Lagos</button>
+                            <button class="map-tab" type="button" data-city="abuja" role="tab" aria-selected="false">Abuja</button>
+                        </div>
+                    </div>
+                    <div class="map-stage">
+                        <svg id="map-svg" viewBox="0 0 1000 560" role="img" aria-label="Stylised coverage map of Lagos and Abuja with artisan clusters">
+                            <rect x="0" y="0" width="1000" height="560" fill="#03150E"/>
+                            <path d="M0 380 Q 200 330 380 360 Q 600 395 760 350 Q 900 315 1000 340 L1000 430 Q 820 470 620 440 Q 400 410 220 445 Q 100 460 0 445 Z" fill="#0B3B2A" stroke="#16A34A" stroke-width="3"/>
+                            <g stroke="#EAF7EE" stroke-width="4" opacity=".22" stroke-linecap="round"><path d="M80 120 Q 300 160 520 140 T 940 180"/><path d="M120 60 L 240 500"/><path d="M420 40 L 500 520"/><path d="M700 60 L 660 520"/><path d="M80 260 Q 500 220 940 280"/></g>
+                            <path d="M430 330 L 560 350" stroke="#FBBF24" stroke-width="5" stroke-linecap="round"/>
+                            <path d="M700 400 L 760 350" stroke="#FBBF24" stroke-width="5" stroke-linecap="round"/>
+                            <g id="pins-lagos" font-family="Figtree,system-ui,sans-serif" font-weight="800" font-size="17" fill="#fff">
+                                <g class="map-pin"><circle class="halo" cx="350" cy="180" r="10" fill="none" stroke="#FBBF24" stroke-width="3"/><circle cx="350" cy="180" r="9" fill="#FBBF24" stroke="#03150E" stroke-width="3"/><text x="368" y="186">IKEJA · 42</text></g>
+                                <g class="map-pin"><circle class="halo" cx="480" cy="280" r="10" fill="none" stroke="#FBBF24" stroke-width="3"/><circle cx="480" cy="280" r="9" fill="#FBBF24" stroke="#03150E" stroke-width="3"/><text x="498" y="286">YABA · 35</text></g>
+                                <g class="map-pin"><circle class="halo" cx="400" cy="330" r="10" fill="none" stroke="#FBBF24" stroke-width="3"/><circle cx="400" cy="330" r="9" fill="#FBBF24" stroke="#03150E" stroke-width="3"/><text x="290" y="336">SURULERE · 28</text></g>
+                                <g class="map-pin"><circle class="halo" cx="620" cy="380" r="10" fill="none" stroke="#FBBF24" stroke-width="3"/><circle cx="620" cy="380" r="9" fill="#FBBF24" stroke="#03150E" stroke-width="3"/><text x="638" y="386">IKOYI · 51</text></g>
+                                <g class="map-pin"><circle class="halo" cx="700" cy="440" r="10" fill="none" stroke="#FBBF24" stroke-width="3"/><circle cx="700" cy="440" r="9" fill="#FBBF24" stroke="#03150E" stroke-width="3"/><text x="718" y="446">LEKKI · 64</text></g>
+                                <g class="map-pin"><circle class="halo" cx="660" cy="410" r="8" fill="none" stroke="#16A34A" stroke-width="3"/><circle cx="660" cy="410" r="7" fill="#16A34A" stroke="#03150E" stroke-width="3"/><text x="676" y="414" font-size="14">VI · 38</text></g>
+                                <g class="map-pin"><circle class="halo" cx="450" cy="230" r="8" fill="none" stroke="#16A34A" stroke-width="3"/><circle cx="450" cy="230" r="7" fill="#16A34A" stroke="#03150E" stroke-width="3"/><text x="466" y="234" font-size="14">MARYLAND · 22</text></g>
+                                <g class="map-pin"><circle class="halo" cx="830" cy="470" r="8" fill="none" stroke="#16A34A" stroke-width="3"/><circle cx="830" cy="470" r="7" fill="#16A34A" stroke="#03150E" stroke-width="3"/><text x="846" y="474" font-size="14">AJAH · 31</text></g>
+                            </g>
+                            <g id="pins-abuja" display="none" font-family="Figtree,system-ui,sans-serif" font-weight="800" font-size="17" fill="#fff">
+                                <g class="map-pin"><circle class="halo" cx="500" cy="180" r="10" fill="none" stroke="#FBBF24" stroke-width="3"/><circle cx="500" cy="180" r="9" fill="#FBBF24" stroke="#03150E" stroke-width="3"/><text x="518" y="186">MAITAMA · 26</text></g>
+                                <g class="map-pin"><circle class="halo" cx="520" cy="260" r="10" fill="none" stroke="#FBBF24" stroke-width="3"/><circle cx="520" cy="260" r="9" fill="#FBBF24" stroke="#03150E" stroke-width="3"/><text x="538" y="266">WUSE · 33</text></g>
+                                <g class="map-pin"><circle class="halo" cx="620" cy="300" r="10" fill="none" stroke="#FBBF24" stroke-width="3"/><circle cx="620" cy="300" r="9" fill="#FBBF24" stroke="#03150E" stroke-width="3"/><text x="638" y="306">ASOKORO · 19</text></g>
+                                <g class="map-pin"><circle class="halo" cx="380" cy="220" r="8" fill="none" stroke="#16A34A" stroke-width="3"/><circle cx="380" cy="220" r="7" fill="#16A34A" stroke="#03150E" stroke-width="3"/><text x="272" y="224" font-size="14">JABI · 21</text></g>
+                                <g class="map-pin"><circle class="halo" cx="330" cy="140" r="8" fill="none" stroke="#16A34A" stroke-width="3"/><circle cx="330" cy="140" r="7" fill="#16A34A" stroke="#03150E" stroke-width="3"/><text x="180" y="144" font-size="14">GWARINPA · 24</text></g>
+                                <g class="map-pin"><circle class="halo" cx="540" cy="330" r="8" fill="none" stroke="#16A34A" stroke-width="3"/><circle cx="540" cy="330" r="7" fill="#16A34A" stroke="#03150E" stroke-width="3"/><text x="556" y="334" font-size="14">GARKI · 17</text></g>
+                                <g class="map-pin"><circle class="halo" cx="480" cy="450" r="8" fill="none" stroke="#16A34A" stroke-width="3"/><circle cx="480" cy="450" r="7" fill="#16A34A" stroke="#03150E" stroke-width="3"/><text x="496" y="454" font-size="14">LUGBE · 12</text></g>
+                            </g>
+                        </svg>
+                        <div class="map-chip mc1"><span class="av">EO</span><div><b>Emeka O.</b>AC fix · Lekki</div></div>
+                        <div class="map-chip mc2"><span class="av">BA</span><div><b>Babatunde A.</b>Wiring · Ikeja</div></div>
+                        <div class="map-chip mc3"><span class="av">CN</span><div><b>Chioma N.</b>Solar · VI</div></div>
+                    </div>
+                    <div class="map-legend"><b><i style="background:var(--gold)"></i>hot zone</b><b><i style="background:var(--green)"></i>covered</b><b><i style="background:#fff"></i>you</b></div>
+                </div>
+                <div class="map-stats">
+                    <div><b><span class="count" data-to="24" data-dec="0">24</span></b><span>areas covered</span></div>
+                    <div><b><span class="count" data-to="15" data-dec="0">15</span> min</b><span>median first quote</span></div>
+                    <div><b><span class="count" data-to="98" data-dec="0">98</span>%</b><span>jobs completed</span></div>
+                </div>
+            </div>
+        </section>
+
         <!-- ================= MATCH ================= -->
         <section class="sec match" id="match" aria-labelledby="match-h">
             <svg class="decor decor-zigzag" style="top:40px;right:60px" viewBox="0 0 200 40" aria-hidden="true"><polyline points="0,30 20,10 40,30 60,10 80,30 100,10 120,30 140,10 160,30 180,10 200,30" fill="none" stroke="var(--green)" stroke-width="2.5"/></svg>
@@ -4361,6 +4618,21 @@
                 gsap.from('.radar', { scale: 0.7, opacity: 0, duration: 1.4, ease: 'power3.out', scrollTrigger: { trigger: '.radar', start: 'top 90%', once: true } });
                 gsap.from('.dispatch-route', { strokeDashoffset: 60, opacity: 0, duration: 1.2, stagger: 0.15, ease: 'power2.out', scrollTrigger: { trigger: '.dispatch', start: 'top 85%', once: true } });
                 gsap.from('.dock .tags button', { y: 16, opacity: 0, stagger: 0.06, duration: 0.6, ease: 'power3.out', scrollTrigger: { trigger: '.tags', start: 'top 94%', once: true } });
+
+                /* live map */
+                $$('.map-tab').forEach(function (b) {
+                    b.addEventListener('click', function () {
+                        $$('.map-tab').forEach(function (x) { x.classList.remove('is-on'); x.setAttribute('aria-selected', 'false'); });
+                        b.classList.add('is-on'); b.setAttribute('aria-selected', 'true');
+                        var city = b.getAttribute('data-city');
+                        $('#pins-lagos').style.display = city === 'lagos' ? '' : 'none';
+                        $('#pins-abuja').style.display = city === 'abuja' ? '' : 'none';
+                        gsap.from(city === 'lagos' ? '#pins-lagos .map-pin' : '#pins-abuja .map-pin', { scale: 0, transformOrigin: '50% 50%', stagger: 0.06, duration: 0.5, ease: 'back.out(2)' });
+                    });
+                });
+                gsap.from('.map-board', { y: 70, opacity: 0, duration: 1.2, ease: 'power3.out', scrollTrigger: { trigger: '.map-board', start: 'top 88%', once: true } });
+                gsap.from('#pins-lagos .map-pin', { scale: 0, transformOrigin: '50% 50%', stagger: 0.07, duration: 0.6, ease: 'back.out(2)', scrollTrigger: { trigger: '#map-svg', start: 'top 80%', once: true } });
+                gsap.from('.map-stats > div', { y: 30, opacity: 0, stagger: 0.1, duration: 0.8, ease: 'power3.out', scrollTrigger: { trigger: '.map-stats', start: 'top 92%', once: true } });
 
                 /* section parallax accents */
                 gsap.utils.toArray('.sec-head').forEach(function (h) {
