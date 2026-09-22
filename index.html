@@ -615,7 +615,13 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center 42%
+            object-position: center 42%;
+            opacity: 0;
+            transition: opacity 1.6s ease
+        }
+
+        .hero-photo.is-on {
+            opacity: 1
         }
 
 
@@ -2803,7 +2809,8 @@
             }
         }
     </style>
-    <link rel="preload" as="image" href="hero-bridge.jpg" fetchpriority="high">
+    <link rel="preload" as="image" href="hero-bridge-2.jpg" fetchpriority="high">
+    <link rel="preload" as="image" href="hero-bridge-1.jpg">
 </head>
 
 <body>
@@ -2845,7 +2852,8 @@
         <!-- ================= HERO ================= -->
         <section class="hero" id="hero" aria-label="NaijaPro introduction">
             <div class="hero-stage">
-                <img class="hero-photo" src="hero-bridge.jpg" alt="Lekki-Ikoyi Link Bridge at sunset, Lagos" fetchpriority="high">
+                <img class="hero-photo is-on" src="hero-bridge-2.jpg" alt="Lekki-Ikoyi Link Bridge, Lagos" fetchpriority="high">
+                <img class="hero-photo" src="hero-bridge-1.jpg" alt="Lekki-Ikoyi Link Bridge at sunset, Lagos" aria-hidden="true">
                 
                 <div class="hero-shade" aria-hidden="true"></div>
                 <div class="hero-copy wrap-wide">
@@ -4184,6 +4192,19 @@
                 window.addEventListener('load', function () { ST.refresh(); });
                 if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { ST.refresh(); placeTag(); });
             }
+
+            /* hero slideshow: alternate bridge shots */
+            (function () {
+                var photos = $$('.hero-photo'); if (photos.length < 2) return;
+                if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+                var i = 0;
+                setInterval(function () {
+                    if (document.hidden) return;
+                    photos[i].classList.remove('is-on');
+                    i = (i + 1) % photos.length;
+                    photos[i].classList.add('is-on');
+                }, 7000);
+            })();
 
             if (motion) { try { initMotion(); } catch (err) { console.error('Motion init failed; page remains usable.', err); } }
         })();
