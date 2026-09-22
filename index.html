@@ -2266,36 +2266,6 @@
             animation-delay: 6s
         }
 
-        .map-stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 14px;
-            margin-top: 26px
-        }
-
-        .map-stats div {
-            border: 3px solid var(--ink);
-            background: #fff;
-            box-shadow: 5px 5px 0 var(--ink);
-            padding: 14px 16px
-        }
-
-        .map-stats b {
-            display: block;
-            font-family: var(--disp);
-            font-weight: 900;
-            font-size: clamp(1.4rem, 3vw, 2.1rem);
-            letter-spacing: -.02em
-        }
-
-        .map-stats span {
-            font-size: .78rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: .06em;
-            color: var(--gray)
-        }
-
         @media(max-width:640px) {
             .map-chip.mc1 {
                 left: 2%
@@ -2303,10 +2273,6 @@
 
             .map-chip.mc2 {
                 right: 2%
-            }
-
-            .map-stats {
-                grid-template-columns: 1fr
             }
         }
 
@@ -3971,11 +3937,6 @@
                     </div>
                     <div class="map-legend"><b><i style="background:var(--gold)"></i>hot zone</b><b><i style="background:var(--green)"></i>covered</b><b><i style="background:#fff"></i>you</b></div>
                 </div>
-                <div class="map-stats">
-                    <div><b><span class="count" data-to="24" data-dec="0">24</span></b><span>areas covered</span></div>
-                    <div><b><span class="count" data-to="15" data-dec="0">15</span> min</b><span>median first quote</span></div>
-                    <div><b><span class="count" data-to="98" data-dec="0">98</span>%</b><span>jobs completed</span></div>
-                </div>
             </div>
         </section>
 
@@ -4670,8 +4631,8 @@
                 function pinIcon(n, dim) { return L.divIcon({ className: '', html: '<div class="m-pin' + (dim ? ' dim' : '') + '">' + n + '</div>', iconSize: [34, 34], iconAnchor: [17, 17], popupAnchor: [0, -18] }); }
                 function addPins(layer, list) { list.forEach(function (p) { L.marker(p.ll, { icon: pinIcon(p.n, p.dim) }).bindPopup('<b>' + p.t + '</b><br>' + p.n + ' pros · from ₦' + p.f, { className: 'map-pop' }).addTo(layer); }); }
                 if (window.L && $('#map-el')) {
-                    cityMap = L.map('map-el', { scrollWheelZoom: false, dragging: !('ontouchstart' in window), tap: true }).setView([6.52, 3.42], 11);
-                    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}', { maxZoom: 16, attribution: '© OpenStreetMap · © Esri' }).addTo(cityMap);
+                    cityMap = L.map('map-el', { scrollWheelZoom: false, dragging: !('ontouchstart' in window), tap: true }).setView([6.52, 3.42], 12);
+                    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', { maxZoom: 19, attribution: '© Esri · Maxar · Earthstar Geographics' }).addTo(cityMap);
                     L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}', { maxZoom: 16 }).addTo(cityMap);
                     lagosLayer = L.layerGroup().addTo(cityMap); abujaLayer = L.layerGroup();
                     addPins(lagosLayer, [
@@ -4700,12 +4661,11 @@
                         b.classList.add('is-on'); b.setAttribute('aria-selected', 'true');
                         var city = b.getAttribute('data-city');
                         if (!cityMap) return;
-                        if (city === 'lagos') { cityMap.removeLayer(abujaLayer); lagosLayer.addTo(cityMap); cityMap.flyTo([6.52, 3.42], 11, { duration: 1.2 }); }
-                        else { cityMap.removeLayer(lagosLayer); abujaLayer.addTo(cityMap); cityMap.flyTo([9.06, 7.47], 11, { duration: 1.2 }); }
+                        if (city === 'lagos') { cityMap.removeLayer(abujaLayer); lagosLayer.addTo(cityMap); cityMap.flyTo([6.52, 3.42], 12, { duration: 1.2 }); }
+                        else { cityMap.removeLayer(lagosLayer); abujaLayer.addTo(cityMap); cityMap.flyTo([9.06, 7.47], 12, { duration: 1.2 }); }
                     });
                 });
                 gsap.from('.map-board', { y: 70, opacity: 0, duration: 1.2, ease: 'power3.out', scrollTrigger: { trigger: '.map-board', start: 'top 88%', once: true } });
-                gsap.from('.map-stats > div', { y: 30, opacity: 0, stagger: 0.1, duration: 0.8, ease: 'power3.out', scrollTrigger: { trigger: '.map-stats', start: 'top 92%', once: true } });
 
                 /* section parallax accents */
                 gsap.utils.toArray('.sec-head').forEach(function (h) {
