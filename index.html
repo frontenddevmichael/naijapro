@@ -551,7 +551,17 @@
             position: absolute;
             inset: 0;
             width: 100%;
-            height: 100%
+            height: 100%;
+            display: none
+        }
+
+        .hero-photo {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 42%
         }
 
         #scene #L-far,
@@ -706,7 +716,7 @@
 
         @media(min-width:900px) {
             .hero-tag {
-                display: flex
+                display: none
             }
         }
 
@@ -2722,7 +2732,8 @@
         <!-- ================= HERO ================= -->
         <section class="hero" id="hero" aria-label="NaijaPro introduction">
             <div class="hero-stage">
-                <svg id="scene" viewBox="0 0 1400 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <img class="hero-photo" src="hero-theatre.png" alt="National Theatre, Iganmu, Lagos" fetchpriority="high">
+                <svg id="scene" viewBox="0 0 1400 900" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <defs>
             <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
             <filter id="sglow"><feGaussianBlur stdDeviation="2"/></filter>
@@ -4072,7 +4083,7 @@
 
                 /* hero intro — fade scene, fast cable draw */
                 var words = splitWords($('#hero-h1'));
-                gsap.set('.stay', { strokeDasharray: 1 });
+                gsap.set('.hero-photo', { scale: 1.22, transformOrigin: '50% 60%' });
                 gsap.set('#L-bridge-lights', { opacity: 0 });
                 gsap.set('.hero-chip', { opacity: 0, y: 12 });
                 gsap.set(words, { yPercent: 115 });
@@ -4083,8 +4094,7 @@
                 var intro = gsap.timeline({ defaults: { ease: 'power3.out' } });
                 intro
                     .from('.hero', { opacity: 0, duration: 0.5 }, 0)
-                    .to('.stay', { strokeDashoffset: 0, duration: 0.8, stagger: 0.015, ease: 'power2.inOut' }, 0.2)
-                    .to('#L-bridge-lights', { opacity: 0.28, duration: 0.6 }, 0.4)
+                    .to('.hero-photo', { scale: 1, duration: 1.6, ease: 'power2.out' }, 0.1)
                     .to('.hero-chip', { y: 0, opacity: 1, duration: 0.6 }, 0.4)
                     .to(words, { yPercent: 0, duration: 0.7, stagger: 0.04 }, 0.45)
                     .to('.hero-foot > *', { y: 0, opacity: 1, duration: 0.6, stagger: 0.06 }, 0.6)
@@ -4096,16 +4106,7 @@
                 /* hero scroll story: dusk -> night, camera dolly */
                 var o = '800 640';
                 var hs = gsap.timeline({ defaults: { ease: 'none' }, scrollTrigger: { trigger: '#hero', start: 'top top', end: '+=130%', scrub: 0.8, pin: true, anticipatePin: 1 } });
-                hs.to(['#L-far', '#L-mid', '#L-mid-lights'], { scale: 1.08, svgOrigin: o }, 0)
-                    .to(['#L-bridge', '#L-bridge-lights'], { scale: 1.34, svgOrigin: o }, 0)
-                    .to('#L-fg', { scale: 1.6, svgOrigin: '800 900' }, 0)
-                    .to('#L-sun', { y: 190, opacity: 0.5 }, 0)
-                    .to('#shimmer', { opacity: 0 }, 0.15)
-                    .to('#L-clouds', { opacity: 0.2 }, 0.1)
-                    .to('#night', { opacity: 0.8 }, 0.1)
-                    .to('#stars', { opacity: 1 }, 0.35)
-                    .to('#L-mid-lights', { opacity: 1 }, 0.4)
-                    .to('#L-bridge-lights', { opacity: 1 }, 0.4)
+                hs.to('.hero-photo', { scale: 1.18, filter: 'brightness(.5)', transformOrigin: '50% 60%' }, 0)
                     .to('.hero-copy', { yPercent: -30, opacity: 0 }, 0.05)
                     .to('.hero-foot', { y: 60, opacity: 0 }, 0.1)
                     .to('#hero-tag', { opacity: 0 }, 0)
@@ -4113,8 +4114,8 @@
 
                 /* pointer parallax */
                 if (window.matchMedia('(pointer:fine)').matches) {
-                    var pl = [['#L-far', 6], ['#L-mid', 12], ['#L-water', 8], ['#L-bridge', 22], ['#L-bridge-lights', 22], ['#L-fg', 50]].map(function (p) { return { q: gsap.quickTo(p[0], 'x', { duration: 1.4, ease: 'power3.out' }), a: p[1] }; });
-                    $('#hero').addEventListener('pointermove', function (e) { var nx = e.clientX / window.innerWidth - 0.5; pl.forEach(function (l) { l.q(-nx * l.a); }); });
+                    var pq = gsap.quickTo('.hero-photo', 'x', { duration: 1.4, ease: 'power3.out' });
+                    $('#hero').addEventListener('pointermove', function (e) { var nx = e.clientX / window.innerWidth - 0.5; pq(-nx * 24); });
                 }
 
                 /* section headings */
