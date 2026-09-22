@@ -618,7 +618,9 @@
             position: absolute;
             inset: 0;
             pointer-events: none;
-            background: linear-gradient(to bottom, rgba(2, 11, 7, .62), rgba(2, 11, 7, 0) 36%), linear-gradient(to top, rgba(2, 11, 7, .55), rgba(2, 11, 7, 0) 30%)
+            background: linear-gradient(to bottom, rgba(2, 11, 7, .62), rgba(2, 11, 7, 0) 36%), linear-gradient(to top, rgba(2, 11, 7, .55), rgba(2, 11, 7, 0) 30%);
+            backdrop-filter: blur(3px) brightness(.82);
+            -webkit-backdrop-filter: blur(3px) brightness(.82)
         }
 
         .hero-copy {
@@ -4127,9 +4129,8 @@
                         }
                     });
                 });
-                gsap.set('.dock', { transformPerspective: 900, transformOrigin: '50% 100%' });
-                gsap.fromTo('.dock', { y: 110, rotateX: 28 }, { y: 0, rotateX: 0, ease: 'none', scrollTrigger: { trigger: '.find', start: 'top bottom', end: 'top 30%', scrub: 0.7 } });
-                gsap.from('.dock-f', { y: 26, opacity: 0, stagger: 0.1, duration: 0.7, ease: 'power3.out', scrollTrigger: { trigger: '.dock', start: 'top 85%', once: true } });
+                gsap.from('.dock', { y: -90, opacity: 0, duration: 1, ease: 'power3.out', scrollTrigger: { trigger: '.find', start: 'top 75%', once: true } });
+                gsap.from('.dock-head, .dock-f, .dock-go, .dock-perf, .tags > *', { y: -24, opacity: 0, stagger: 0.07, duration: 0.7, ease: 'power3.out', scrollTrigger: { trigger: '.dock', start: 'top 80%', once: true } });
                 gsap.from('.stat', { y: 30, opacity: 0, stagger: 0.12, duration: 1, ease: 'power3.out', scrollTrigger: { trigger: '.stats', start: 'top 90%', once: true } });
 
                 /* marquee */
@@ -4190,8 +4191,6 @@
                 gsap.from('#match-card', { y: 80, opacity: 0, duration: 1.2, ease: 'power3.out', scrollTrigger: { trigger: '#match-card', start: 'top 88%', once: true } });
                 gsap.from('.points li', { x: -30, opacity: 0, stagger: 0.12, duration: 0.9, ease: 'power3.out', scrollTrigger: { trigger: '.points', start: 'top 88%', once: true } });
                 gsap.from('.match-proof', { y: 30, opacity: 0, duration: 0.9, ease: 'power3.out', scrollTrigger: { trigger: '.match-proof', start: 'top 92%', once: true } });
-                gsap.from('.dock .tags button', { y: 16, opacity: 0, stagger: 0.06, duration: 0.6, ease: 'power3.out', scrollTrigger: { trigger: '.tags', start: 'top 94%', once: true } });
-
                 /* live map */
                 var cityMap = null, lagosLayer = null, abujaLayer = null;
                 function pinIcon(n, dim) { return L.divIcon({ className: '', html: '<div class="m-pin' + (dim ? ' dim' : '') + '">' + n + '</div>', iconSize: [34, 34], iconAnchor: [17, 17], popupAnchor: [0, -18] }); }
