@@ -628,9 +628,10 @@
         .hero h1 {
             color: #fff;
             font-weight: 800;
-            font-size: clamp(3.2rem, 6.4vw, 6.4rem);
-            line-height: .94;
-            letter-spacing: -.045em;
+            font-size: clamp(1.05rem, 3.2vw, 2.6rem);
+            line-height: 1.1;
+            letter-spacing: -.02em;
+            white-space: nowrap;
             text-shadow: 0 2px 40px rgba(2, 11, 7, .5);
             text-align: center
         }
@@ -2816,8 +2817,7 @@
                             <path d="M7.3 10l1.9 1.9 3.6-3.9" stroke="currentColor" stroke-width="1.6"
                                 stroke-linecap="round" stroke-linejoin="round" />
                         </svg>Escrow-protected. BVN &amp; NIN verified.</p>
-                    <h1 id="hero-h1" aria-label="Fix it right. Pay when it’s done."><span class="line">Fix it
-                            right.</span><span class="line">Pay when</span><span class="line">it’s done.</span></h1>
+                    <h1 id="hero-h1" aria-label="Fix it now. Pay when it’s done."><span class="line">Fix it now. Pay when it’s done.</span></h1>
                     <p class="hero-sub">Vetted pros in Lagos & Abuja. Pay only when you approve.</p>
                     <div class="hero-cta">
                         <a class="btn btn-gold" href="#match" data-magnet>Post a job <svg viewBox="0 0 20 20"
@@ -4099,7 +4099,12 @@
                 gsap.set('.hero-chip', { opacity: 0, y: 12 });
                 gsap.set(words, { yPercent: 115 });
                 gsap.set('.hero-foot > *', { opacity: 0, y: 16 });
-                gsap.set('.hdr', { opacity: 0, y: -20 });
+                var hdrEl = $('#hdr'), heroEl = $('#hero');
+                function navPast() { return window.scrollY > (heroEl.offsetHeight - 140); }
+                var showNav = navPast();
+                if (showNav) { gsap.set('.hdr', { opacity: 0, y: -20 }); }
+                else { hdrEl.classList.add('is-hidden'); }
+                window.addEventListener('scroll', function () { hdrEl.classList.toggle('is-hidden', !navPast()); }, { passive: true });
                 gsap.set('#hero-tag', { opacity: 0, x: -10 });
                 gsap.set('#hero-tag .ht-line', { scaleX: 0 });
                 var intro = gsap.timeline({ defaults: { ease: 'power3.out' } });
@@ -4108,9 +4113,9 @@
                     .to('.hero-chip', { y: 0, opacity: 1, duration: 0.6 }, 0.4)
                     .to(words, { yPercent: 0, duration: 0.7, stagger: 0.04 }, 0.45)
                     .to('.hero-foot > *', { y: 0, opacity: 1, duration: 0.6, stagger: 0.06 }, 0.6)
-                    .to('.hdr', { y: 0, opacity: 1, duration: 0.5, clearProps: 'transform,opacity' }, 0.5)
                     .to('#hero-tag', { opacity: 1, x: 0, duration: 0.6 }, 0.7)
                     .to('#hero-tag .ht-line', { scaleX: 1, duration: 0.4 }, 0.8);
+                if (showNav) { intro.to('.hdr', { y: 0, opacity: 1, duration: 0.5, clearProps: 'transform,opacity' }, 0.5); }
                 intro.eventCallback('onComplete', placeTag);
 
                 /* hero scroll story: dusk -> night, camera dolly */
