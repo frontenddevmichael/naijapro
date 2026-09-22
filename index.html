@@ -3962,28 +3962,6 @@
                                     stroke-linejoin="round" />
                             </svg>Receipts tracked live</li>
                     </ul>
-                    <div class="radar dispatch" aria-hidden="true">
-                        <svg viewBox="0 0 420 420" fill="none">
-                            <rect x="8" y="8" width="404" height="404" rx="18" fill="#03150E" stroke="#16A34A" stroke-width="4"/>
-                            <g stroke="#EAF7EE" stroke-width="5" opacity=".22" stroke-linecap="round"><path d="M40 300 Q120 260 170 210 T330 120"/><path d="M50 140 Q140 170 210 210 T380 290"/><path d="M210 40 V380"/><path d="M40 210 H380"/></g>
-                            <g stroke="#16A34A" stroke-width="3" opacity=".5" stroke-dasharray="10 8"><path class="dispatch-route" d="M110 300 Q160 260 210 210"/><path class="dispatch-route" d="M320 130 Q270 170 210 210"/><path class="dispatch-route" d="M310 320 Q260 270 210 210"/></g>
-                            <g>
-                                <g transform="translate(110 300)"><circle r="22" fill="#FBBF24" stroke="#03150E" stroke-width="5"/><text y="8" text-anchor="middle" font-size="20" font-weight="900" fill="#03150E">E</text><circle r="30" fill="none" stroke="#FBBF24" stroke-width="2" opacity=".5"><animate attributeName="r" values="24;34;24" dur="2.4s" repeatCount="indefinite"/></circle></g>
-                                <g transform="translate(320 130)"><circle r="22" fill="#16A34A" stroke="#EAF7EE" stroke-width="4"/><text y="8" text-anchor="middle" font-size="20" font-weight="900" fill="#fff">B</text></g>
-                                <g transform="translate(310 320)"><circle r="22" fill="#16A34A" stroke="#EAF7EE" stroke-width="4"/><text y="8" text-anchor="middle" font-size="20" font-weight="900" fill="#fff">C</text></g>
-                                <g transform="translate(210 210)"><rect x="-46" y="-30" width="92" height="60" rx="10" fill="#FBBF24" stroke="#03150E" stroke-width="5"/><text y="9" text-anchor="middle" font-size="22" font-weight="900" fill="#03150E">YOU</text><circle r="8" cy="-38" fill="#FBBF24" stroke="#03150E" stroke-width="3"/></g>
-                            </g>
-                        </svg>
-                        <div class="chip"><span class="av">EO</span>
-                            <div><b>Emeka O.</b>₦15,000 · 12 min away</div>
-                        </div>
-                        <div class="chip"><span class="av">BA</span>
-                            <div><b>Babatunde A.</b>₦12,500 · 18 min away</div>
-                        </div>
-                        <div class="chip"><span class="av">CN</span>
-                            <div><b>Chioma N.</b>₦20,000 · 25 min away</div>
-                        </div>
-                    </div>
                 </div>
 
                 <div class="card" id="match-card">
@@ -4622,8 +4600,6 @@
                 /* match */
                 gsap.from('#match-card', { y: 80, opacity: 0, duration: 1.2, ease: 'power3.out', scrollTrigger: { trigger: '#match-card', start: 'top 88%', once: true } });
                 gsap.from('.points li', { x: -30, opacity: 0, stagger: 0.12, duration: 0.9, ease: 'power3.out', scrollTrigger: { trigger: '.points', start: 'top 88%', once: true } });
-                gsap.from('.radar', { scale: 0.7, opacity: 0, duration: 1.4, ease: 'power3.out', scrollTrigger: { trigger: '.radar', start: 'top 90%', once: true } });
-                gsap.from('.dispatch-route', { strokeDashoffset: 60, opacity: 0, duration: 1.2, stagger: 0.15, ease: 'power2.out', scrollTrigger: { trigger: '.dispatch', start: 'top 85%', once: true } });
                 gsap.from('.dock .tags button', { y: 16, opacity: 0, stagger: 0.06, duration: 0.6, ease: 'power3.out', scrollTrigger: { trigger: '.tags', start: 'top 94%', once: true } });
 
                 /* live map */
