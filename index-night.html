@@ -128,7 +128,12 @@ section { scroll-margin-top: 70px }
 .stat-l { margin-top: 8px; color: var(--mut); font-size: .9rem }
 
 /* ============ SECTION HEADS ============ */
-.sec { padding-block: clamp(90px, 12vw, 170px) }
+.sec { padding-block: clamp(90px, 12vw, 170px); position: relative }
+.sec > .wrap { position: relative; z-index: 1 }
+
+/* green line decor */
+.g-decor { position: absolute; z-index: 0; pointer-events: none; color: var(--green); opacity: .28 }
+.g-faint { opacity: .16 }
 .sec-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 18px 40px; margin-bottom: clamp(40px, 6vw, 76px) }
 .sec-head h2 { font-family: var(--disp); font-weight: 800; font-size: clamp(2.4rem, 6vw, 5rem); letter-spacing: -.035em; line-height: 1 }
 .sec-head h2 .line { display: block; overflow: hidden }
@@ -292,7 +297,8 @@ html.js #f-word.inview .l:nth-child(7) { transition-delay: .42s }
 html.js #f-word.inview .l:nth-child(8) { transition-delay: .49s }
 
 /* ============ FOOTER ============ */
-footer { background: linear-gradient(180deg, #064E3B, #03301F 70%); border-top: 1px solid rgba(232, 179, 61, .35); padding: clamp(70px, 9vw, 130px) 0 34px; overflow: hidden }
+footer { background: linear-gradient(180deg, #064E3B, #03301F 70%); border-top: 1px solid rgba(232, 179, 61, .35); padding: clamp(70px, 9vw, 130px) 0 34px; overflow: hidden; position: relative }
+footer > .wrap { position: relative; z-index: 1 }
 .f-cta-row { display: grid; gap: 34px; align-items: end }
 @media(min-width:900px) { .f-cta-row { grid-template-columns: 1.4fr 1fr } }
 .f-eyebrow { color: var(--gold); font-size: .8rem; font-weight: 700; letter-spacing: .26em; text-transform: uppercase; margin-bottom: 20px }
@@ -345,6 +351,7 @@ footer .btn-gold { font-size: 1.05rem; padding: 19px 52px }
     <img class="hero-photo" src="hero-bridge.jpg" alt="Lekki-Ikoyi Link Bridge, Lagos" fetchpriority="high">
     <div class="hero-shade" aria-hidden="true"></div>
     <div class="wrap hero-in">
+        <svg class="g-decor" style="top:-70px;right:-30px;width:190px" viewBox="0 0 200 200" fill="none" aria-hidden="true"><circle cx="100" cy="100" r="88" stroke="currentColor" stroke-width="2"/><circle cx="100" cy="100" r="58" stroke="currentColor" stroke-width="1.5" opacity=".55"/><path d="M100 4v18M100 178v18M4 100h18M178 100h18" stroke="currentColor" stroke-width="2"/></svg>
         <h1 id="hero-h1"><span class="line"><span>Fix it now.</span></span><span class="line"><span>Pay when</span></span><span class="line"><span class="it">it's done.</span></span></h1>
         <p class="hero-sub">Vetted artisans in Lagos &amp; Abuja. You pay only when you approve.</p>
         <div class="hero-cta">
@@ -377,6 +384,8 @@ footer .btn-gold { font-size: 1.05rem; padding: 19px 52px }
 
 <!-- ================= TRADES ================= -->
 <section class="sec" id="trades">
+    <svg class="g-decor g-faint" style="top:70px;right:-40px;width:min(34vw,300px)" viewBox="0 0 200 200" fill="none" aria-hidden="true"><path d="M100 10v180M10 100h180M35 35l130 130M165 35L35 165" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="100" cy="100" r="46" stroke="currentColor" stroke-width="2"/></svg>
+    <svg class="g-decor" style="bottom:60px;left:3%;width:120px" viewBox="0 0 120 120" fill="none" aria-hidden="true"><g fill="currentColor"><circle cx="10" cy="10" r="3"/><circle cx="34" cy="10" r="3"/><circle cx="58" cy="10" r="3"/><circle cx="82" cy="10" r="3"/><circle cx="106" cy="10" r="3"/><circle cx="10" cy="34" r="3"/><circle cx="34" cy="34" r="3"/><circle cx="58" cy="34" r="3"/><circle cx="82" cy="34" r="3"/><circle cx="10" cy="58" r="3"/><circle cx="34" cy="58" r="3"/><circle cx="58" cy="58" r="3"/></g></svg>
     <div class="wrap">
         <div class="sec-head">
             <div><span class="sec-no">01 — Trades</span><h2 data-split>Every trade, one address.</h2></div>
@@ -395,6 +404,7 @@ footer .btn-gold { font-size: 1.05rem; padding: 19px 52px }
 
 <!-- ================= ARTISANS ================= -->
 <section class="sec" id="artisans" style="padding-bottom:0">
+    <svg class="g-decor" style="top:40px;left:4%;width:130px" viewBox="0 0 130 130" fill="none" aria-hidden="true"><circle cx="65" cy="65" r="58" stroke="currentColor" stroke-width="2"/><circle cx="65" cy="65" r="34" stroke="currentColor" stroke-width="1.5" opacity=".5"/><circle cx="65" cy="65" r="8" fill="currentColor"/></svg>
     <div class="wrap">
         <div class="sec-head">
             <div><span class="sec-no">02 — Artisans</span><h2 data-split>Rated by the street.</h2></div>
@@ -415,6 +425,7 @@ footer .btn-gold { font-size: 1.05rem; padding: 19px 52px }
 
 <!-- ================= ESCROW ================= -->
 <section class="sec esc" id="escrow">
+    <svg class="g-decor g-faint" style="bottom:-30px;right:-50px;width:min(40vw,340px)" viewBox="0 0 200 200" fill="none" aria-hidden="true"><rect x="20" y="20" width="160" height="160" stroke="currentColor" stroke-width="2"/><rect x="48" y="48" width="104" height="104" stroke="currentColor" stroke-width="1.5" opacity=".55"/><rect x="76" y="76" width="48" height="48" stroke="currentColor" stroke-width="1.5" opacity=".35"/></svg>
     <div class="wrap esc-grid">
         <div class="esc-sticky">
             <span class="sec-no">03 — Escrow</span>
@@ -432,6 +443,7 @@ footer .btn-gold { font-size: 1.05rem; padding: 19px 52px }
 
 <!-- ================= VOICES ================= -->
 <section class="sec" id="voices">
+    <svg class="g-decor" style="top:60px;right:5%;width:150px" viewBox="0 0 150 60" fill="none" aria-hidden="true"><path d="M5 45q15-30 30 0t30 0 30 0 30 0" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="M5 20h24M14 11v18" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
     <div class="wrap">
         <div class="sec-head">
             <div><span class="sec-no">04 — Word on the street</span><h2 data-split>Neighbours talk.</h2></div>
@@ -458,6 +470,7 @@ footer .btn-gold { font-size: 1.05rem; padding: 19px 52px }
 
 <!-- ================= FAQ ================= -->
 <section class="sec" id="faq">
+    <svg class="g-decor" style="bottom:70px;right:4%;width:110px" viewBox="0 0 110 110" fill="none" aria-hidden="true"><path d="M20 80q-8-40 30-48q34-7 38 22q3 24-20 28l-12 4" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="55" cy="96" r="3.5" fill="currentColor"/></svg>
     <div class="wrap">
         <div class="sec-head">
             <div><span class="sec-no">07 — Questions</span><h2 data-split>Asked often.</h2></div>
@@ -474,6 +487,7 @@ footer .btn-gold { font-size: 1.05rem; padding: 19px 52px }
 
 <!-- ================= JOIN ================= -->
 <section class="sec join" id="join">
+    <svg class="g-decor" style="top:50px;right:4%;width:140px;color:#064E3B;opacity:.5" viewBox="0 0 140 140" fill="none" aria-hidden="true"><circle cx="70" cy="70" r="60" stroke="currentColor" stroke-width="3"/><path d="M70 30v80M30 70h80" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
     <div class="wrap join-grid">
         <div>
             <span class="sec-no" style="color:#0A0F0D">05 — For artisans</span>
@@ -491,6 +505,7 @@ footer .btn-gold { font-size: 1.05rem; padding: 19px 52px }
 
 <!-- ================= MATCH ================= -->
 <section class="sec match" id="match">
+    <svg class="g-decor g-faint" style="top:50px;left:-30px;width:200px" viewBox="0 0 200 200" fill="none" aria-hidden="true"><circle cx="100" cy="100" r="80" stroke="currentColor" stroke-width="2"/><path d="M100 50v100M50 100h100" stroke="currentColor" stroke-width="2"/><circle cx="100" cy="100" r="10" fill="currentColor"/></svg>
     <div class="wrap match-grid">
         <div>
             <span class="sec-no">06 — Match</span>
@@ -530,6 +545,7 @@ footer .btn-gold { font-size: 1.05rem; padding: 19px 52px }
 
 <!-- ================= FOOTER ================= -->
 <footer>
+    <svg class="g-decor" style="bottom:-70px;left:-60px;width:min(44vw,380px);opacity:.2" viewBox="0 0 200 200" fill="none" aria-hidden="true"><path d="M-20 200Q60 120 200 140M-20 200Q80 90 200 100M-20 200Q100 60 200 60" stroke="currentColor" stroke-width="2"/></svg>
     <div class="wrap">
         <div class="f-cta-row">
             <div>
