@@ -513,11 +513,11 @@ footer .btn-gold { font-size: 1.05rem; padding: 19px 52px }
 <footer>
     <div class="wrap">
         <div class="f-cta-row">
-            <div data-reveal>
+            <div>
                 <p class="f-eyebrow">Ready when you are</p>
                 <div class="f-big">Get it fixed.</div>
             </div>
-            <div class="f-cta-side" data-reveal>
+            <div class="f-cta-side">
                 <a class="btn btn-gold" href="#match" data-magnet>Post a job</a>
                 <p>Free to post · quotes in ~15 minutes</p>
             </div>
@@ -527,7 +527,7 @@ footer .btn-gold { font-size: 1.05rem; padding: 19px 52px }
             <div><h5>Trust</h5><a href="#escrow">Escrow protection</a><a href="#escrow">7-day warranty</a><a href="#escrow">Dispute desk</a></div>
             <div><h5>Coverage</h5><span>Lagos — Island &amp; Mainland</span><span>Abuja — FCT</span><span>24/7 concierge</span></div>
         </div>
-        <div class="f-word" id="f-word" aria-hidden="true">NaijaPro</div>
+        <div class="f-word" id="f-word" aria-hidden="true"><span class="l">N</span><span class="l">a</span><span class="l">i</span><span class="l">j</span><span class="l">a</span><span class="l">P</span><span class="l">r</span><span class="l">o</span></div>
         <div class="f-bot">
             <p>© 2026 NaijaPro Technologies Ltd. — Lagos · Abuja</p>
             <a href="#top">Back to top ↑</a>
@@ -673,7 +673,7 @@ footer .btn-gold { font-size: 1.05rem; padding: 19px 52px }
         gsap.from('.tr-row', { y: 44, opacity: 0, stagger: 0.08, duration: 0.9, ease: 'power3.out', scrollTrigger: { trigger: '#tr-list', start: 'top 85%', once: true } });
 
         /* join perks cascade */
-        gsap.from('.perk', { x: 50, opacity: 0, stagger: 0.14, duration: 0.8, ease: 'power3.out', scrollTrigger: { trigger: '#perks', start: 'top 82%', once: true } });
+        gsap.from('.perk', { y: 70, opacity: 0, stagger: 0.18, duration: 1, ease: 'power3.out', scrollTrigger: { trigger: '#perks', start: 'top 82%', once: true } });
 
         /* artisans horizontal */
         gsap.from('.acard', { y: 70, opacity: 0, stagger: 0.1, duration: 0.9, ease: 'power3.out', scrollTrigger: { trigger: '#railPin', start: 'top 88%', once: true } });
@@ -714,7 +714,7 @@ footer .btn-gold { font-size: 1.05rem; padding: 19px 52px }
         gsap.from('.f-cta-row > *', { y: 44, opacity: 0, stagger: 0.12, duration: 1, ease: 'power3.out', scrollTrigger: { trigger: '.f-cta-row', start: 'top 85%', once: true } });
         gsap.from('.f-cols2 > div', { y: 40, opacity: 0, stagger: 0.14, duration: 0.9, ease: 'power3.out', scrollTrigger: { trigger: '.f-cols2', start: 'top 88%', once: true } });
         gsap.from('.f-cols2 a, .f-cols2 span', { x: -16, opacity: 0, stagger: 0.05, duration: 0.5, ease: 'power3.out', scrollTrigger: { trigger: '.f-cols2', start: 'top 88%', once: true } });
-        gsap.from('#f-word', { yPercent: 24, opacity: 0, duration: 1.2, ease: 'power4.out', scrollTrigger: { trigger: '#f-word', start: 'top 95%', once: true } });
+        gsap.from('.f-word .l', { yPercent: 110, duration: 1, stagger: 0.06, ease: 'power4.out', scrollTrigger: { trigger: '#f-word', start: 'top 95%', once: true } });
 
         /* magnetic */
         if (window.matchMedia('(pointer:fine)').matches) {
