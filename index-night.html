@@ -660,8 +660,11 @@ footer .btn-gold { font-size: 1.05rem; padding: 19px 52px }
         gsap.from('.vcard', { y: 50, opacity: 0, stagger: 0.08, duration: 0.8, ease: 'power3.out', scrollTrigger: { trigger: '.vrail', start: 'top 88%', once: true } });
         gsap.from('.faq details', { y: 30, opacity: 0, stagger: 0.09, duration: 0.7, ease: 'power3.out', scrollTrigger: { trigger: '.faq', start: 'top 85%', once: true } });
         gsap.from('.f-links a', { y: 18, opacity: 0, stagger: 0.06, duration: 0.6, ease: 'power3.out', scrollTrigger: { trigger: '.f-links', start: 'top 95%', once: true } });
-        var fw = $('#f-word'), txt = fw.textContent; fw.textContent = '';
-        txt.split('').forEach(function (ch) { var s = document.createElement('span'); s.className = 'l'; s.textContent = ch; fw.appendChild(s); });
+        var fw = $('#f-word'), txt = fw.textContent;
+        if (!fw.dataset.split) {
+            fw.dataset.split = '1'; fw.textContent = '';
+            txt.split('').forEach(function (ch) { var s = document.createElement('span'); s.className = 'l'; s.textContent = ch; fw.appendChild(s); });
+        }
         txt.split('').forEach(function (ch) { var s = document.createElement('span'); s.className = 'l'; s.textContent = ch; fw.appendChild(s); });
         gsap.from('.f-word .l', { yPercent: 110, duration: 1.1, stagger: 0.05, ease: 'power4.out', scrollTrigger: { trigger: '#f-word', start: 'top 95%', once: true } });
 
