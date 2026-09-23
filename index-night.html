@@ -594,7 +594,7 @@ footer .btn-gold { font-size: 1.05rem; padding: 19px 52px }
         var gsap = window.gsap, ST = window.ScrollTrigger;
         gsap.registerPlugin(ST);
         if (window.Lenis) {
-            var lenis = new window.Lenis({ duration: 1.15 });
+            var lenis = new window.Lenis({ duration: 1.5, easing: function (t) { return 1 - Math.pow(1 - t, 4); }, smoothWheel: true, wheelMultiplier: 1, touchMultiplier: 1.6 });
             lenis.on('scroll', ST.update);
             gsap.ticker.add(function (t) { lenis.raf(t * 1000); });
             gsap.ticker.lagSmoothing(0);
