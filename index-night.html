@@ -187,6 +187,7 @@ section { scroll-margin-top: 70px }
 @media(min-width:960px) { .esc-sticky { position: sticky; top: 120px } }
 .esc-steps { position: relative; padding-left: 44px }
 .esc-steps::before { content: ""; position: absolute; left: 11px; top: 8px; bottom: 8px; width: 2px; background: var(--line) }
+.esc-fill { position: absolute; left: 11px; top: 8px; width: 2px; height: 0; background: var(--gold) }
 .esc-fill { position: absolute; left: 11px; top: 8px; width: 2px; background: var(--gold); height: 0 }
 .esc-step { position: relative; padding-bottom: 56px; opacity: .4; transition: opacity .4s }
 .esc-step.is-on { opacity: 1 }
@@ -260,7 +261,7 @@ footer { border-top: 1px solid var(--line); padding: clamp(70px, 9vw, 130px) 0 3
 .f-eyebrow { color: var(--gold); font-size: .8rem; font-weight: 700; letter-spacing: .26em; text-transform: uppercase; margin-bottom: 20px }
 .f-big { font-family: var(--disp); font-weight: 800; font-size: clamp(2.8rem, 8vw, 6.5rem); letter-spacing: -.04em; line-height: 1; margin-bottom: 34px }
 footer .btn-gold { font-size: 1.05rem; padding: 19px 52px }
-.f-word { font-family: var(--disp); font-weight: 800; font-size: clamp(4rem, 19vw, 19rem); line-height: .85; letter-spacing: -.05em; margin-top: clamp(50px, 8vw, 110px); color: transparent; -webkit-text-stroke: 1px rgba(237, 234, 224, .4); user-select: none }
+.f-word { font-family: var(--disp); font-weight: 800; font-size: clamp(4rem, 19vw, 19rem); line-height: .85; letter-spacing: -.05em; margin-top: clamp(50px, 8vw, 110px); color: transparent; -webkit-text-stroke: 1px rgba(237, 234, 224, .4); user-select: none; overflow: hidden }
 .f-word .l { display: inline-block }
 .f-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 34px; margin-top: 44px; font-size: .88rem; color: var(--mut) }
 .f-links a:hover { color: var(--gold) }
@@ -638,7 +639,7 @@ footer .btn-gold { font-size: 1.05rem; padding: 19px 52px }
         })();
 
         /* escrow timeline */
-        gsap.from('.esc-step', { x: 46, opacity: 0, stagger: 0.16, duration: 0.9, ease: 'power3.out', scrollTrigger: { trigger: '#escSteps', start: 'top 78%', once: true } });
+        gsap.from('.esc-step', { x: 46, opacity: 0, stagger: 0.16, duration: 0.9, ease: 'power3.out', clearProps: 'opacity,transform', scrollTrigger: { trigger: '#escSteps', start: 'top 78%', once: true } });
         (function () {
             var steps = $$('.esc-step');
             function setStep(i) { steps.forEach(function (s, k) { s.classList.toggle('is-on', k <= i); }); }
