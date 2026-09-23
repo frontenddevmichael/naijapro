@@ -598,7 +598,7 @@
             position: absolute;
             inset: 0;
             overflow: hidden;
-            background: #1c2440
+            background: #0CA14B
         }
 
         #scene {
@@ -2830,8 +2830,7 @@
             }
         }
     </style>
-    <link rel="preload" as="image" href="hero-bridge-2.jpg" fetchpriority="high">
-    <link rel="preload" as="image" href="hero-bridge-1.jpg">
+    <link rel="preload" as="image" href="hero-theatre.jpg" fetchpriority="high">
 </head>
 
 <body>
@@ -2873,8 +2872,7 @@
         <!-- ================= HERO ================= -->
         <section class="hero" id="hero" aria-label="NaijaPro introduction">
             <div class="hero-stage">
-                <img class="hero-photo is-on" src="hero-bridge-2.jpg" alt="Lekki-Ikoyi Link Bridge, Lagos" fetchpriority="high">
-                <img class="hero-photo" src="hero-bridge-1.jpg" alt="Lekki-Ikoyi Link Bridge at sunset, Lagos" aria-hidden="true">
+                <img class="hero-photo is-on" src="hero-theatre.jpg" alt="National Theatre, Iganmu, Lagos" fetchpriority="high">
                 
                 <div class="hero-shade" aria-hidden="true"></div>
                 <div class="hero-copy wrap-wide">
@@ -4213,19 +4211,6 @@
                 window.addEventListener('load', function () { ST.refresh(); });
                 if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { ST.refresh(); placeTag(); });
             }
-
-            /* hero slideshow: alternate bridge shots */
-            (function () {
-                var photos = $$('.hero-photo'); if (photos.length < 2) return;
-                if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-                var i = 0;
-                setInterval(function () {
-                    if (document.hidden) return;
-                    photos[i].classList.remove('is-on');
-                    i = (i + 1) % photos.length;
-                    photos[i].classList.add('is-on');
-                }, 7000);
-            })();
 
             if (motion) { try { initMotion(); } catch (err) { console.error('Motion init failed; page remains usable.', err); } }
         })();
