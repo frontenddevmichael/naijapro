@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>NaijaPro — Fix it now. Pay when it's done.</title>
+<meta name="description" content="Vetted artisans in Lagos and Abuja. You pay only when you approve. Escrow-protected, BVN-verified.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="hero-theatre.jpg" fetchpriority="high">
+<style>
+:root {
+    --bg: #0A0F0D;
+    --bg2: #0E1512;
+    --bone: #EDEAE0;
+    --mut: #9AA39B;
+    --gold: #E8B33D;
+    --gold-d: #8a6420;
+    --green: #3DDC84;
+    --line: rgba(237, 234, 224, .14);
+    --disp: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif;
+    --body: 'Figtree', 'Segoe UI', system-ui, sans-serif;
+    --ease: cubic-bezier(.22, .75, .28, 1);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0 }
+html { scroll-behavior: smooth }
+html.lenis, html.lenis body { height: auto }
+.lenis.lenis-smooth { scroll-behavior: auto !important }
+body {
+    background: var(--bg);
+    color: var(--bone);
+    font-family: var(--body);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased
+}
+::selection { background: var(--gold); color: #0A0F0D }
+a { color: inherit; text-decoration: none }
+img { display: block; max-width: 100% }
+.wrap { max-width: 1240px; margin-inline: auto; padding-inline: 24px }
+@media(min-width:768px) { .wrap { padding-inline: 44px } }
+section { scroll-margin-top: 70px }
+
+/* grain */
+.grain {
+    position: fixed; inset: -50%; z-index: 2000; pointer-events: none; opacity: .07;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)' opacity='.9'/%3E%3C/svg%3E");
+    animation: grain 7s steps(8) infinite
+}
+@keyframes grain {
+    0%,100% { transform: translate(0,0) } 25% { transform: translate(-4%,3%) }
+    50% { transform: translate(3%,-4%) } 75% { transform: translate(-3%,-2%) }
+}
+
+/* progress */
+#progress { position: fixed; top: 0; left: 0; right: 0; height: 3px; background: var(--gold); transform: scaleX(0); transform-origin: 0 50%; z-index: 1500 }
+
+/* ============ NAV ============ */
+.hdr { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; transition: background .4s, border-color .4s, backdrop-filter .4s; border-bottom: 1px solid transparent }
+.hdr.scrolled { background: rgba(10, 15, 13, .72); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border-color: var(--line) }
+.nav-in { display: flex; align-items: center; justify-content: space-between; height: 72px }
+.brand { font-family: var(--disp); font-weight: 800; font-size: 1.35rem; letter-spacing: -.02em }
+.brand em { color: var(--gold); font-style: normal }
+.nav { display: none; align-items: center; gap: 34px }
+.nav a { font-size: .9rem; font-weight: 600; color: var(--mut); position: relative; transition: color .25s }
+.nav a::after { content: ""; position: absolute; left: 0; bottom: -5px; height: 1px; width: 100%; background: var(--gold); transform: scaleX(0); transform-origin: 100% 50%; transition: transform .35s var(--ease) }
+.nav a:hover { color: var(--bone) }
+.nav a:hover::after { transform: scaleX(1); transform-origin: 0 50% }
+@media(min-width:960px) { .nav { display: flex } }
+.btn-pill { display: none; align-items: center; gap: 8px; background: var(--gold); color: #0A0F0D; font-weight: 700; font-size: .88rem; padding: 12px 24px; border-radius: 999px; transition: transform .3s var(--ease), box-shadow .3s }
+.btn-pill:hover { transform: translateY(-2px); box-shadow: 0 14px 34px -10px rgba(232, 179, 61, .55) }
+@media(min-width:960px) { .btn-pill { display: inline-flex } }
+.burger { display: grid; place-items: center; gap: 0; width: 44px; height: 44px; background: none; border: 0; cursor: pointer }
+.burger span { display: block; width: 24px; height: 2px; background: var(--bone); margin: 3px 0; transition: transform .35s var(--ease), opacity .25s }
+@media(min-width:960px) { .burger { display: none } }
+.menu { position: fixed; inset: 0; z-index: 990; background: rgba(10, 15, 13, .97); display: flex; flex-direction: column; justify-content: center; padding: 0 32px; gap: 6px; opacity: 0; visibility: hidden; transition: opacity .4s, visibility .4s }
+.menu.open { opacity: 1; visibility: visible }
+.menu a.m { font-family: var(--disp); font-weight: 800; font-size: clamp(2.4rem, 11vw, 4rem); letter-spacing: -.03em; padding: 6px 0; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center }
+.menu a.m small { font-family: var(--body); font-size: .8rem; color: var(--gold); font-weight: 700 }
+
+/* ============ HERO ============ */
+.hero { position: relative; min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column; justify-content: flex-end; overflow: hidden }
+.hero-photo { position: absolute; inset: 0; width: 100%; height: 112%; object-fit: cover; object-position: center 40% }
+.hero-shade { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(10,15,13,.55), rgba(10,15,13,.05) 40%, rgba(10,15,13,.36) 68%, var(--bg) 100%) }
+.hero-in { position: relative; z-index: 2; padding-bottom: 34px; width: 100% }
+.eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: .78rem; font-weight: 700; letter-spacing: .24em; text-transform: uppercase; color: var(--gold); margin-bottom: 22px }
+.eyebrow::before { content: ""; width: 34px; height: 1px; background: var(--gold) }
+.hero h1 { font-family: var(--disp); font-weight: 800; font-size: clamp(3rem, 10.5vw, 8.5rem); line-height: .96; letter-spacing: -.04em }
+.hero h1 .line { display: block; overflow: hidden }
+.hero h1 .line > span { display: block }
+.hero h1 .it { color: transparent; -webkit-text-stroke: 1.5px var(--bone) }
+.hero-sub { margin-top: 24px; max-width: 34em; color: var(--mut); font-size: clamp(1rem, 1.4vw, 1.2rem); line-height: 1.6 }
+.hero-cta { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 30px }
+.btn { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; font-size: .95rem; padding: 17px 34px; border-radius: 999px; border: 0; cursor: pointer; white-space: nowrap; transition: transform .3s var(--ease), box-shadow .3s, background .25s }
+.btn svg { width: 16px; height: 16px }
+.btn-gold { background: var(--gold); color: #0A0F0D }
+.btn-gold:hover { transform: translateY(-3px); box-shadow: 0 18px 44px -12px rgba(232, 179, 61, .6) }
+.btn-ghost { border: 1px solid rgba(237, 234, 224, .35); color: var(--bone); background: rgba(10, 15, 13, .3); backdrop-filter: blur(8px) }
+.btn-ghost:hover { border-color: var(--bone); transform: translateY(-3px) }
+.hero-meta { display: flex; flex-wrap: wrap; gap: 14px 40px; align-items: center; margin-top: 46px; padding-top: 24px; border-top: 1px solid var(--line); font-size: .85rem; color: var(--mut) }
+.hero-meta b { color: var(--bone) }
+.live-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--green); margin-right: 9px; animation: blink 1.8s infinite }
+@keyframes blink { 50% { opacity: .25 } }
+
+/* ============ MARQUEE ============ */
+.mq { border-block: 1px solid var(--line); padding: 22px 0; overflow: hidden; background: var(--bg) }
+.mq-track { display: flex; gap: 54px; width: max-content; font-family: var(--disp); font-weight: 800; font-size: clamp(1.6rem, 4vw, 3rem); letter-spacing: -.02em; white-space: nowrap }
+.mq-track span:nth-child(4n+1) { color: transparent; -webkit-text-stroke: 1px var(--mut) }
+.mq-track i { color: var(--gold); font-style: normal }
+
+/* ============ STATS ============ */
+.stats { display: grid; grid-template-columns: repeat(2, 1fr); border-bottom: 1px solid var(--line) }
+.stat { padding: clamp(30px, 5vw, 60px) clamp(20px, 4vw, 54px); border-left: 1px solid var(--line) }
+.stat:first-child { border-left: 0 }
+.stat:nth-child(3) { border-left: 0; border-top: 1px solid var(--line) }
+.stat:nth-child(4) { border-top: 1px solid var(--line) }
+@media(min-width:900px) {
+    .stats { grid-template-columns: repeat(4, 1fr) }
+    .stat:nth-child(3), .stat:nth-child(4) { border-top: 0 }
+    .stat + .stat { border-left: 1px solid var(--line) }
+}
+.stat-n { font-family: var(--disp); font-weight: 800; font-size: clamp(2.2rem, 4.5vw, 3.6rem); letter-spacing: -.03em; color: var(--bone) }
+.stat-n em { color: var(--gold); font-style: normal }
+.stat-l { margin-top: 8px; color: var(--mut); font-size: .9rem }
+
+/* ============ SECTION HEADS ============ */
+.sec { padding-block: clamp(90px, 12vw, 170px) }
+.sec-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 18px 40px; margin-bottom: clamp(40px, 6vw, 76px) }
+.sec-head h2 { font-family: var(--disp); font-weight: 800; font-size: clamp(2.4rem, 6vw, 5rem); letter-spacing: -.035em; line-height: 1 }
+.sec-head h2 .line { display: block; overflow: hidden }
+.sec-head h2 .line > span { display: block }
+.sec-head p { color: var(--mut); max-width: 26em; line-height: 1.65 }
+.sec-no { font-size: .8rem; font-weight: 700; letter-spacing: .24em; color: var(--gold); text-transform: uppercase; display: block; margin-bottom: 16px }
+
+/* ============ TRADES INDEX ============ */
+.tr-row { display: grid; grid-template-columns: 64px 1fr auto 40px; align-items: center; gap: 18px; padding: 30px 10px; border-top: 1px solid var(--line); position: relative; overflow: hidden; transition: padding .35s var(--ease) }
+.tr-row:last-child { border-bottom: 1px solid var(--line) }
+.tr-row::before { content: ""; position: absolute; inset: 0; background: var(--gold); transform: scaleY(0); transform-origin: 50% 100%; transition: transform .4s var(--ease) }
+.tr-row:hover::before { transform: scaleY(1) }
+.tr-row > * { position: relative; z-index: 1 }
+.tr-num { font-family: var(--disp); font-size: .95rem; color: var(--mut); transition: color .3s }
+.tr-name { font-family: var(--disp); font-weight: 800; font-size: clamp(1.7rem, 4.5vw, 3.2rem); letter-spacing: -.03em; transition: color .3s, transform .35s var(--ease) }
+.tr-count { font-size: .85rem; color: var(--mut); font-weight: 600; transition: color .3s }
+.tr-arrow { width: 40px; height: 40px; transition: transform .35s var(--ease), color .3s }
+.tr-row:hover { padding-left: 26px }
+.tr-row:hover .tr-name, .tr-row:hover .tr-num, .tr-row:hover .tr-count, .tr-row:hover .tr-arrow { color: #0A0F0D }
+.tr-row:hover .tr-arrow { transform: translate(6px, -6px) rotate(0deg) }
+@media(max-width:640px) {
+    .tr-row { grid-template-columns: 1fr auto; }
+    .tr-num, .tr-arrow { display: none }
+}
+
+/* ============ ARTISANS RAIL ============ */
+.rail-pin { overflow: hidden }
+.rail { display: flex; gap: clamp(18px, 3vw, 34px); padding: 10px 24px 30px; width: max-content }
+.acard { position: relative; width: min(78vw, 420px); flex: none; background: var(--bg2); border: 1px solid var(--line); padding: clamp(26px, 3vw, 40px); display: flex; flex-direction: column; gap: 18px; transition: border-color .3s, transform .35s var(--ease) }
+.acard:hover { border-color: var(--gold); transform: translateY(-6px) }
+.acard .mono { font-family: var(--disp); font-weight: 800; font-size: clamp(3.4rem, 6vw, 5rem); line-height: 1; color: transparent; -webkit-text-stroke: 1.5px var(--gold) }
+.acard h3 { font-family: var(--disp); font-size: 1.7rem; font-weight: 800; letter-spacing: -.02em }
+.acard .role { color: var(--gold); font-size: .82rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase }
+.stars { color: var(--gold); letter-spacing: .2em; font-size: .9rem }
+.stars b { color: var(--bone); letter-spacing: 0; margin-left: 8px; font-size: .85rem }
+.acard .rate { display: flex; justify-content: space-between; align-items: baseline; border-top: 1px solid var(--line); padding-top: 16px; margin-top: auto }
+.acard .rate b { font-family: var(--disp); font-size: 1.5rem }
+.acard .rate span { color: var(--mut); font-size: .82rem }
+.acard .go { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; font-size: .9rem; color: var(--bone) }
+.acard .go svg { width: 15px; height: 15px; transition: transform .3s var(--ease) }
+.acard .go:hover svg { transform: translateX(5px) }
+.acard .tag { position: absolute; top: 22px; right: 22px; font-size: .7rem; font-weight: 700; letter-spacing: .16em; color: var(--green); text-transform: uppercase }
+.rail-hint { margin-top: 8px; color: var(--mut); font-size: .85rem; display: flex; align-items: center; gap: 12px }
+.rail-hint::after { content: ""; flex: 1; height: 1px; background: var(--line) }
+
+/* ============ ESCROW ============ */
+.esc { background: var(--bg2); border-block: 1px solid var(--line) }
+.esc-grid { display: grid; gap: 60px }
+@media(min-width:960px) { .esc-grid { grid-template-columns: .9fr 1.1fr; gap: 80px } }
+.esc-sticky { align-self: start }
+@media(min-width:960px) { .esc-sticky { position: sticky; top: 120px } }
+.esc-steps { position: relative; padding-left: 44px }
+.esc-steps::before { content: ""; position: absolute; left: 11px; top: 8px; bottom: 8px; width: 2px; background: var(--line) }
+.esc-fill { position: absolute; left: 11px; top: 8px; width: 2px; background: var(--gold); height: 0 }
+.esc-step { position: relative; padding-bottom: 56px }
+.esc-step:last-child { padding-bottom: 0 }
+.esc-step::before { content: ""; position: absolute; left: -44px; top: 2px; width: 24px; height: 24px; border-radius: 50%; border: 2px solid var(--mut); background: var(--bg2); transition: border-color .3s, background .3s }
+.esc-step.is-on::before { border-color: var(--gold); background: var(--gold) }
+.esc-step h3 { font-family: var(--disp); font-size: 1.8rem; font-weight: 800; letter-spacing: -.02em; margin-bottom: 10px }
+.esc-step p { color: var(--mut); line-height: 1.65; max-width: 30em }
+.esc-step small { display: inline-block; margin-top: 12px; color: var(--gold); font-size: .8rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase }
+
+/* ============ MATCH ============ */
+.match-grid { display: grid; gap: 60px }
+@media(min-width:960px) { .match-grid { grid-template-columns: 1fr 1fr; gap: 80px; align-items: start } }
+.match h2 { font-family: var(--disp); font-weight: 800; font-size: clamp(2.4rem, 5.5vw, 4.4rem); letter-spacing: -.035em; line-height: 1.02 }
+.match h2 .line { display: block; overflow: hidden }
+.match h2 .line > span { display: block }
+.pts { margin-top: 30px; display: grid; gap: 16px }
+.pts li { list-style: none; display: flex; gap: 14px; align-items: flex-start; color: var(--mut); line-height: 1.55 }
+.pts li b { color: var(--bone) }
+.pts svg { width: 20px; height: 20px; color: var(--green); flex: none; margin-top: 2px }
+.proof { margin-top: 32px; border: 1px solid var(--gold); padding: 20px 24px; max-width: 26em }
+.proof .stars { margin-bottom: 10px }
+.proof p { color: var(--mut); font-size: .93rem; line-height: 1.6 }
+.proof p b { color: var(--bone) }
+.mform { border: 1px solid var(--line); background: var(--bg2); padding: clamp(28px, 4vw, 48px) }
+.mform h3 { font-family: var(--disp); font-size: 1.5rem; font-weight: 800; margin-bottom: 26px }
+.field { margin-bottom: 24px }
+.field label { display: block; font-size: .74rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--mut); margin-bottom: 8px }
+.field input, .field select, .field textarea { width: 100%; background: transparent; border: 0; border-bottom: 1px solid var(--line); color: var(--bone); font: 600 1.05rem var(--body); padding: 10px 2px; outline: none; transition: border-color .25s; border-radius: 0; appearance: none }
+.field select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4 7l6 6 6-6' fill='none' stroke='%23E8B33D' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right center; background-size: 15px; cursor: pointer }
+.field select option { background: #0E1512; color: var(--bone) }
+.field input:focus, .field select:focus { border-color: var(--gold) }
+.field input::placeholder { color: #5b655e }
+.frow { display: grid; gap: 0 24px }
+@media(min-width:560px) { .frow { grid-template-columns: 1fr 1fr } }
+.err { display: none; color: #ff8f8f; font-size: .82rem; margin-top: 8px }
+.field.bad input { border-color: #ff8f8f }
+.field.bad .err { display: block }
+.submit { width: 100%; justify-content: center; margin-top: 8px }
+.fine { margin-top: 16px; color: var(--mut); font-size: .82rem; text-align: center }
+.hp { position: absolute; opacity: 0; height: 0; width: 0; pointer-events: none }
+.mdone { text-align: center; padding: 30px 0 }
+.mdone svg { width: 84px; height: 84px; margin: 0 auto 22px; color: var(--gold) }
+.mdone svg circle, .mdone svg path { stroke-dasharray: 1; stroke-dashoffset: 1 }
+.mdone h3 { margin-bottom: 12px }
+.mdone p { color: var(--mut); line-height: 1.65; margin-bottom: 26px }
+
+/* ============ FOOTER ============ */
+footer { border-top: 1px solid var(--line); padding: clamp(70px, 9vw, 130px) 0 34px; text-align: center; overflow: hidden }
+.f-eyebrow { color: var(--gold); font-size: .8rem; font-weight: 700; letter-spacing: .26em; text-transform: uppercase; margin-bottom: 20px }
+.f-big { font-family: var(--disp); font-weight: 800; font-size: clamp(2.8rem, 8vw, 6.5rem); letter-spacing: -.04em; line-height: 1; margin-bottom: 34px }
+footer .btn-gold { font-size: 1.05rem; padding: 19px 52px }
+.f-word { font-family: var(--disp); font-weight: 800; font-size: clamp(4rem, 19vw, 19rem); line-height: .85; letter-spacing: -.05em; margin-top: clamp(50px, 8vw, 110px); color: transparent; -webkit-text-stroke: 1px rgba(237, 234, 224, .4); user-select: none }
+.f-word .l { display: inline-block }
+.f-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 34px; margin-top: 44px; font-size: .88rem; color: var(--mut) }
+.f-links a:hover { color: var(--gold) }
+.f-bot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--line); color: var(--mut); font-size: .8rem }
+.f-bot a:hover { color: var(--bone) }
+
+@media(prefers-reduced-motion:reduce) {
+    html { scroll-behavior: auto }
+    *, *::before, *::after { animation: none !important; transition-duration: .01ms !important }
+}
+</style>
+</head>
+<body id="top">
+<div class="grain" aria-hidden="true"></div>
+<div id="progress" aria-hidden="true"></div>
+
+<header class="hdr" id="hdr">
+    <div class="wrap nav-in">
+        <a class="brand" href="#top">NaijaPro<em>.</em></a>
+        <nav class="nav" aria-label="Primary">
+            <a href="#trades">Trades</a>
+            <a href="#artisans">Artisans</a>
+            <a href="#escrow">Escrow</a>
+        </nav>
+        <a class="btn-pill" href="#match" data-magnet>Post a job</a>
+        <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
+    </div>
+</header>
+<div class="menu" id="menu">
+    <a class="m" href="#trades">Trades <small>01</small></a>
+    <a class="m" href="#artisans">Artisans <small>02</small></a>
+    <a class="m" href="#escrow">Escrow <small>03</small></a>
+    <a class="m" href="#match">Post a job <small>04</small></a>
+</div>
+
+<main>
+<!-- ================= HERO ================= -->
+<section class="hero" id="hero">
+    <img class="hero-photo" src="hero-theatre.jpg" alt="National Theatre, Iganmu, Lagos" fetchpriority="high">
+    <div class="hero-shade" aria-hidden="true"></div>
+    <div class="wrap hero-in">
+        <p class="eyebrow">Lagos · Abuja — escrow protected</p>
+        <h1 id="hero-h1"><span class="line"><span>Fix it now.</span></span><span class="line"><span>Pay when</span></span><span class="line"><span class="it">it's done.</span></span></h1>
+        <p class="hero-sub">Vetted artisans in Lagos &amp; Abuja. You pay only when you approve.</p>
+        <div class="hero-cta">
+            <a class="btn btn-gold" href="#match" data-magnet>Post a job</a>
+            <a class="btn btn-ghost" href="#artisans">Browse artisans</a>
+        </div>
+        <div class="hero-meta">
+            <span><span class="live-dot"></span><b>₦48.6M</b> in escrow now</span>
+            <span><b>4.9★</b> average artisan rating</span>
+            <span>Scroll — the city lights up below</span>
+        </div>
+    </div>
+</section>
+
+<!-- ================= MARQUEE ================= -->
+<div class="mq" aria-hidden="true">
+    <div class="mq-track" id="mq1"><span>Lekki</span><i>✦</i><span>Ikoyi</span><i>✦</i><span>Ikeja</span><i>✦</i><span>Yaba</span><i>✦</i><span>Surulere</span><i>✦</i><span>Ajah</span><i>✦</i><span>Maitama</span><i>✦</i><span>Wuse</span><i>✦</i></div>
+</div>
+
+<!-- ================= STATS ================= -->
+<section class="stats" aria-label="NaijaPro in numbers">
+    <div class="stat" data-reveal><div class="stat-n">₦<span class="count" data-to="48.6" data-dec="1">48.6</span><em>M</em></div><div class="stat-l">held in escrow right now</div></div>
+    <div class="stat" data-reveal><div class="stat-n"><span class="count" data-to="429" data-dec="0">429</span></div><div class="stat-l">jobs in progress</div></div>
+    <div class="stat" data-reveal><div class="stat-n"><span class="count" data-to="4.9" data-dec="1">4.9</span><em>★</em></div><div class="stat-l">average artisan rating</div></div>
+    <div class="stat" data-reveal><div class="stat-n"><span class="count" data-to="15" data-dec="0">15</span><em>min</em></div><div class="stat-l">median time to first quote</div></div>
+</section>
+
+<!-- ================= TRADES ================= -->
+<section class="sec" id="trades">
+    <div class="wrap">
+        <div class="sec-head">
+            <div><span class="sec-no">01 — Trades</span><h2 data-split>Every trade, one address.</h2></div>
+            <p data-reveal>Twenty-four verified trades across Lagos and Abuja. Pick yours — a vetted artisan answers in minutes.</p>
+        </div>
+        <div id="tr-list">
+            <a class="tr-row" href="#artisans"><span class="tr-num">/01</span><span class="tr-name">AC &amp; repair</span><span class="tr-count">118 artisans</span><svg class="tr-arrow" viewBox="0 0 40 40" fill="none"><path d="M10 30L30 10M12 10h18v18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <a class="tr-row" href="#artisans"><span class="tr-num">/02</span><span class="tr-name">Solar &amp; inverter</span><span class="tr-count">94 artisans</span><svg class="tr-arrow" viewBox="0 0 40 40" fill="none"><path d="M10 30L30 10M12 10h18v18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <a class="tr-row" href="#artisans"><span class="tr-num">/03</span><span class="tr-name">Plumbing</span><span class="tr-count">146 artisans</span><svg class="tr-arrow" viewBox="0 0 40 40" fill="none"><path d="M10 30L30 10M12 10h18v18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <a class="tr-row" href="#artisans"><span class="tr-num">/04</span><span class="tr-name">Electrical</span><span class="tr-count">204 artisans</span><svg class="tr-arrow" viewBox="0 0 40 40" fill="none"><path d="M10 30L30 10M12 10h18v18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <a class="tr-row" href="#artisans"><span class="tr-num">/05</span><span class="tr-name">Carpentry</span><span class="tr-count">132 artisans</span><svg class="tr-arrow" viewBox="0 0 40 40" fill="none"><path d="M10 30L30 10M12 10h18v18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <a class="tr-row" href="#artisans"><span class="tr-num">/06</span><span class="tr-name">Tiling &amp; POP</span><span class="tr-count">79 artisans</span><svg class="tr-arrow" viewBox="0 0 40 40" fill="none"><path d="M10 30L30 10M12 10h18v18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+    </div>
+</section>
+
+<!-- ================= ARTISANS ================= -->
+<section class="sec" id="artisans" style="padding-bottom:0">
+    <div class="wrap">
+        <div class="sec-head">
+            <div><span class="sec-no">02 — Artisans</span><h2 data-split>Rated by the street.</h2></div>
+            <p data-reveal>BVN-checked, address-verified, warranty-backed. Drag through the shortlist — every card is a real pro you can book tonight.</p>
+        </div>
+    </div>
+    <div class="rail-pin" id="railPin">
+        <div class="rail" id="rail">
+            <article class="acard"><span class="tag">Verified</span><div class="mono">EO</div><div><div class="role">AC &amp; HVAC · Lekki</div><h3>Emeka O.</h3></div><div class="stars">★★★★★<b>4.9 · 212 jobs</b></div><div class="rate"><b>₦15,000</b><span>from · 12 min away</span></div><a class="go" href="#match">Request this artisan <svg viewBox="0 0 20 20" fill="none"><path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></article>
+            <article class="acard"><span class="tag">Verified</span><div class="mono">BA</div><div><div class="role">Electrical · Ikeja</div><h3>Babatunde A.</h3></div><div class="stars">★★★★★<b>4.8 · 187 jobs</b></div><div class="rate"><b>₦12,500</b><span>from · 18 min away</span></div><a class="go" href="#match">Request this artisan <svg viewBox="0 0 20 20" fill="none"><path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></article>
+            <article class="acard"><span class="tag">Verified</span><div class="mono">CN</div><div><div class="role">Solar &amp; inverter · VI</div><h3>Chioma N.</h3></div><div class="stars">★★★★★<b>5.0 · 143 jobs</b></div><div class="rate"><b>₦20,000</b><span>from · 25 min away</span></div><a class="go" href="#match">Request this artisan <svg viewBox="0 0 20 20" fill="none"><path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></article>
+            <article class="acard"><span class="tag">Verified</span><div class="mono">TA</div><div><div class="role">Plumbing · Surulere</div><h3>Tunde A.</h3></div><div class="stars">★★★★★<b>4.9 · 176 jobs</b></div><div class="rate"><b>₦9,000</b><span>from · 20 min away</span></div><a class="go" href="#match">Request this artisan <svg viewBox="0 0 20 20" fill="none"><path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></article>
+            <article class="acard"><span class="tag">Verified</span><div class="mono">FM</div><div><div class="role">Carpentry · Yaba</div><h3>Funmi M.</h3></div><div class="stars">★★★★★<b>4.8 · 129 jobs</b></div><div class="rate"><b>₦10,000</b><span>from · 15 min away</span></div><a class="go" href="#match">Request this artisan <svg viewBox="0 0 20 20" fill="none"><path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></article>
+        </div>
+    </div>
+    <div class="wrap"><p class="rail-hint">Keep scrolling — the shortlist slides past</p></div>
+</section>
+
+<!-- ================= ESCROW ================= -->
+<section class="sec esc" id="escrow">
+    <div class="wrap esc-grid">
+        <div class="esc-sticky">
+            <span class="sec-no">03 — Escrow</span>
+            <h2 data-split style="font-family:var(--disp);font-weight:800;font-size:clamp(2.4rem,5vw,4.2rem);letter-spacing:-.035em;line-height:1.02">Money moves when you say so.</h2>
+            <p data-reveal style="margin-top:18px;color:var(--mut);line-height:1.65;max-width:24em">Your quote waits in a licensed custodian account. The artisan only touches it after your tap.</p>
+        </div>
+        <div class="esc-steps" id="escSteps">
+            <div class="esc-fill" id="escFill"></div>
+            <div class="esc-step"><h3>Fund it</h3><p>Lock the agreed quote in escrow. The artisan gets the go-ahead — not the money.</p><small>Held by a licensed custodian</small></div>
+            <div class="esc-step"><h3>Watch it</h3><p>Timestamped photos and material receipts land in your activity log as the work happens.</p><small>Live log, visible to you</small></div>
+            <div class="esc-step"><h3>Approve it</h3><p>Happy? One tap releases the money. Not happy? The dispute desk steps in first.</p><small>No release without you</small></div>
+        </div>
+    </div>
+</section>
+
+<!-- ================= MATCH ================= -->
+<section class="sec match" id="match">
+    <div class="wrap match-grid">
+        <div>
+            <span class="sec-no">04 — Match</span>
+            <h2 id="match-h"><span class="line"><span>Quotes in</span></span><span class="line"><span>15 minutes.</span></span></h2>
+            <ul class="pts">
+                <li><svg viewBox="0 0 20 20" fill="none"><path d="M4 10l4 4 8-9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>BVN-checked artisans only.</b> Identity and address verified before anyone reaches you.</span></li>
+                <li><svg viewBox="0 0 20 20" fill="none"><path d="M4 10l4 4 8-9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>7-day warranty</b> on every job, backed by NaijaPro.</span></li>
+                <li><svg viewBox="0 0 20 20" fill="none"><path d="M4 10l4 4 8-9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Receipts tracked live.</b> Materials and milestones, visible to you.</span></li>
+            </ul>
+            <div class="proof"><div class="stars">★★★★★</div><p><b>4.9 average rating</b> across 2,300+ completed jobs. You approve the work — or you don't pay.</p></div>
+        </div>
+        <div class="mform" id="mform">
+            <div id="mwrap">
+                <h3>Start your job</h3>
+                <form id="mformTag" novalidate>
+                    <div class="field"><label for="mj">What needs doing?</label><input id="mj" name="job" type="text" placeholder="e.g. 1.5HP AC leaking water" required minlength="4" autocomplete="off"><p class="err">Tell us what needs doing (a few words is enough).</p></div>
+                    <div class="frow">
+                        <div class="field"><label for="ma">Area</label><input id="ma" name="area" type="text" placeholder="e.g. Lekki Phase 1" required autocomplete="address-level2"><p class="err">Add your area.</p></div>
+                        <div class="field"><label for="mt">Preferred time</label><select id="mt" name="time"><option>Within 2 hours</option><option selected>Today</option><option>This weekend</option></select></div>
+                    </div>
+                    <div class="field"><label for="mp">WhatsApp number</label><input id="mp" name="phone" type="tel" inputmode="tel" placeholder="0803 000 0000" required autocomplete="tel-national"><p class="err">Enter a valid Nigerian mobile number.</p></div>
+                    <button class="btn btn-gold submit" type="submit"><span>Send request</span></button>
+                    <p class="fine">No payment yet. You review artisans before funding any escrow.</p>
+                </form>
+            </div>
+            <div class="mdone" id="mdone" hidden>
+                <svg viewBox="0 0 92 92" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><circle cx="46" cy="46" r="40" pathLength="1"/><path d="M28 47l13 13 24-27" pathLength="1"/></svg>
+                <h3>Request sent</h3>
+                <p>Watch your WhatsApp. Vetted artisans nearby will send fixed quotes shortly.</p>
+                <button class="btn btn-gold" type="button" id="magain">Post another job</button>
+            </div>
+        </div>
+    </div>
+</section>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+    <div class="wrap">
+        <p class="f-eyebrow" data-reveal>Ready when you are</p>
+        <div class="f-big" data-reveal>Get it fixed.</div>
+        <div data-reveal><a class="btn btn-gold" href="#match" data-magnet>Post a job</a></div>
+        <div class="f-word" id="f-word" aria-hidden="true">NaijaPro</div>
+        <nav class="f-links" aria-label="Footer">
+            <a href="#trades">Trades</a><a href="#artisans">Artisans</a><a href="#escrow">Escrow</a><a href="#match">Post a job</a><a href="#">Privacy</a><a href="#">Terms</a>
+        </nav>
+        <div class="f-bot">
+            <p>© 2026 NaijaPro Technologies Ltd. — Lagos · Abuja</p>
+            <a href="#top">Back to top ↑</a>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+<script>
+(function () {
+    'use strict';
+    var root = document.documentElement;
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var motion = !!(window.gsap && window.ScrollTrigger) && !reduce;
+    function $(s, c) { return (c || document).querySelector(s); }
+    function $$(s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); }
+
+    /* progress + nav */
+    var hdr = $('#hdr'), lastY = 0, ticking = false;
+    function onScroll() {
+        var y = window.scrollY || window.pageYOffset;
+        hdr.classList.toggle('scrolled', y > 40);
+        var max = document.documentElement.scrollHeight - window.innerHeight;
+        $('#progress').style.transform = 'scaleX(' + (max > 0 ? Math.min(1, y / max) : 0) + ')';
+        lastY = y; ticking = false;
+    }
+    window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
+    onScroll();
+
+    /* menu */
+    var burger = $('#burger'), menu = $('#menu');
+    function setMenu(open) {
+        menu.classList.toggle('open', open);
+        burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+        document.body.style.overflow = open ? 'hidden' : '';
+    }
+    burger.addEventListener('click', function () { setMenu(!menu.classList.contains('open')); });
+    $$('#menu a').forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
+
+    /* match form */
+    function bad(id, on) { $(id).closest('.field').classList.toggle('bad', on); return !on; }
+    $('#mformTag').addEventListener('submit', function (e) {
+        e.preventDefault();
+        var okJ = bad('#mj', $('#mj').value.trim().length < 4);
+        var okA = bad('#ma', $('#ma').value.trim().length < 2);
+        var digits = $('#mp').value.replace(/\D/g, '').replace(/^234/, '0');
+        var okP = bad('#mp', !/^0[789][01]\d{8}$/.test(digits));
+        if (!(okJ && okA && okP)) return;
+        $('#mwrap').hidden = true;
+        var done = $('#mdone'); done.hidden = false;
+        if (motion) {
+            gsap.from(done, { y: 30, opacity: 0, duration: 0.8, ease: 'power3.out' });
+            gsap.to('#mdone svg circle, #mdone svg path', { strokeDashoffset: 0, duration: 1, stagger: 0.3, ease: 'power2.out' });
+        } else {
+            $$('#mdone svg circle, #mdone svg path').forEach(function (p) { p.style.strokeDashoffset = 0; });
+        }
+    });
+    $('#magain').addEventListener('click', function () { $('#mdone').hidden = true; $('#mwrap').hidden = false; $('#mformTag').reset(); });
+
+    if (!motion) return;
+
+    function initMotion() {
+        var gsap = window.gsap, ST = window.ScrollTrigger;
+        gsap.registerPlugin(ST);
+        if (window.Lenis) {
+            var lenis = new window.Lenis({ duration: 1.15 });
+            lenis.on('scroll', ST.update);
+            gsap.ticker.add(function (t) { lenis.raf(t * 1000); });
+            gsap.ticker.lagSmoothing(0);
+        }
+
+        /* hero intro */
+        var words = $$('#hero-h1 .line > span');
+        gsap.set('.hero-photo', { scale: 1.12 });
+        gsap.set(words, { yPercent: 115 });
+        gsap.set(['.eyebrow', '.hero-sub', '.hero-cta', '.hero-meta'], { y: 26, opacity: 0 });
+        var intro = gsap.timeline({ defaults: { ease: 'power3.out' } });
+        intro
+            .to('.hero-photo', { scale: 1, duration: 1.8, ease: 'power2.out' }, 0)
+            .to(words, { yPercent: 0, duration: 1, stagger: 0.1 }, 0.15)
+            .to(['.eyebrow', '.hero-sub', '.hero-cta', '.hero-meta'], { y: 0, opacity: 1, duration: 0.9, stagger: 0.09 }, 0.5);
+
+        /* hero parallax */
+        gsap.to('.hero-photo', { yPercent: 12, ease: 'none', scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: 0.6 } });
+        gsap.to('.hero-in', { yPercent: -8, opacity: 0.25, ease: 'none', scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: 0.6 } });
+
+        /* generic reveals */
+        $$('[data-reveal]').forEach(function (el) {
+            gsap.from(el, { y: 36, opacity: 0, duration: 1.1, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 88%', once: true } });
+        });
+
+        /* split headings */
+        $$('[data-split]').forEach(function (h) {
+            var lines = $$('.line', h), out = [];
+            lines.forEach(function (ln) {
+                var w = ln.textContent.trim().split(/\s+/); ln.textContent = '';
+                w.forEach(function (word, i) {
+                    var o = document.createElement('span'); o.style.cssText = 'display:inline-block;overflow:hidden;vertical-align:top';
+                    var n = document.createElement('span'); n.style.display = 'inline-block'; n.textContent = word;
+                    o.appendChild(n); ln.appendChild(o);
+                    if (i < w.length - 1) ln.appendChild(document.createTextNode(' '));
+                    out.push(n);
+                });
+            });
+            gsap.set(out, { yPercent: 115 });
+            gsap.to(out, { yPercent: 0, duration: 1.1, stagger: 0.06, ease: 'power4.out', scrollTrigger: { trigger: h, start: 'top 86%', once: true } });
+        });
+
+        /* marquee */
+        gsap.to('#mq1', { xPercent: -30, ease: 'none', scrollTrigger: { trigger: '.mq', start: 'top bottom', end: 'bottom top', scrub: 0.6 } });
+
+        /* counters */
+        $$('.count').forEach(function (el) {
+            var to = parseFloat(el.getAttribute('data-to')), dec = parseInt(el.getAttribute('data-dec'), 10) || 0, obj = { v: 0 };
+            if (!to) return;
+            ST.create({
+                trigger: el, start: 'top 92%', once: true, onEnter: function () {
+                    gsap.to(obj, { v: to, duration: 2.2, ease: 'power2.out', onUpdate: function () { el.textContent = obj.v.toLocaleString('en-US', { minimumFractionDigits: dec, maximumFractionDigits: dec }); } });
+                }
+            });
+        });
+
+        /* trades rows */
+        gsap.from('.tr-row', { y: 44, opacity: 0, stagger: 0.08, duration: 0.9, ease: 'power3.out', scrollTrigger: { trigger: '#tr-list', start: 'top 85%', once: true } });
+
+        /* artisans horizontal */
+        (function () {
+            var rail = $('#rail'), pin = $('#railPin');
+            function dist() { return Math.max(0, rail.scrollWidth - window.innerWidth + 48); }
+            var d = dist();
+            if (d > 0) {
+                gsap.to(rail, {
+                    x: function () { return -dist(); }, ease: 'none',
+                    scrollTrigger: { trigger: pin, start: 'top 78%', end: function () { return '+=' + dist(); }, scrub: 0.7, pin: true, anticipatePin: 1, invalidateOnRefresh: true }
+                });
+            }
+        })();
+
+        /* escrow timeline */
+        (function () {
+            var steps = $$('.esc-step');
+            function setStep(i) { steps.forEach(function (s, k) { s.classList.toggle('is-on', k <= i); }); }
+            setStep(0);
+            gsap.to('#escFill', {
+                height: '100%', ease: 'none',
+                scrollTrigger: {
+                    trigger: '#escSteps', start: 'top 70%', end: 'bottom 45%', scrub: 0.6,
+                    onUpdate: function (s) { setStep(Math.min(2, Math.floor(s.progress * 3))); }
+                }
+            });
+        })();
+
+        /* match + footer */
+        gsap.from('.mform', { y: 70, opacity: 0, duration: 1.2, ease: 'power3.out', scrollTrigger: { trigger: '.mform', start: 'top 88%', once: true } });
+        gsap.from('.pts li', { x: -30, opacity: 0, stagger: 0.12, duration: 0.9, ease: 'power3.out', scrollTrigger: { trigger: '.pts', start: 'top 88%', once: true } });
+        var fw = $('#f-word'), txt = fw.textContent; fw.textContent = '';
+        txt.split('').forEach(function (ch) { var s = document.createElement('span'); s.className = 'l'; s.textContent = ch; fw.appendChild(s); });
+        gsap.from('.f-word .l', { yPercent: 110, duration: 1.1, stagger: 0.05, ease: 'power4.out', scrollTrigger: { trigger: '#f-word', start: 'top 95%', once: true } });
+
+        /* magnetic */
+        if (window.matchMedia('(pointer:fine)').matches) {
+            $$('[data-magnet]').forEach(function (b) {
+                var qx = gsap.quickTo(b, 'x', { duration: 0.5, ease: 'power3.out' }), qy = gsap.quickTo(b, 'y', { duration: 0.5, ease: 'power3.out' });
+                b.addEventListener('pointermove', function (e) { var r = b.getBoundingClientRect(); qx((e.clientX - r.left - r.width / 2) * 0.22); qy((e.clientY - r.top - r.height / 2) * 0.3); });
+                b.addEventListener('pointerleave', function () { qx(0); qy(0); });
+            });
+        }
+
+        window.addEventListener('load', function () { ST.refresh(); });
+    }
+
+    try { initMotion(); } catch (err) { console.error('Motion init failed; page remains usable.', err); }
+})();
+</script>
+</body>
+</html>
