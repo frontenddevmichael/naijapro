@@ -638,8 +638,7 @@
             position: absolute;
             left: 0;
             right: 0;
-            top: 50%;
-            transform: translateY(-50%);
+            top: clamp(84px, 12vh, 140px);
             z-index: 3;
             text-align: center;
             display: flex;
@@ -2874,7 +2873,6 @@
             <div class="hero-stage">
                 <img class="hero-photo is-on" src="hero-theatre.jpg" alt="National Theatre, Iganmu, Lagos" fetchpriority="high">
                 
-                <div class="hero-shade" aria-hidden="true"></div>
                 <div class="hero-copy wrap-wide">
                     <p class="hero-chip"><svg viewBox="0 0 20 20" fill="none">
                             <path d="M10 2l6 2.5v4c0 4.4-2.6 8.1-6 9.5-3.4-1.4-6-5.1-6-9.5v-4L10 2z"
