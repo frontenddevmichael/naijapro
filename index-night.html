@@ -261,7 +261,7 @@ footer { border-top: 1px solid var(--line); padding: clamp(70px, 9vw, 130px) 0 3
 .f-eyebrow { color: var(--gold); font-size: .8rem; font-weight: 700; letter-spacing: .26em; text-transform: uppercase; margin-bottom: 20px }
 .f-big { font-family: var(--disp); font-weight: 800; font-size: clamp(2.8rem, 8vw, 6.5rem); letter-spacing: -.04em; line-height: 1; margin-bottom: 34px }
 footer .btn-gold { font-size: 1.05rem; padding: 19px 52px }
-.f-word { font-family: var(--disp); font-weight: 800; font-size: clamp(4rem, 19vw, 19rem); line-height: .85; letter-spacing: -.05em; margin-top: clamp(50px, 8vw, 110px); color: transparent; -webkit-text-stroke: 1px rgba(237, 234, 224, .4); user-select: none; overflow: hidden }
+.f-word { font-family: var(--disp); font-weight: 800; font-size: clamp(4rem, 19vw, 19rem); line-height: .85; letter-spacing: -.05em; margin-top: clamp(50px, 8vw, 110px); color: transparent; -webkit-text-stroke: 1px rgba(237, 234, 224, .4); user-select: none; overflow: hidden; text-align: center }
 .f-word .l { display: inline-block }
 .f-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 34px; margin-top: 44px; font-size: .88rem; color: var(--mut) }
 .f-links a:hover { color: var(--gold) }
@@ -660,13 +660,7 @@ footer .btn-gold { font-size: 1.05rem; padding: 19px 52px }
         gsap.from('.vcard', { y: 50, opacity: 0, stagger: 0.08, duration: 0.8, ease: 'power3.out', scrollTrigger: { trigger: '.vrail', start: 'top 88%', once: true } });
         gsap.from('.faq details', { y: 30, opacity: 0, stagger: 0.09, duration: 0.7, ease: 'power3.out', scrollTrigger: { trigger: '.faq', start: 'top 85%', once: true } });
         gsap.from('.f-links a', { y: 18, opacity: 0, stagger: 0.06, duration: 0.6, ease: 'power3.out', scrollTrigger: { trigger: '.f-links', start: 'top 95%', once: true } });
-        var fw = $('#f-word'), txt = fw.textContent;
-        if (!fw.dataset.split) {
-            fw.dataset.split = '1'; fw.textContent = '';
-            txt.split('').forEach(function (ch) { var s = document.createElement('span'); s.className = 'l'; s.textContent = ch; fw.appendChild(s); });
-        }
-        txt.split('').forEach(function (ch) { var s = document.createElement('span'); s.className = 'l'; s.textContent = ch; fw.appendChild(s); });
-        gsap.from('.f-word .l', { yPercent: 110, duration: 1.1, stagger: 0.05, ease: 'power4.out', scrollTrigger: { trigger: '#f-word', start: 'top 95%', once: true } });
+        gsap.from('#f-word', { yPercent: 24, opacity: 0, duration: 1.2, ease: 'power4.out', scrollTrigger: { trigger: '#f-word', start: 'top 95%', once: true } });
 
         /* magnetic */
         if (window.matchMedia('(pointer:fine)').matches) {
