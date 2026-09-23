@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="hero-theatre.jpg" fetchpriority="high">
+<link rel="preload" as="image" href="hero-bridge.jpg" fetchpriority="high">
 <style>
 :root {
     --bg: #0A0F0D;
@@ -268,7 +268,7 @@ footer .btn-gold { font-size: 1.05rem; padding: 19px 52px }
 <main>
 <!-- ================= HERO ================= -->
 <section class="hero" id="hero">
-    <img class="hero-photo" src="hero-theatre.jpg" alt="National Theatre, Iganmu, Lagos" fetchpriority="high">
+    <img class="hero-photo" src="hero-bridge.jpg" alt="Lekki-Ikoyi Link Bridge, Lagos" fetchpriority="high">
     <div class="hero-shade" aria-hidden="true"></div>
     <div class="wrap hero-in">
         <p class="eyebrow">Lagos · Abuja — escrow protected</p>
@@ -537,7 +537,7 @@ footer .btn-gold { font-size: 1.05rem; padding: 19px 52px }
             if (d > 0) {
                 gsap.to(rail, {
                     x: function () { return -dist(); }, ease: 'none',
-                    scrollTrigger: { trigger: pin, start: 'top 78%', end: function () { return '+=' + dist(); }, scrub: 0.7, pin: true, anticipatePin: 1, invalidateOnRefresh: true }
+                    scrollTrigger: { trigger: pin, start: 'top top', end: function () { return '+=' + dist(); }, scrub: 0.7, pin: true, anticipatePin: 1, invalidateOnRefresh: true }
                 });
             }
         })();
