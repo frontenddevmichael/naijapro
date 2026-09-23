@@ -670,7 +670,7 @@ footer .btn-gold { font-size: 1.05rem; padding: 19px 52px }
         gsap.from('.tr-row', { y: 44, opacity: 0, stagger: 0.08, duration: 0.9, ease: 'power3.out', scrollTrigger: { trigger: '#tr-list', start: 'top 85%', once: true } });
 
         /* join perks cascade */
-        gsap.fromTo('.perk', { y: 90, opacity: 0 }, { y: 0, opacity: 1, stagger: 0.12, ease: 'none', scrollTrigger: { trigger: '#join', start: 'top bottom', end: 'top 35%', scrub: 0.6 } });
+        gsap.fromTo('.perk', { y: 90, opacity: 0 }, { y: 0, opacity: 1, stagger: 0.12, ease: 'none', scrollTrigger: { trigger: '#join', start: 'top 75%', end: 'top 30%', scrub: 0.6 } });
 
         /* artisans horizontal */
         gsap.from('.acard', { y: 70, opacity: 0, stagger: 0.1, duration: 0.9, ease: 'power3.out', scrollTrigger: { trigger: '#railPin', start: 'top 88%', once: true } });
@@ -706,12 +706,12 @@ footer .btn-gold { font-size: 1.05rem; padding: 19px 52px }
         gsap.from('.mform', { y: 70, opacity: 0, duration: 1.2, ease: 'power3.out', scrollTrigger: { trigger: '.mform', start: 'top 88%', once: true } });
         gsap.from('#mwrap .field, #mwrap .submit, #mwrap .fine, #mwrap .m-online', { y: 26, opacity: 0, stagger: 0.09, duration: 0.7, ease: 'power3.out', scrollTrigger: { trigger: '.mform', start: 'top 80%', once: true } });
         gsap.from('.pts li', { x: -30, opacity: 0, stagger: 0.12, duration: 0.9, ease: 'power3.out', scrollTrigger: { trigger: '.pts', start: 'top 88%', once: true } });
-        gsap.from('.vcard', { y: 50, opacity: 0, stagger: 0.08, duration: 0.8, ease: 'power3.out', scrollTrigger: { trigger: '.vrail', start: 'top 88%', once: true } });
-        gsap.from('.faq details', { y: 30, opacity: 0, stagger: 0.09, duration: 0.7, ease: 'power3.out', scrollTrigger: { trigger: '.faq', start: 'top 85%', once: true } });
-        gsap.fromTo('.f-cta-row > *', { y: 70, opacity: 0 }, { y: 0, opacity: 1, stagger: 0.12, ease: 'none', scrollTrigger: { trigger: 'footer', start: 'top bottom', end: 'top 55%', scrub: 0.6 } });
-        gsap.fromTo('.f-cols2 > div', { y: 60, opacity: 0 }, { y: 0, opacity: 1, stagger: 0.12, ease: 'none', scrollTrigger: { trigger: '.f-cols2', start: 'top bottom', end: 'top 55%', scrub: 0.6 } });
-        gsap.fromTo('.f-cols2 a, .f-cols2 span', { x: -22, opacity: 0 }, { x: 0, opacity: 1, stagger: 0.04, ease: 'none', scrollTrigger: { trigger: '.f-cols2', start: 'top bottom', end: 'top 45%', scrub: 0.6 } });
-        gsap.fromTo('.f-word .l', { yPercent: 110 }, { yPercent: 0, stagger: 0.06, ease: 'none', scrollTrigger: { trigger: '#f-word', start: 'top bottom', end: 'top 55%', scrub: 0.6 } });
+        gsap.from('.vcard', { y: 50, opacity: 0, stagger: 0.08, duration: 0.8, ease: 'power3.out', scrollTrigger: { trigger: '.vrail', start: 'top 80%', once: true } });
+        gsap.from('.faq details', { y: 30, opacity: 0, stagger: 0.09, duration: 0.7, ease: 'power3.out', scrollTrigger: { trigger: '.faq', start: 'top 80%', once: true } });
+        gsap.fromTo('.f-cta-row > *', { y: 70, opacity: 0 }, { y: 0, opacity: 1, stagger: 0.12, ease: 'none', scrollTrigger: { trigger: 'footer', start: 'top 80%', end: 'top 45%', scrub: 0.6 } });
+        gsap.fromTo('.f-cols2 > div', { y: 60, opacity: 0 }, { y: 0, opacity: 1, stagger: 0.12, ease: 'none', scrollTrigger: { trigger: '.f-cols2', start: 'top 80%', end: 'top 45%', scrub: 0.6 } });
+        gsap.fromTo('.f-cols2 a, .f-cols2 span', { x: -22, opacity: 0 }, { x: 0, opacity: 1, stagger: 0.04, ease: 'none', scrollTrigger: { trigger: '.f-cols2', start: 'top 80%', end: 'top 40%', scrub: 0.6 } });
+        gsap.fromTo('.f-word .l', { yPercent: 110 }, { yPercent: 0, stagger: 0.06, ease: 'none', scrollTrigger: { trigger: '#f-word', start: 'top 80%', end: 'top 50%', scrub: 0.6 } });
 
         /* magnetic */
         if (window.matchMedia('(pointer:fine)').matches) {
