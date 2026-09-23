@@ -462,10 +462,10 @@ footer .btn-gold { font-size: 1.05rem; padding: 19px 52px }
             <p data-reveal>No more chasing payments or begging for referrals. Jobs find you, money waits in escrow, ratings bring the next one.</p>
             <div data-reveal style="margin-top:30px"><a class="btn btn-ink" href="#match" data-magnet>Become an artisan</a></div>
         </div>
-        <div class="perks">
-            <div class="perk" data-reveal><b>01</b><div><h3>Jobs come to you</h3><p>Quoted requests land in your WhatsApp. Accept the ones you like.</p></div></div>
-            <div class="perk" data-reveal><b>02</b><div><h3>Paid weekly, backed by escrow</h3><p>Client funds are locked before you lift a tool. No stories.</p></div></div>
-            <div class="perk" data-reveal><b>03</b><div><h3>Free to join, rated fair</h3><p>No listing fees. Your rating — not your connections — brings work.</p></div></div>
+        <div class="perks" id="perks">
+            <div class="perk"><b>01</b><div><h3>Jobs come to you</h3><p>Quoted requests land in your WhatsApp. Accept the ones you like.</p></div></div>
+            <div class="perk"><b>02</b><div><h3>Paid weekly, backed by escrow</h3><p>Client funds are locked before you lift a tool. No stories.</p></div></div>
+            <div class="perk"><b>03</b><div><h3>Free to join, rated fair</h3><p>No listing fees. Your rating — not your connections — brings work.</p></div></div>
         </div>
     </div>
 </section>
@@ -523,9 +523,9 @@ footer .btn-gold { font-size: 1.05rem; padding: 19px 52px }
             </div>
         </div>
         <div class="f-cols2">
-            <div data-reveal><h5>Marketplace</h5><a href="#trades">All trades</a><a href="#artisans">Top artisans</a><a href="#match">Post a job</a><a href="#join">Become an artisan</a></div>
-            <div data-reveal><h5>Trust</h5><a href="#escrow">Escrow protection</a><a href="#escrow">7-day warranty</a><a href="#escrow">Dispute desk</a></div>
-            <div data-reveal><h5>Coverage</h5><span>Lagos — Island &amp; Mainland</span><span>Abuja — FCT</span><span>24/7 concierge</span></div>
+            <div><h5>Marketplace</h5><a href="#trades">All trades</a><a href="#artisans">Top artisans</a><a href="#match">Post a job</a><a href="#join">Become an artisan</a></div>
+            <div><h5>Trust</h5><a href="#escrow">Escrow protection</a><a href="#escrow">7-day warranty</a><a href="#escrow">Dispute desk</a></div>
+            <div><h5>Coverage</h5><span>Lagos — Island &amp; Mainland</span><span>Abuja — FCT</span><span>24/7 concierge</span></div>
         </div>
         <div class="f-word" id="f-word" aria-hidden="true">NaijaPro</div>
         <div class="f-bot">
@@ -672,7 +672,10 @@ footer .btn-gold { font-size: 1.05rem; padding: 19px 52px }
         /* trades rows */
         gsap.from('.tr-row', { y: 44, opacity: 0, stagger: 0.08, duration: 0.9, ease: 'power3.out', scrollTrigger: { trigger: '#tr-list', start: 'top 85%', once: true } });
 
-        /* artisans cards pop before the slide */
+        /* join perks cascade */
+        gsap.from('.perk', { x: 50, opacity: 0, stagger: 0.14, duration: 0.8, ease: 'power3.out', scrollTrigger: { trigger: '#perks', start: 'top 82%', once: true } });
+
+        /* artisans horizontal */
         gsap.from('.acard', { y: 70, opacity: 0, stagger: 0.1, duration: 0.9, ease: 'power3.out', scrollTrigger: { trigger: '#railPin', start: 'top 88%', once: true } });
         (function () {
             var rail = $('#rail'), pin = $('#railPin');
@@ -708,7 +711,9 @@ footer .btn-gold { font-size: 1.05rem; padding: 19px 52px }
         gsap.from('.pts li', { x: -30, opacity: 0, stagger: 0.12, duration: 0.9, ease: 'power3.out', scrollTrigger: { trigger: '.pts', start: 'top 88%', once: true } });
         gsap.from('.vcard', { y: 50, opacity: 0, stagger: 0.08, duration: 0.8, ease: 'power3.out', scrollTrigger: { trigger: '.vrail', start: 'top 88%', once: true } });
         gsap.from('.faq details', { y: 30, opacity: 0, stagger: 0.09, duration: 0.7, ease: 'power3.out', scrollTrigger: { trigger: '.faq', start: 'top 85%', once: true } });
-        gsap.from('.f-cols2 a, .f-cols2 span', { y: 14, opacity: 0, stagger: 0.05, duration: 0.5, ease: 'power3.out', scrollTrigger: { trigger: '.f-cols2', start: 'top 92%', once: true } });
+        gsap.from('.f-cta-row > *', { y: 44, opacity: 0, stagger: 0.12, duration: 1, ease: 'power3.out', scrollTrigger: { trigger: '.f-cta-row', start: 'top 85%', once: true } });
+        gsap.from('.f-cols2 > div', { y: 40, opacity: 0, stagger: 0.14, duration: 0.9, ease: 'power3.out', scrollTrigger: { trigger: '.f-cols2', start: 'top 88%', once: true } });
+        gsap.from('.f-cols2 a, .f-cols2 span', { x: -16, opacity: 0, stagger: 0.05, duration: 0.5, ease: 'power3.out', scrollTrigger: { trigger: '.f-cols2', start: 'top 88%', once: true } });
         gsap.from('#f-word', { yPercent: 24, opacity: 0, duration: 1.2, ease: 'power4.out', scrollTrigger: { trigger: '#f-word', start: 'top 95%', once: true } });
 
         /* magnetic */
