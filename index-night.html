@@ -107,6 +107,10 @@ section { scroll-margin-top: 70px }
 .mq-track { display: flex; gap: 54px; width: max-content; font-family: var(--disp); font-weight: 800; font-size: clamp(1.6rem, 4vw, 3rem); letter-spacing: -.02em; white-space: nowrap }
 .mq-track span:nth-child(4n+1) { color: transparent; -webkit-text-stroke: 1px var(--mut) }
 .mq-track i { color: var(--gold); font-style: normal }
+.mq-rev { border-top: 0; padding: 16px 0 }
+.mq-rev .mq-track { font-size: clamp(1rem, 2.4vw, 1.7rem); gap: 40px }
+.mq-rev .mq-track span { color: var(--mut); -webkit-text-stroke: 0 }
+.mq-rev .mq-track i { font-size: .8em }
 
 /* ============ STATS ============ */
 .stats { display: grid; grid-template-columns: repeat(2, 1fr); border-bottom: 1px solid var(--line) }
@@ -141,6 +145,7 @@ section { scroll-margin-top: 70px }
 .tr-num { font-family: var(--disp); font-size: .95rem; color: var(--mut); transition: color .3s }
 .tr-name { font-family: var(--disp); font-weight: 800; font-size: clamp(1.7rem, 4.5vw, 3.2rem); letter-spacing: -.03em; transition: color .3s, transform .35s var(--ease) }
 .tr-count { font-size: .85rem; color: var(--mut); font-weight: 600; transition: color .3s }
+.tr-count b { font-weight: 600 }
 .tr-arrow { width: 40px; height: 40px; transition: transform .35s var(--ease), color .3s }
 .tr-row:hover { padding-left: 26px }
 .tr-row:hover .tr-name, .tr-row:hover .tr-num, .tr-row:hover .tr-count, .tr-row:hover .tr-arrow { color: #0A0F0D }
@@ -169,6 +174,8 @@ section { scroll-margin-top: 70px }
 .acard .tag { position: absolute; top: 22px; right: 22px; font-size: .7rem; font-weight: 700; letter-spacing: .16em; color: var(--green); text-transform: uppercase }
 .rail-hint { margin-top: 8px; color: var(--mut); font-size: .85rem; display: flex; align-items: center; gap: 12px }
 .rail-hint::after { content: ""; flex: 1; height: 1px; background: var(--line) }
+.rail-prog { height: 2px; background: var(--line); margin-top: 14px; overflow: hidden }
+.rail-prog i { display: block; height: 100%; background: var(--gold); transform: scaleX(0); transform-origin: 0 50% }
 
 /* ============ ESCROW ============ */
 .esc { background: var(--bg2); border-block: 1px solid var(--line) }
@@ -179,13 +186,34 @@ section { scroll-margin-top: 70px }
 .esc-steps { position: relative; padding-left: 44px }
 .esc-steps::before { content: ""; position: absolute; left: 11px; top: 8px; bottom: 8px; width: 2px; background: var(--line) }
 .esc-fill { position: absolute; left: 11px; top: 8px; width: 2px; background: var(--gold); height: 0 }
-.esc-step { position: relative; padding-bottom: 56px }
+.esc-step { position: relative; padding-bottom: 56px; opacity: .4; transition: opacity .4s }
+.esc-step.is-on { opacity: 1 }
 .esc-step:last-child { padding-bottom: 0 }
 .esc-step::before { content: ""; position: absolute; left: -44px; top: 2px; width: 24px; height: 24px; border-radius: 50%; border: 2px solid var(--mut); background: var(--bg2); transition: border-color .3s, background .3s }
 .esc-step.is-on::before { border-color: var(--gold); background: var(--gold) }
 .esc-step h3 { font-family: var(--disp); font-size: 1.8rem; font-weight: 800; letter-spacing: -.02em; margin-bottom: 10px }
 .esc-step p { color: var(--mut); line-height: 1.65; max-width: 30em }
 .esc-step small { display: inline-block; margin-top: 12px; color: var(--gold); font-size: .8rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase }
+
+/* ============ VOICES ============ */
+.vrail { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent) }
+.vtrack { display: flex; gap: 22px; width: max-content; padding: 6px 24px 20px; animation: vdrift 60s linear infinite }
+.vrail:hover .vtrack { animation-play-state: paused }
+@keyframes vdrift { to { transform: translateX(-50%) } }
+.vcard { width: min(80vw, 380px); flex: none; background: var(--bg2); border: 1px solid var(--line); padding: 28px; display: flex; flex-direction: column; gap: 18px }
+.vcard::before { content: "\201C"; font-family: var(--disp); font-size: 3rem; line-height: 1; color: var(--gold) }
+.vcard blockquote { font-family: var(--disp); font-size: 1.25rem; font-weight: 600; letter-spacing: -.01em; line-height: 1.4 }
+.vcard figcaption b { display: block; font-size: .9rem }
+.vcard figcaption span { color: var(--mut); font-size: .82rem }
+
+/* ============ FAQ ============ */
+.faq details { border-top: 1px solid var(--line) }
+.faq details:last-child { border-bottom: 1px solid var(--line) }
+.faq summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 24px 4px; font-family: var(--disp); font-weight: 700; font-size: clamp(1.1rem, 2.4vw, 1.5rem); letter-spacing: -.015em }
+.faq summary::-webkit-details-marker { display: none }
+.faq summary i { font-style: normal; color: var(--gold); font-size: 1.6rem; font-weight: 400; transition: transform .35s var(--ease); flex: none }
+.faq details[open] summary i { transform: rotate(45deg) }
+.faq details p { color: var(--mut); line-height: 1.7; padding: 0 4px 28px; max-width: 44em }
 
 /* ============ MATCH ============ */
 .match-grid { display: grid; gap: 60px }
@@ -202,7 +230,8 @@ section { scroll-margin-top: 70px }
 .proof p { color: var(--mut); font-size: .93rem; line-height: 1.6 }
 .proof p b { color: var(--bone) }
 .mform { border: 1px solid var(--line); background: var(--bg2); padding: clamp(28px, 4vw, 48px) }
-.mform h3 { font-family: var(--disp); font-size: 1.5rem; font-weight: 800; margin-bottom: 26px }
+.mform h3 { font-family: var(--disp); font-size: 1.5rem; font-weight: 800; margin-bottom: 8px }
+.m-online { color: var(--mut); font-size: .88rem; margin-bottom: 24px }
 .field { margin-bottom: 24px }
 .field label { display: block; font-size: .74rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--mut); margin-bottom: 8px }
 .field input, .field select, .field textarea { width: 100%; background: transparent; border: 0; border-bottom: 1px solid var(--line); color: var(--bone); font: 600 1.05rem var(--body); padding: 10px 2px; outline: none; transition: border-color .25s; border-radius: 0; appearance: none }
@@ -279,7 +308,7 @@ footer .btn-gold { font-size: 1.05rem; padding: 19px 52px }
             <a class="btn btn-ghost" href="#artisans">Browse artisans</a>
         </div>
         <div class="hero-meta">
-            <span><span class="live-dot"></span><b>₦48.6M</b> in escrow now</span>
+            <span><span class="live-dot"></span><b>₦<span id="escLive">48.6</span>M</b> in escrow now</span>
             <span><b>4.9★</b> average artisan rating</span>
             <span>Scroll — the city lights up below</span>
         </div>
@@ -289,6 +318,9 @@ footer .btn-gold { font-size: 1.05rem; padding: 19px 52px }
 <!-- ================= MARQUEE ================= -->
 <div class="mq" aria-hidden="true">
     <div class="mq-track" id="mq1"><span>Lekki</span><i>✦</i><span>Ikoyi</span><i>✦</i><span>Ikeja</span><i>✦</i><span>Yaba</span><i>✦</i><span>Surulere</span><i>✦</i><span>Ajah</span><i>✦</i><span>Maitama</span><i>✦</i><span>Wuse</span><i>✦</i></div>
+</div>
+<div class="mq mq-rev" aria-hidden="true">
+    <div class="mq-track" id="mq2"><span>Lekki · 64</span><i>✦</i><span>Ikeja · 42</span><i>✦</i><span>Wuse · 33</span><i>✦</i><span>Yaba · 35</span><i>✦</i><span>Surulere · 28</span><i>✦</i><span>Ajah · 31</span><i>✦</i><span>Maitama · 26</span><i>✦</i><span>Gwarinpa · 24</span><i>✦</i></div>
 </div>
 
 <!-- ================= STATS ================= -->
@@ -307,12 +339,12 @@ footer .btn-gold { font-size: 1.05rem; padding: 19px 52px }
             <p data-reveal>Twenty-four verified trades across Lagos and Abuja. Pick yours — a vetted artisan answers in minutes.</p>
         </div>
         <div id="tr-list">
-            <a class="tr-row" href="#artisans"><span class="tr-num">/01</span><span class="tr-name">AC &amp; repair</span><span class="tr-count">118 artisans</span><svg class="tr-arrow" viewBox="0 0 40 40" fill="none"><path d="M10 30L30 10M12 10h18v18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-            <a class="tr-row" href="#artisans"><span class="tr-num">/02</span><span class="tr-name">Solar &amp; inverter</span><span class="tr-count">94 artisans</span><svg class="tr-arrow" viewBox="0 0 40 40" fill="none"><path d="M10 30L30 10M12 10h18v18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-            <a class="tr-row" href="#artisans"><span class="tr-num">/03</span><span class="tr-name">Plumbing</span><span class="tr-count">146 artisans</span><svg class="tr-arrow" viewBox="0 0 40 40" fill="none"><path d="M10 30L30 10M12 10h18v18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-            <a class="tr-row" href="#artisans"><span class="tr-num">/04</span><span class="tr-name">Electrical</span><span class="tr-count">204 artisans</span><svg class="tr-arrow" viewBox="0 0 40 40" fill="none"><path d="M10 30L30 10M12 10h18v18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-            <a class="tr-row" href="#artisans"><span class="tr-num">/05</span><span class="tr-name">Carpentry</span><span class="tr-count">132 artisans</span><svg class="tr-arrow" viewBox="0 0 40 40" fill="none"><path d="M10 30L30 10M12 10h18v18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-            <a class="tr-row" href="#artisans"><span class="tr-num">/06</span><span class="tr-name">Tiling &amp; POP</span><span class="tr-count">79 artisans</span><svg class="tr-arrow" viewBox="0 0 40 40" fill="none"><path d="M10 30L30 10M12 10h18v18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <a class="tr-row" href="#artisans"><span class="tr-num">/01</span><span class="tr-name">AC &amp; repair</span><span class="tr-count"><b class="count" data-to="118" data-dec="0">118</b> artisans</span><svg class="tr-arrow" viewBox="0 0 40 40" fill="none"><path d="M10 30L30 10M12 10h18v18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <a class="tr-row" href="#artisans"><span class="tr-num">/02</span><span class="tr-name">Solar &amp; inverter</span><span class="tr-count"><b class="count" data-to="94" data-dec="0">94</b> artisans</span><svg class="tr-arrow" viewBox="0 0 40 40" fill="none"><path d="M10 30L30 10M12 10h18v18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <a class="tr-row" href="#artisans"><span class="tr-num">/03</span><span class="tr-name">Plumbing</span><span class="tr-count"><b class="count" data-to="146" data-dec="0">146</b> artisans</span><svg class="tr-arrow" viewBox="0 0 40 40" fill="none"><path d="M10 30L30 10M12 10h18v18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <a class="tr-row" href="#artisans"><span class="tr-num">/04</span><span class="tr-name">Electrical</span><span class="tr-count"><b class="count" data-to="204" data-dec="0">204</b> artisans</span><svg class="tr-arrow" viewBox="0 0 40 40" fill="none"><path d="M10 30L30 10M12 10h18v18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <a class="tr-row" href="#artisans"><span class="tr-num">/05</span><span class="tr-name">Carpentry</span><span class="tr-count"><b class="count" data-to="132" data-dec="0">132</b> artisans</span><svg class="tr-arrow" viewBox="0 0 40 40" fill="none"><path d="M10 30L30 10M12 10h18v18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <a class="tr-row" href="#artisans"><span class="tr-num">/06</span><span class="tr-name">Tiling &amp; POP</span><span class="tr-count"><b class="count" data-to="79" data-dec="0">79</b> artisans</span><svg class="tr-arrow" viewBox="0 0 40 40" fill="none"><path d="M10 30L30 10M12 10h18v18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
     </div>
 </section>
@@ -334,7 +366,7 @@ footer .btn-gold { font-size: 1.05rem; padding: 19px 52px }
             <article class="acard"><span class="tag">Verified</span><div class="mono">FM</div><div><div class="role">Carpentry · Yaba</div><h3>Funmi M.</h3></div><div class="stars">★★★★★<b>4.8 · 129 jobs</b></div><div class="rate"><b>₦10,000</b><span>from · 15 min away</span></div><a class="go" href="#match">Request this artisan <svg viewBox="0 0 20 20" fill="none"><path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></article>
         </div>
     </div>
-    <div class="wrap"><p class="rail-hint">Keep scrolling — the shortlist slides past</p></div>
+    <div class="wrap"><p class="rail-hint">Keep scrolling — the shortlist slides past</p><div class="rail-prog" aria-hidden="true"><i id="railProg"></i></div></div>
 </section>
 
 <!-- ================= ESCROW ================= -->
@@ -354,11 +386,53 @@ footer .btn-gold { font-size: 1.05rem; padding: 19px 52px }
     </div>
 </section>
 
+<!-- ================= VOICES ================= -->
+<section class="sec" id="voices" style="padding-top:0">
+    <div class="wrap">
+        <div class="sec-head">
+            <div><span class="sec-no">04 — Word on the street</span><h2 data-split>Neighbours talk.</h2></div>
+            <p data-reveal>Unscripted words from real jobs, rated and receipted.</p>
+        </div>
+    </div>
+    <div class="vrail" aria-hidden="false">
+        <div class="vtrack">
+            <figure class="vcard"><blockquote>“AC fixed same day. I approved the job from my office — the money moved only after.”</blockquote><figcaption><b>Adaeze O.</b><span>Lekki · AC repair</span></figcaption></figure>
+            <figure class="vcard"><blockquote>“The photo updates sold me. I watched my kitchen get done from my phone.”</blockquote><figcaption><b>Ibrahim S.</b><span>Ikeja · Plumbing</span></figcaption></figure>
+            <figure class="vcard"><blockquote>“Third electrician I tried. First one I never had to chase.”</blockquote><figcaption><b>Funke A.</b><span>Surulere · Electrical</span></figcaption></figure>
+            <figure class="vcard"><blockquote>“Inverter in Saturday, warranty card in my WhatsApp Sunday.”</blockquote><figcaption><b>Chidi E.</b><span>Wuse · Solar</span></figcaption></figure>
+            <figure class="vcard"><blockquote>“Dispute over tiles — the desk settled it in two days. Fair.”</blockquote><figcaption><b>Ngozi M.</b><span>Ajah · Tiling</span></figcaption></figure>
+            <figure class="vcard"><blockquote>“Quote in eleven minutes. Eleven.”</blockquote><figcaption><b>Segun T.</b><span>Yaba · Carpentry</span></figcaption></figure>
+            <figure class="vcard"><blockquote>“AC fixed same day. I approved the job from my office — the money moved only after.”</blockquote><figcaption><b>Adaeze O.</b><span>Lekki · AC repair</span></figcaption></figure>
+            <figure class="vcard"><blockquote>“The photo updates sold me. I watched my kitchen get done from my phone.”</blockquote><figcaption><b>Ibrahim S.</b><span>Ikeja · Plumbing</span></figcaption></figure>
+            <figure class="vcard"><blockquote>“Third electrician I tried. First one I never had to chase.”</blockquote><figcaption><b>Funke A.</b><span>Surulere · Electrical</span></figcaption></figure>
+            <figure class="vcard"><blockquote>“Inverter in Saturday, warranty card in my WhatsApp Sunday.”</blockquote><figcaption><b>Chidi E.</b><span>Wuse · Solar</span></figcaption></figure>
+            <figure class="vcard"><blockquote>“Dispute over tiles — the desk settled it in two days. Fair.”</blockquote><figcaption><b>Ngozi M.</b><span>Ajah · Tiling</span></figcaption></figure>
+            <figure class="vcard"><blockquote>“Quote in eleven minutes. Eleven.”</blockquote><figcaption><b>Segun T.</b><span>Yaba · Carpentry</span></figcaption></figure>
+        </div>
+    </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="sec" id="faq" style="padding-top:0">
+    <div class="wrap">
+        <div class="sec-head">
+            <div><span class="sec-no">06 — Questions</span><h2 data-split>Asked often.</h2></div>
+        </div>
+        <div class="faq">
+            <details open><summary>How does escrow protect me?<i>+</i></summary><p>Your quoted price sits with a licensed custodian — not the artisan. It releases only when you tap approve. Unhappy? The dispute desk freezes it while things get put right.</p></details>
+            <details><summary>What does it cost to post a job?<i>+</i></summary><p>Nothing. Posting and quotes are free. You pay exactly the agreed quote, and only when the work is approved.</p></details>
+            <details><summary>Who are these artisans?<i>+</i></summary><p>BVN- and address-verified pros with rated job histories and a 7-day workmanship warranty on every booking.</p></details>
+            <details><summary>What if something goes wrong?<i>+</i></summary><p>Every job carries a 7-day warranty and a human dispute desk. Money stays locked until resolution.</p></details>
+            <details><summary>Which areas do you cover?<i>+</i></summary><p>Lagos Island and Mainland plus Abuja FCT — Lekki to Ikeja, Maitama to Lugbe, and everywhere charged in between.</p></details>
+        </div>
+    </div>
+</section>
+
 <!-- ================= MATCH ================= -->
 <section class="sec match" id="match">
     <div class="wrap match-grid">
         <div>
-            <span class="sec-no">04 — Match</span>
+            <span class="sec-no">05 — Match</span>
             <h2 id="match-h"><span class="line"><span>Quotes in</span></span><span class="line"><span>15 minutes.</span></span></h2>
             <ul class="pts">
                 <li><svg viewBox="0 0 20 20" fill="none"><path d="M4 10l4 4 8-9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>BVN-checked artisans only.</b> Identity and address verified before anyone reaches you.</span></li>
@@ -370,6 +444,7 @@ footer .btn-gold { font-size: 1.05rem; padding: 19px 52px }
         <div class="mform" id="mform">
             <div id="mwrap">
                 <h3>Start your job</h3>
+                <p class="m-online"><span class="live-dot"></span><b>312 artisans</b>&nbsp;online now</p>
                 <form id="mformTag" novalidate>
                     <div class="field"><label for="mj">What needs doing?</label><input id="mj" name="job" type="text" placeholder="e.g. 1.5HP AC leaking water" required minlength="4" autocomplete="off"><p class="err">Tell us what needs doing (a few words is enough).</p></div>
                     <div class="frow">
@@ -514,6 +589,18 @@ footer .btn-gold { font-size: 1.05rem; padding: 19px 52px }
 
         /* marquee */
         gsap.to('#mq1', { xPercent: -30, ease: 'none', scrollTrigger: { trigger: '.mq', start: 'top bottom', end: 'bottom top', scrub: 0.6 } });
+        gsap.fromTo('#mq2', { xPercent: -30 }, { xPercent: 0, ease: 'none', scrollTrigger: { trigger: '.mq-rev', start: 'top bottom', end: 'bottom top', scrub: 0.6 } });
+
+        /* live escrow ticker */
+        (function () {
+            var el = $('#escLive'); if (!el) return;
+            var v = 48.6;
+            setInterval(function () {
+                if (document.hidden) return;
+                v += 0.05 + Math.random() * 0.25;
+                el.textContent = v.toFixed(1);
+            }, 5000);
+        })();
 
         /* counters */
         $$('.count').forEach(function (el) {
@@ -534,10 +621,11 @@ footer .btn-gold { font-size: 1.05rem; padding: 19px 52px }
             var rail = $('#rail'), pin = $('#railPin');
             function dist() { return Math.max(0, rail.scrollWidth - window.innerWidth + 48); }
             var d = dist();
+            var prog = $('#railProg');
             if (d > 0) {
                 gsap.to(rail, {
                     x: function () { return -dist(); }, ease: 'none',
-                    scrollTrigger: { trigger: pin, start: 'top top', end: function () { return '+=' + dist(); }, scrub: 0.7, pin: true, anticipatePin: 1, invalidateOnRefresh: true }
+                    scrollTrigger: { trigger: pin, start: 'top top', end: function () { return '+=' + dist(); }, scrub: 0.7, pin: true, anticipatePin: 1, invalidateOnRefresh: true, onUpdate: function (s) { if (prog) prog.style.transform = 'scaleX(' + s.progress.toFixed(3) + ')'; } }
                 });
             }
         })();
