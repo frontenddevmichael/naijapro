@@ -302,7 +302,6 @@ footer .btn-gold { font-size: 1.05rem; padding: 19px 52px }
     <img class="hero-photo" src="hero-bridge.jpg" alt="Lekki-Ikoyi Link Bridge, Lagos" fetchpriority="high">
     <div class="hero-shade" aria-hidden="true"></div>
     <div class="wrap hero-in">
-        <p class="eyebrow">Lagos · Abuja — escrow protected</p>
         <h1 id="hero-h1"><span class="line"><span>Fix it now.</span></span><span class="line"><span>Pay when</span></span><span class="line"><span class="it">it's done.</span></span></h1>
         <p class="hero-sub">Vetted artisans in Lagos &amp; Abuja. You pay only when you approve.</p>
         <div class="hero-cta">
@@ -327,10 +326,10 @@ footer .btn-gold { font-size: 1.05rem; padding: 19px 52px }
 
 <!-- ================= STATS ================= -->
 <section class="stats" aria-label="NaijaPro in numbers">
-    <div class="stat" data-reveal><div class="stat-n">₦<span class="count" data-to="48.6" data-dec="1">48.6</span><em>M</em></div><div class="stat-l">held in escrow right now</div></div>
-    <div class="stat" data-reveal><div class="stat-n"><span class="count" data-to="429" data-dec="0">429</span></div><div class="stat-l">jobs in progress</div></div>
-    <div class="stat" data-reveal><div class="stat-n"><span class="count" data-to="4.9" data-dec="1">4.9</span><em>★</em></div><div class="stat-l">average artisan rating</div></div>
-    <div class="stat" data-reveal><div class="stat-n"><span class="count" data-to="15" data-dec="0">15</span><em>min</em></div><div class="stat-l">median time to first quote</div></div>
+    <div class="stat"><div class="stat-n">₦<span class="count" data-to="48.6" data-dec="1">48.6</span><em>M</em></div><div class="stat-l">held in escrow right now</div></div>
+    <div class="stat"><div class="stat-n"><span class="count" data-to="429" data-dec="0">429</span></div><div class="stat-l">jobs in progress</div></div>
+    <div class="stat"><div class="stat-n"><span class="count" data-to="4.9" data-dec="1">4.9</span><em>★</em></div><div class="stat-l">average artisan rating</div></div>
+    <div class="stat"><div class="stat-n"><span class="count" data-to="15" data-dec="0">15</span><em>min</em></div><div class="stat-l">median time to first quote</div></div>
 </section>
 
 <!-- ================= TRADES ================= -->
@@ -558,12 +557,12 @@ footer .btn-gold { font-size: 1.05rem; padding: 19px 52px }
         var words = $$('#hero-h1 .line > span');
         gsap.set('.hero-photo', { scale: 1.12 });
         gsap.set(words, { yPercent: 115 });
-        gsap.set(['.eyebrow', '.hero-sub', '.hero-cta', '.hero-meta'], { y: 26, opacity: 0 });
+        gsap.set(['.hero-sub', '.hero-cta', '.hero-meta'], { y: 26, opacity: 0 });
         var intro = gsap.timeline({ defaults: { ease: 'power3.out' } });
         intro
             .to('.hero-photo', { scale: 1, duration: 1.8, ease: 'power2.out' }, 0)
             .to(words, { yPercent: 0, duration: 1, stagger: 0.1 }, 0.15)
-            .to(['.eyebrow', '.hero-sub', '.hero-cta', '.hero-meta'], { y: 0, opacity: 1, duration: 0.9, stagger: 0.09 }, 0.5);
+            .to(['.hero-sub', '.hero-cta', '.hero-meta'], { y: 0, opacity: 1, duration: 0.9, stagger: 0.09 }, 0.5);
 
         /* hero parallax */
         gsap.to('.hero-photo', { yPercent: 12, ease: 'none', scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: 0.6 } });
@@ -617,10 +616,14 @@ footer .btn-gold { font-size: 1.05rem; padding: 19px 52px }
             });
         });
 
+        /* stats stagger */
+        gsap.from('.stat', { y: 44, opacity: 0, stagger: 0.12, duration: 1, ease: 'power3.out', scrollTrigger: { trigger: '.stats', start: 'top 88%', once: true } });
+
         /* trades rows */
         gsap.from('.tr-row', { y: 44, opacity: 0, stagger: 0.08, duration: 0.9, ease: 'power3.out', scrollTrigger: { trigger: '#tr-list', start: 'top 85%', once: true } });
 
-        /* artisans horizontal */
+        /* artisans cards pop before the slide */
+        gsap.from('.acard', { y: 70, opacity: 0, stagger: 0.1, duration: 0.9, ease: 'power3.out', scrollTrigger: { trigger: '#railPin', start: 'top 88%', once: true } });
         (function () {
             var rail = $('#rail'), pin = $('#railPin');
             function dist() { return Math.max(0, rail.scrollWidth - window.innerWidth + 48); }
@@ -635,6 +638,7 @@ footer .btn-gold { font-size: 1.05rem; padding: 19px 52px }
         })();
 
         /* escrow timeline */
+        gsap.from('.esc-step', { x: 46, opacity: 0, stagger: 0.16, duration: 0.9, ease: 'power3.out', scrollTrigger: { trigger: '#escSteps', start: 'top 78%', once: true } });
         (function () {
             var steps = $$('.esc-step');
             function setStep(i) { steps.forEach(function (s, k) { s.classList.toggle('is-on', k <= i); }); }
@@ -650,8 +654,13 @@ footer .btn-gold { font-size: 1.05rem; padding: 19px 52px }
 
         /* match + footer */
         gsap.from('.mform', { y: 70, opacity: 0, duration: 1.2, ease: 'power3.out', scrollTrigger: { trigger: '.mform', start: 'top 88%', once: true } });
+        gsap.from('#mwrap .field, #mwrap .submit, #mwrap .fine, #mwrap .m-online', { y: 26, opacity: 0, stagger: 0.09, duration: 0.7, ease: 'power3.out', scrollTrigger: { trigger: '.mform', start: 'top 80%', once: true } });
         gsap.from('.pts li', { x: -30, opacity: 0, stagger: 0.12, duration: 0.9, ease: 'power3.out', scrollTrigger: { trigger: '.pts', start: 'top 88%', once: true } });
+        gsap.from('.vcard', { y: 50, opacity: 0, stagger: 0.08, duration: 0.8, ease: 'power3.out', scrollTrigger: { trigger: '.vrail', start: 'top 88%', once: true } });
+        gsap.from('.faq details', { y: 30, opacity: 0, stagger: 0.09, duration: 0.7, ease: 'power3.out', scrollTrigger: { trigger: '.faq', start: 'top 85%', once: true } });
+        gsap.from('.f-links a', { y: 18, opacity: 0, stagger: 0.06, duration: 0.6, ease: 'power3.out', scrollTrigger: { trigger: '.f-links', start: 'top 95%', once: true } });
         var fw = $('#f-word'), txt = fw.textContent; fw.textContent = '';
+        txt.split('').forEach(function (ch) { var s = document.createElement('span'); s.className = 'l'; s.textContent = ch; fw.appendChild(s); });
         txt.split('').forEach(function (ch) { var s = document.createElement('span'); s.className = 'l'; s.textContent = ch; fw.appendChild(s); });
         gsap.from('.f-word .l', { yPercent: 110, duration: 1.1, stagger: 0.05, ease: 'power4.out', scrollTrigger: { trigger: '#f-word', start: 'top 95%', once: true } });
 
